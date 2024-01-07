@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1601FF0A2B4AA8BA0050457E /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 1601FF092B4AA8BA0050457E /* RealityKitContent */; };
-		1601FF0C2B4AA8BA0050457E /* SpacialReversiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1601FF0B2B4AA8BA0050457E /* SpacialReversiApp.swift */; };
+		1601FF0C2B4AA8BA0050457E /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1601FF0B2B4AA8BA0050457E /* App.swift */; };
 		1601FF0E2B4AA8BA0050457E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1601FF0D2B4AA8BA0050457E /* ContentView.swift */; };
 		1601FF102B4AA8BC0050457E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1601FF0F2B4AA8BC0050457E /* Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		1601FF042B4AA8BA0050457E /* SpacialReversi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpacialReversi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1601FF082B4AA8BA0050457E /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
-		1601FF0B2B4AA8BA0050457E /* SpacialReversiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacialReversiApp.swift; sourceTree = "<group>"; };
+		1601FF0B2B4AA8BA0050457E /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		1601FF0D2B4AA8BA0050457E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1601FF0F2B4AA8BC0050457E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1601FF142B4AA8BC0050457E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		1601FF062B4AA8BA0050457E /* SpacialReversi */ = {
 			isa = PBXGroup;
 			children = (
-				1601FF0B2B4AA8BA0050457E /* SpacialReversiApp.swift */,
+				1601FF0B2B4AA8BA0050457E /* App.swift */,
 				1601FF0D2B4AA8BA0050457E /* ContentView.swift */,
 				1601FF0F2B4AA8BC0050457E /* Assets.xcassets */,
 				1601FF142B4AA8BC0050457E /* Info.plist */,
@@ -143,7 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1601FF0E2B4AA8BA0050457E /* ContentView.swift in Sources */,
-				1601FF0C2B4AA8BA0050457E /* SpacialReversiApp.swift in Sources */,
+				1601FF0C2B4AA8BA0050457E /* App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
