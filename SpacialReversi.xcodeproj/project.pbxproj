@@ -11,7 +11,6 @@
 		1601FF0C2B4AA8BA0050457E /* SpacialReversiApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1601FF0B2B4AA8BA0050457E /* SpacialReversiApp.swift */; };
 		1601FF0E2B4AA8BA0050457E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1601FF0D2B4AA8BA0050457E /* ContentView.swift */; };
 		1601FF102B4AA8BC0050457E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1601FF0F2B4AA8BC0050457E /* Assets.xcassets */; };
-		1601FF132B4AA8BC0050457E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1601FF122B4AA8BC0050457E /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,7 +19,6 @@
 		1601FF0B2B4AA8BA0050457E /* SpacialReversiApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacialReversiApp.swift; sourceTree = "<group>"; };
 		1601FF0D2B4AA8BA0050457E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1601FF0F2B4AA8BC0050457E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1601FF122B4AA8BC0050457E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1601FF142B4AA8BC0050457E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +58,6 @@
 				1601FF0D2B4AA8BA0050457E /* ContentView.swift */,
 				1601FF0F2B4AA8BC0050457E /* Assets.xcassets */,
 				1601FF142B4AA8BC0050457E /* Info.plist */,
-				1601FF112B4AA8BC0050457E /* Preview Content */,
 			);
 			path = SpacialReversi;
 			sourceTree = "<group>";
@@ -71,14 +68,6 @@
 				1601FF082B4AA8BA0050457E /* RealityKitContent */,
 			);
 			path = Packages;
-			sourceTree = "<group>";
-		};
-		1601FF112B4AA8BC0050457E /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1601FF122B4AA8BC0050457E /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,7 +131,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1601FF132B4AA8BC0050457E /* Preview Assets.xcassets in Resources */,
 				1601FF102B4AA8BC0050457E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +276,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SpacialReversi/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -314,7 +302,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SpacialReversi/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -1,0 +1,176 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 1.0 (409.60.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def Cylinder "BLACK" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+        customData = {
+            float3 rotationEulerHint = (1.5707964, 0, 0)
+        }
+    )
+    {
+        reorder nameChildren = ["WoodPlank", "DefaultMaterial", "InputTarget", "Collider"]
+        uniform token axis = "Y"
+        double height = 0.02
+        rel material:binding = </Root/BLACK/WoodPlank> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        double radius = 0.1
+        quatf xformOp:orient = (0.70710677, 0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0.01)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "DefaultMaterial"
+        {
+            token outputs:surface.connect = </Root/BLACK/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
+        }
+
+        def RealityKitComponent "InputTarget"
+        {
+            uniform token info:id = "RealityKit.InputTarget"
+        }
+
+        def RealityKitComponent "Collider"
+        {
+            uint group = 1
+            uniform token info:id = "RealityKit.Collider"
+            uint mask = 4294967295
+            token type = "Default"
+
+            def RealityKitStruct "Shape"
+            {
+                float3 extent = (0.2, 0.02, 0.2)
+                token shapeType = "Box"
+
+                def RealityKitStruct "pose"
+                {
+                }
+            }
+        }
+
+        def "WoodPlank" (
+            active = true
+            references = @WoodPlank.usdz@
+        )
+        {
+            color3f inputs:Basecolor_Tint = (0, 0, 0) (
+                colorSpace = "lin_srgb"
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-56.812614, 67.17455)
+                        float2 sizeInSubgraph = (161, 53)
+                        int stackingOrderInSubgraph = 2352
+                    }
+                }
+            )
+            float2 inputs:UV_Scale (
+                customData = {
+                    dictionary realitykit = {
+                        float2 positionInSubgraph = (-725.2588, 351.55255)
+                        float2 sizeInSubgraph = (139, 53)
+                        int stackingOrderInSubgraph = 2272
+                    }
+                }
+            )
+            token outputs:mtlx:surface.connect = </Root/BLACK/WoodPlank/PreviewSurface.outputs:out>
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 99)
+
+            over "Dot"
+            {
+                float2 inputs:in.connect = </Root/BLACK/WoodPlank.inputs:UV_Scale>
+                float2 ui:nodegraph:node:size = (44, 18)
+            }
+
+            over "multiply"
+            {
+                float3 inputs:in1.connect = </Root/BLACK/WoodPlank/Normal.outputs:out>
+                float2 ui:nodegraph:node:size = (61, 36)
+            }
+
+            over "add"
+            {
+                float3 inputs:in1.connect = </Root/BLACK/WoodPlank/multiply.outputs:out>
+                float2 ui:nodegraph:node:size = (63, 37)
+            }
+
+            over "PreviewSurface"
+            {
+                color3f inputs:diffuseColor.connect = </Root/BLACK/WoodPlank/Mix.outputs:out>
+                float inputs:metallic.connect = </Root/BLACK/WoodPlank/Metallic.outputs:out>
+                float3 inputs:normal.connect = </Root/BLACK/WoodPlank/add.outputs:out>
+                float inputs:roughness.connect = </Root/BLACK/WoodPlank/Roughness.outputs:out>
+                float2 ui:nodegraph:node:size = (149, 199)
+            }
+
+            over "Mix"
+            {
+                color3f inputs:bg.connect = </Root/BLACK/WoodPlank/Swizzle_1.outputs:out>
+                color3f inputs:fg.connect = </Root/BLACK/WoodPlank/Multiply_1.outputs:out>
+                float inputs:mix.connect = </Root/BLACK/WoodPlank/Swizzle.outputs:out>
+                float2 ui:nodegraph:node:size = (109, 145)
+            }
+
+            over "Swizzle"
+            {
+                color4f inputs:in.connect = </Root/BLACK/WoodPlank/BaseColor.outputs:out>
+                float2 ui:nodegraph:node:size = (133, 40)
+            }
+
+            over "Swizzle_1"
+            {
+                color4f inputs:in.connect = </Root/BLACK/WoodPlank/BaseColor.outputs:out>
+                float2 ui:nodegraph:node:size = (145, 53)
+            }
+
+            over "Multiply_1"
+            {
+                color3f inputs:in1.connect = </Root/BLACK/WoodPlank.inputs:Basecolor_Tint>
+                color3f inputs:in2.connect = </Root/BLACK/WoodPlank/Swizzle_1.outputs:out>
+                float2 ui:nodegraph:node:size = (61, 36)
+            }
+
+            over "BaseColor"
+            {
+                float2 inputs:uvtiling.connect = </Root/BLACK/WoodPlank/Dot.outputs:out>
+                float2 ui:nodegraph:node:size = (159, 235)
+            }
+
+            over "Roughness"
+            {
+                float2 inputs:uvtiling.connect = </Root/BLACK/WoodPlank/Dot.outputs:out>
+                float2 ui:nodegraph:node:size = (159, 235)
+            }
+
+            over "Metallic"
+            {
+                float2 inputs:uvtiling.connect = </Root/BLACK/WoodPlank/Dot.outputs:out>
+                float2 ui:nodegraph:node:size = (159, 235)
+            }
+
+            over "Normal"
+            {
+                float2 inputs:uvtiling.connect = </Root/BLACK/WoodPlank/Dot.outputs:out>
+                float2 ui:nodegraph:node:size = (159, 235)
+            }
+        }
+    }
+}
+
