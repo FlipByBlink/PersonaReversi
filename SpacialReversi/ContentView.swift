@@ -104,11 +104,13 @@ fileprivate extension ContentView {
         @State private var floating: Bool = true
         var body: some View {
             if let side {
-                Model3D(named: side == .black ? "BlackPiece" : "WhitePiece",
+                //Model3D(named: side == .black ? "BlackPiece" : "WhitePiece",
+                Model3D(named: "Piece",
                         bundle: realityKitContentBundle) {
                     $0
                         .resizable()
                         .aspectRatio(contentMode: .fit)
+                        .rotation3DEffect(.degrees(side == .black ? 180 : 0), axis: .y)
                         .offset(z: self.floating ? 70 : 0)
                         .opacity(self.opacity)
                         .padding(12)

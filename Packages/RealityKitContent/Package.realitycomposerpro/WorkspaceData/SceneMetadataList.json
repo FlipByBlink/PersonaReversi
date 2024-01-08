@@ -32,6 +32,36 @@
       }
     ]
   },
+  "83DAF1E1-A267-4BEA-BDED-F0905DEB612A" : {
+    "objectMetadataList" : [
+      [
+        "83DAF1E1-A267-4BEA-BDED-F0905DEB612A",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "83DAF1E1-A267-4BEA-BDED-F0905DEB612A",
+        "Root",
+        "WHITE"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "83DAF1E1-A267-4BEA-BDED-F0905DEB612A",
+        "Root",
+        "BLACK"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "90C576A0-F90A-43B8-9998-14918A66F863" : {
     "objectMetadataList" : [
       [
