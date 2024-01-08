@@ -122,7 +122,7 @@ struct SquareView: View {
             } placeholder: {
                 Color.clear
             }
-            .rotation3DEffect(.degrees(self.piece.degrees), axis: .y)
+            .rotation3DEffect(self.piece.angle, axis: .y)
             .offset(z: self.piece.zOffset)
             .padding(12)
             .background {
