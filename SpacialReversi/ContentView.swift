@@ -4,7 +4,6 @@ import RealityKitContent
 
 struct ContentView: View {
     @EnvironmentObject var model: AppModel
-    @Environment(\.openWindow) var openWindow
     var body: some View {
         GeometryReader { proxy in
             let boardLength = proxy.size.width / 8
@@ -45,14 +44,60 @@ struct ContentView: View {
         .padding(128)
         .glassBackgroundEffect()
         .rotation3DEffect(.init(angle: .degrees(90), axis: .x))
-        .offset(y: windowLength / 2)
-        .frame(width: windowLength, height: windowLength)
-        .frame(depth: windowLength)
-        .task { self.openWindow(id: "setting") }
+        .offset(y: (FixedValue.windowLength / 2) - FixedValue.toolbarHeight)
+        .frame(width: FixedValue.windowLength, height: FixedValue.windowLength)
+        .frame(depth: FixedValue.windowLength)
+        .overlay(alignment: .bottom) { ToolbarView() }
+        .overlay(alignment: .bottom) {
+            ToolbarView()
+                .offset(x: FixedValue.windowLength / 2)
+                .offset(z: FixedValue.windowLength / 2)
+                .rotation3DEffect(.init(angle: .degrees(90), axis: .y))
+        }
+        .overlay(alignment: .bottom) {
+            ToolbarView()
+                .offset(x: -(FixedValue.windowLength / 2))
+                .offset(z: FixedValue.windowLength / 2)
+                .rotation3DEffect(.init(angle: .degrees(270), axis: .y))
+        }
+        .background(alignment: .bottom) {
+            ToolbarView()
+                .rotation3DEffect(.init(angle: .degrees(180), axis: .y))
+        }
     }
 }
 
 fileprivate extension ContentView {
+    struct ToolbarView: View {
+        @EnvironmentObject var model: AppModel
+        var body: some View {
+            HStack(spacing: 16) {
+                ForEach([Side.white, .black], id: \.self) { side in
+                    Button {
+                        withAnimation {
+                            self.model.side = side
+                        }
+                    } label: {
+                        Circle()
+                            .fill(side == .white ? .white : .black)
+                            .opacity(self.model.side == side ? 1 : 0.75)
+                            .frame(width: 42, height: 42)
+                            .overlay {
+                                if self.model.side == side {
+                                    Image(systemName: "checkmark")
+                                        .font(.title.bold())
+                                        .foregroundStyle(.green)
+                                }
+                            }
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding()
+            .glassBackgroundEffect()
+            .frame(height: FixedValue.toolbarHeight)
+        }
+    }
     struct PieceView: View {
         var side: Side?
         @State private var opacity: Double = 0

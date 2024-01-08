@@ -14,6 +14,7 @@
 		160ED79A2B4B8147002AD987 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED7992B4B8147002AD987 /* Side.swift */; };
 		160ED79C2B4B827E002AD987 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED79B2B4B827E002AD987 /* AppModel.swift */; };
 		160ED79E2B4B8E1A002AD987 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED79D2B4B8E1A002AD987 /* SettingView.swift */; };
+		160ED7A02B4BB705002AD987 /* FixedValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED79F2B4BB705002AD987 /* FixedValue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		160ED7992B4B8147002AD987 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
 		160ED79B2B4B827E002AD987 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 		160ED79D2B4B8E1A002AD987 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		160ED79F2B4BB705002AD987 /* FixedValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedValue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				160ED79D2B4B8E1A002AD987 /* SettingView.swift */,
 				160ED79B2B4B827E002AD987 /* AppModel.swift */,
 				160ED7992B4B8147002AD987 /* Side.swift */,
+				160ED79F2B4BB705002AD987 /* FixedValue.swift */,
 				1601FF0F2B4AA8BC0050457E /* Assets.xcassets */,
 				1601FF142B4AA8BC0050457E /* Info.plist */,
 			);
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				160ED7A02B4BB705002AD987 /* FixedValue.swift in Sources */,
 				1601FF0E2B4AA8BA0050457E /* ContentView.swift in Sources */,
 				160ED79E2B4B8E1A002AD987 /* SettingView.swift in Sources */,
 				1601FF0C2B4AA8BA0050457E /* App.swift in Sources */,

@@ -9,9 +9,9 @@ struct SpacialReversiApp: App {
                 .environmentObject(self.model)
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: windowLength,
-                     height: windowLength,
-                     depth: windowLength)
+        .defaultSize(width: FixedValue.windowLength,
+                     height: FixedValue.windowLength,
+                     depth: FixedValue.windowLength)
         WindowGroup(id: "setting") {
             SettingView()
                 .environmentObject(self.model)
@@ -20,5 +20,3 @@ struct SpacialReversiApp: App {
         .defaultSize(width: 300, height: 300)
     }
 }
-
-let windowLength: CGFloat = 1200.0
