@@ -4,6 +4,7 @@ import RealityKitContent
 
 struct ContentView: View {
     @EnvironmentObject var model: AppModel
+    @Environment(\.openWindow) var openWindow
     var body: some View {
         GeometryReader { proxy in
             let boardLength = proxy.size.width / 8
@@ -47,6 +48,7 @@ struct ContentView: View {
         .offset(y: windowLength / 2)
         .frame(width: windowLength, height: windowLength)
         .frame(depth: windowLength)
+        .task { self.openWindow(id: "setting") }
     }
 }
 

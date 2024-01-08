@@ -13,6 +13,7 @@
 		1601FF102B4AA8BC0050457E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1601FF0F2B4AA8BC0050457E /* Assets.xcassets */; };
 		160ED79A2B4B8147002AD987 /* Side.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED7992B4B8147002AD987 /* Side.swift */; };
 		160ED79C2B4B827E002AD987 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED79B2B4B827E002AD987 /* AppModel.swift */; };
+		160ED79E2B4B8E1A002AD987 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED79D2B4B8E1A002AD987 /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1601FF142B4AA8BC0050457E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		160ED7992B4B8147002AD987 /* Side.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Side.swift; sourceTree = "<group>"; };
 		160ED79B2B4B827E002AD987 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		160ED79D2B4B8E1A002AD987 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				1601FF0B2B4AA8BA0050457E /* App.swift */,
 				1601FF0D2B4AA8BA0050457E /* ContentView.swift */,
+				160ED79D2B4B8E1A002AD987 /* SettingView.swift */,
 				160ED79B2B4B827E002AD987 /* AppModel.swift */,
 				160ED7992B4B8147002AD987 /* Side.swift */,
 				1601FF0F2B4AA8BC0050457E /* Assets.xcassets */,
@@ -150,6 +153,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1601FF0E2B4AA8BA0050457E /* ContentView.swift in Sources */,
+				160ED79E2B4B8E1A002AD987 /* SettingView.swift in Sources */,
 				1601FF0C2B4AA8BA0050457E /* App.swift in Sources */,
 				160ED79A2B4B8147002AD987 /* Side.swift in Sources */,
 				160ED79C2B4B827E002AD987 /* AppModel.swift in Sources */,

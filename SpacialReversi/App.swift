@@ -12,6 +12,12 @@ struct SpacialReversiApp: App {
         .defaultSize(width: windowLength,
                      height: windowLength,
                      depth: windowLength)
+        WindowGroup(id: "setting") {
+            SettingView()
+                .environmentObject(self.model)
+        }
+        .windowResizability(.contentSize)
+        .defaultSize(width: 300, height: 300)
     }
 }
 
