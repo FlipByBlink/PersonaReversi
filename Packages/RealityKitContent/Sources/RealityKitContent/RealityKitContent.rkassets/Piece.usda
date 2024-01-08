@@ -21,14 +21,14 @@ def Xform "Root"
     {
         reorder nameChildren = ["WoodPlank", "DefaultMaterial", "InputTarget", "Collider"]
         uniform token axis = "Y"
-        double height = 0.01
+        double height = 0.013999999999999999
         rel material:binding = </Root/WHITE/DefaultMaterial> (
             bindMaterialAs = "weakerThanDescendants"
         )
         double radius = 0.1
         quatf xformOp:orient = (0.7071067, 0.70710677, 0, 0)
         float3 xformOp:scale = (0.9999998, 0.9999998, 0.9999998)
-        float3 xformOp:translate = (0, 0, 0.005)
+        float3 xformOp:translate = (0, 0, 0.007)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def Material "DefaultMaterial"
@@ -86,14 +86,14 @@ def Xform "Root"
     {
         reorder nameChildren = ["WoodPlank", "DefaultMaterial", "InputTarget", "Collider"]
         uniform token axis = "Y"
-        double height = 0.01
+        double height = 0.013999999999999999
         rel material:binding = </Root/BLACK/DefaultMaterial> (
             bindMaterialAs = "weakerThanDescendants"
         )
         double radius = 0.1
         quatf xformOp:orient = (0.70710677, 0.70710677, 0, 0)
         float3 xformOp:scale = (0.99999964, 0.99999964, 0.99999964)
-        float3 xformOp:translate = (0, 0, -0.005)
+        float3 xformOp:translate = (0, 0, -0.007)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         def Material "DefaultMaterial"

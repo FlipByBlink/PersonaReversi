@@ -129,6 +129,7 @@ fileprivate extension ContentView {
                         .opacity(0.15 * self.opacity)
                         .padding(12)
                 }
+                .animation(.default, value: side)
             }
         }
     }
