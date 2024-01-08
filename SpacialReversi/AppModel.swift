@@ -8,6 +8,8 @@ class AppModel: ObservableObject {
 
 extension AppModel {
     func set(_ index: Int) {
-        self.pieces[index] = self.side
+        if self.pieces[index] == nil {
+            self.pieces[index] = self.side
+        }
     }
 }

@@ -17,7 +17,7 @@ struct ContentView: View {
                                 .glassBackgroundEffect(in: .rect)
                                 .hoverEffect(isEnabled: self.model.pieces[index] == nil)
                                 .onTapGesture { self.model.set(index) }
-                                .overlay { Self.PieceView(side: self.model.pieces[index]) }
+                                .overlay { Self.PieceView(index: index) }
                                 .frame(width: boardLength, height: boardLength)
                         }
                     }
@@ -74,7 +74,7 @@ fileprivate extension ContentView {
             HStack(spacing: 16) {
                 ForEach([Side.white, .black], id: \.self) { side in
                     Button {
-                        withAnimation {
+                        withAnimation(.default.speed(1.5)) {
                             self.model.side = side
                         }
                     } label: {
@@ -99,38 +99,58 @@ fileprivate extension ContentView {
         }
     }
     struct PieceView: View {
-        var side: Side?
-        @State private var opacity: Double = 0
-        @State private var floating: Bool = true
+        var index: Int
+        @EnvironmentObject var model: AppModel
+        @State private var phase: Self.Phase = .appear
+        private var side: Side? { self.model.pieces[index] }
         var body: some View {
             if let side {
-                //Model3D(named: side == .black ? "BlackPiece" : "WhitePiece",
                 Model3D(named: "Piece",
                         bundle: realityKitContentBundle) {
                     $0
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .rotation3DEffect(.degrees(side == .black ? 180 : 0), axis: .y)
-                        .offset(z: self.floating ? 70 : 0)
-                        .opacity(self.opacity)
+                        .offset(z: [.appear, .fadeIn, .slideUp, .flip].contains(self.phase) ? 70 : 0)
                         .padding(12)
+                        .background {
+                            Circle()
+                                .fill(.black)
+                                .opacity(0.15)
+                                .padding(12)
+                        }
+                        .opacity(self.phase == .appear ? 0 : 1)
                         .task {
-                            try? await Task.sleep(for: .seconds(0.1))
-                            withAnimation(.default.speed(2)) { self.opacity = 1 }
-                            try? await Task.sleep(for: .seconds(0.4))
-                            withAnimation { self.floating = false }
+                            withAnimation(.default.speed(2)) {
+                                self.phase = .fadeIn
+                            } completion: {
+                                withAnimation { self.phase = .slideDown }
+                            }
+                        }
+                        .onTapGesture {
+                            withAnimation {
+                                self.phase = .slideUp
+                            } completion: {
+                                withAnimation {
+                                    self.phase = .flip
+                                    self.model.pieces[index] = self.side == .black ? .white : .black
+                                } completion: {
+                                    withAnimation { self.phase = .slideDown }
+                                }
+                            }
                         }
                 } placeholder: {
                     Color.clear
                 }
-                .background {
-                    Circle()
-                        .fill(.black)
-                        .opacity(0.15 * self.opacity)
-                        .padding(12)
-                }
-                .animation(.default, value: side)
             }
+        }
+        private enum Phase {
+            case appear,
+                 fadeIn,
+                 slideDown,
+                 flip,
+                 slideUp,
+                 complete
         }
     }
 }
