@@ -101,7 +101,7 @@ fileprivate extension ContentView {
     struct PieceView: View {
         var index: Int
         @EnvironmentObject var model: AppModel
-        @State private var phase: Self.Phase = .appear
+        @State private var phase: Self.Phase = .init(side: .white, stage: .appear)
         private var side: Side? { self.model.pieces[index] }
         var body: some View {
             if let side {
@@ -110,8 +110,8 @@ fileprivate extension ContentView {
                     $0
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .rotation3DEffect(.degrees(side == .black ? 180 : 0), axis: .y)
-                        .offset(z: [.appear, .fadeIn, .slideUp, .flip].contains(self.phase) ? 70 : 0)
+                        .rotation3DEffect(.degrees(self.phase.side == .black ? 180 : 0), axis: .y)
+                        .offset(z: [.appear, .fadeIn, .slideUp, .flip].contains(self.phase.stage) ? 70 : 0)
                         .padding(12)
                         .background {
                             Circle()
@@ -119,38 +119,50 @@ fileprivate extension ContentView {
                                 .opacity(0.15)
                                 .padding(12)
                         }
-                        .opacity(self.phase == .appear ? 0 : 1)
+                        .opacity(self.phase.stage == .appear ? 0 : 1)
                         .task {
+                            self.phase.side = side
                             withAnimation(.default.speed(2)) {
-                                self.phase = .fadeIn
+                                self.phase.stage = .fadeIn
                             } completion: {
-                                withAnimation { self.phase = .slideDown }
+                                withAnimation { self.phase.stage = .slideDown }
+                            }
+                        }
+                        .onChange(of: self.side) { o, n in
+                            withAnimation {
+                                self.phase.stage = .slideUp
+                            } completion: {
+                                withAnimation {
+                                    self.phase.stage = .flip
+                                    self.phase.side = (self.phase.side == .black ? .white : .black)
+                                } completion: {
+                                    withAnimation { self.phase.stage = .slideDown }
+                                }
                             }
                         }
                         .onTapGesture {
-                            withAnimation {
-                                self.phase = .slideUp
-                            } completion: {
-                                withAnimation {
-                                    self.phase = .flip
-                                    self.model.pieces[index] = self.side == .black ? .white : .black
-                                } completion: {
-                                    withAnimation { self.phase = .slideDown }
-                                }
-                            }
+                            self.model.pieces[self.index] = (self.side == .black ? .white : .black)
                         }
                 } placeholder: {
                     Color.clear
                 }
             }
         }
-        private enum Phase {
-            case appear,
-                 fadeIn,
-                 slideDown,
-                 flip,
-                 slideUp,
-                 complete
+        private struct Phase {
+            var side: Side
+            var stage: Self.Stage
+            enum Stage {
+                case appear, fadeIn, slideDown, flip, slideUp, complete
+            }
         }
+    }
+}
+
+struct SquareView: View {
+    var index: Int
+    @EnvironmentObject var model: AppModel
+    @State private var phase: Self.Phase = .init(side: .white, stage: .appear)
+    var body: some View {
+        
     }
 }
