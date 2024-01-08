@@ -6,19 +6,13 @@ struct ContentView: View {
     @EnvironmentObject var model: AppModel
     var body: some View {
         GeometryReader { proxy in
-            let boardLength = proxy.size.width / 8
             HStack(spacing: 0) {
                 ForEach(1...8, id: \.self) { column in
                     VStack(spacing: 0) {
                         ForEach(0..<8, id: \.self) { row in
-                            let index = column + row * 8
-                            Color.clear
-                                .contentShape(.rect)
-                                .glassBackgroundEffect(in: .rect)
-                                .hoverEffect(isEnabled: self.model.pieces[index] == nil)
-                                .onTapGesture { self.model.set(index) }
-                                .overlay { Self.PieceView(index: index) }
-                                .frame(width: boardLength, height: boardLength)
+                            SquareView(index: column + row * 8)
+                                .frame(width: proxy.size.width / 8,
+                                       height: proxy.size.width / 8)
                         }
                     }
                 }
@@ -98,71 +92,47 @@ fileprivate extension ContentView {
             .frame(height: FixedValue.toolbarHeight)
         }
     }
-    struct PieceView: View {
-        var index: Int
-        @EnvironmentObject var model: AppModel
-        @State private var phase: Self.Phase = .init(side: .white, stage: .appear)
-        private var side: Side? { self.model.pieces[index] }
-        var body: some View {
-            if let side {
-                Model3D(named: "Piece",
-                        bundle: realityKitContentBundle) {
-                    $0
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .rotation3DEffect(.degrees(self.phase.side == .black ? 180 : 0), axis: .y)
-                        .offset(z: [.appear, .fadeIn, .slideUp, .flip].contains(self.phase.stage) ? 70 : 0)
-                        .padding(12)
-                        .background {
-                            Circle()
-                                .fill(.black)
-                                .opacity(0.15)
-                                .padding(12)
-                        }
-                        .opacity(self.phase.stage == .appear ? 0 : 1)
-                        .task {
-                            self.phase.side = side
-                            withAnimation(.default.speed(2)) {
-                                self.phase.stage = .fadeIn
-                            } completion: {
-                                withAnimation { self.phase.stage = .slideDown }
-                            }
-                        }
-                        .onChange(of: self.side) { o, n in
-                            withAnimation {
-                                self.phase.stage = .slideUp
-                            } completion: {
-                                withAnimation {
-                                    self.phase.stage = .flip
-                                    self.phase.side = (self.phase.side == .black ? .white : .black)
-                                } completion: {
-                                    withAnimation { self.phase.stage = .slideDown }
-                                }
-                            }
-                        }
-                        .onTapGesture {
-                            self.model.pieces[self.index] = (self.side == .black ? .white : .black)
-                        }
-                } placeholder: {
-                    Color.clear
-                }
-            }
-        }
-        private struct Phase {
-            var side: Side
-            var stage: Self.Stage
-            enum Stage {
-                case appear, fadeIn, slideDown, flip, slideUp, complete
-            }
-        }
-    }
 }
 
 struct SquareView: View {
     var index: Int
     @EnvironmentObject var model: AppModel
-    @State private var phase: Self.Phase = .init(side: .white, stage: .appear)
     var body: some View {
-        
+        Color.clear
+            .contentShape(.rect)
+            .glassBackgroundEffect(in: .rect)
+            .hoverEffect(isEnabled: self.model.pieces[self.index] == nil)
+            .onTapGesture { self.model.set(self.index) }
+            .overlay {
+                if let piece = self.model.pieces[index] {
+                    Self.PieceView(index: index, piece: piece)
+                }
+            }
+    }
+    private struct PieceView: View {
+        var index: Int
+        var piece: Piece
+        @EnvironmentObject var model: AppModel
+        var body: some View {
+            Model3D(named: "Piece",
+                    bundle: realityKitContentBundle) {
+                $0
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+            } placeholder: {
+                Color.clear
+            }
+            .rotation3DEffect(.degrees(self.piece.degrees), axis: .y)
+            .offset(z: self.piece.zOffset)
+            .padding(12)
+            .background {
+                Circle()
+                    .fill(.black)
+                    .opacity(0.15)
+                    .padding(12)
+            }
+            .opacity(self.piece.opacity)
+            .onTapGesture { self.model.toggle(self.index) }
+        }
     }
 }
