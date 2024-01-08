@@ -21,7 +21,7 @@ def Xform "Root"
         reorder nameChildren = ["WoodPlank", "DefaultMaterial", "InputTarget", "Collider"]
         uniform token axis = "Y"
         double height = 0.02
-        rel material:binding = </Root/WHITE/WoodPlank> (
+        rel material:binding = </Root/WHITE/DefaultMaterial> (
             bindMaterialAs = "weakerThanDescendants"
         )
         double radius = 0.1
@@ -32,13 +32,21 @@ def Xform "Root"
 
         def Material "DefaultMaterial"
         {
+            token outputs:mtlx:surface
+            token outputs:realitykit:vertex
             token outputs:surface.connect = </Root/WHITE/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+            float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (0, 109.5)
+            float2 ui:nodegraph:realitykit:subgraphOutputs:size = (182, 99)
 
             def Shader "DefaultSurfaceShader"
             {
                 uniform token info:id = "UsdPreviewSurface"
-                color3f inputs:diffuseColor = (1, 1, 1)
-                float inputs:roughness = 0.75
+                color3f inputs:diffuseColor = (1, 1, 1) (
+                    colorSpace = "lin_srgb"
+                )
+                color3f inputs:emissiveColor = (0.28717458, 0.28717458, 0.28717458) (
+                    colorSpace = "lin_srgb"
+                )
                 token outputs:surface
             }
         }
@@ -81,7 +89,7 @@ def Xform "Root"
                     }
                 }
             )
-            float2 inputs:UV_Scale (
+            float2 inputs:UV_Scale = (1, 1) (
                 customData = {
                     dictionary realitykit = {
                         float2 positionInSubgraph = (-725.2588, 351.55255)

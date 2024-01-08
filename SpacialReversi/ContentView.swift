@@ -56,7 +56,7 @@ struct ContentView: View {
         }
         .overlay(alignment: .bottom) {
             ToolbarView()
-                .offset(x: -(FixedValue.windowLength / 2))
+                .offset(x: -FixedValue.windowLength / 2)
                 .offset(z: FixedValue.windowLength / 2)
                 .rotation3DEffect(.init(angle: .degrees(270), axis: .y))
         }
