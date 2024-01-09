@@ -30,7 +30,10 @@ struct ContentView: View {
                         }
                     }
                 }
-                .border(.primary, width: 6)
+            }
+            .overlay {
+                RoundedRectangle(cornerRadius: 24, style: .continuous)
+                    .stroke(lineWidth: 5)
             }
         }
         .padding(128)
