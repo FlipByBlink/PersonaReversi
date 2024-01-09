@@ -23,8 +23,20 @@ struct ResultEffect: ViewModifier {
                                         Color.clear
                                     }
                                     .frame(width: 200, height: 200)
-                                    Text("\(self.model.pieces.pieceCounts[side] ?? 0)")
-                                        .fontWeight(.heavy)
+                                    RealityView { content in
+                                        let text = "\(self.model.pieces.pieceCounts[side] ?? 0)"
+                                        let textMeshResource: MeshResource = .generateText(text,
+                                                                                           extrusionDepth: 0.015,
+                                                                                           font: .systemFont(ofSize: 0.15,
+                                                                                                             weight: .heavy))
+                                        let textEntity = ModelEntity(mesh: textMeshResource,
+                                                                     materials: [SimpleMaterial(color: .white,
+                                                                                                isMetallic: false)])
+                                        textEntity.position = -(textMeshResource.bounds.extents / 2)
+                                        textEntity.position.y -= 0.04
+                                        content.add(textEntity)
+                                    }
+                                    .frame(width: 200, height: 200)
                                 }
                             }
                         }
