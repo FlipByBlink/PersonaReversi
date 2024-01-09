@@ -17,5 +17,6 @@ struct ContentView: View {
                 }
             }
             .task { 👤Registration.execute() }
+            .task { self.model.setRandomly() }
     }
 }

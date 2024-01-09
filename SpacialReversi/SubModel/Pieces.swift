@@ -27,10 +27,73 @@ extension Pieces: Codable {
     var isMax: Bool {
         self.value.count == 64
     }
+    func affected(_ centerIndex: Int) -> [Int] {
+        var value: [Int] = []
+        for direction in Self.Direction.allCases {
+            var counts: Int = 0
+            while counts < 8 {
+                let checkingIndex = centerIndex + (direction.offset * (counts + 1))
+                if let piece = self[checkingIndex] {
+                    if piece.side == self[centerIndex]?.side {
+                        if counts > 0 {
+                            (1...counts).forEach {
+                                value.append(centerIndex + direction.offset * $0)
+                            }
+                        }
+                        break
+                    } else {
+                        if direction.isLast(checkingIndex) {
+                            break
+                        } else {
+                            counts += 1
+                        }
+                    }
+                } else {
+                    break
+                }
+            }
+        }
+        return value
+    }
     static let preset: [Int: Piece] = {
         [28: .init(side: .black, phase: .complete),
          29: .init(side: .white, phase: .complete),
          36: .init(side: .white, phase: .complete),
          37: .init(side: .black, phase: .complete)]
     }()
+}
+
+fileprivate extension Pieces {
+    enum Direction: CaseIterable {
+        case leftTop, top, rightTop,
+             left, right,
+             leftBottom, bottom, rightBottom
+        var offset: Int {
+            switch self {
+                case .leftTop: -9
+                case .top: -8
+                case .rightTop: -7
+                case .left: -1
+                case .right: 1
+                case .leftBottom: 7
+                case .bottom: 8
+                case .rightBottom: 9
+            }
+        }
+        func isLast(_ checkingIndex: Int) -> Bool {
+            switch self {
+                case .leftTop, .rightTop, .leftBottom, .rightBottom:
+                    checkingIndex <= 8
+                    || checkingIndex % 8 == 1
+                    || checkingIndex % 8 == 0
+                    || 57 <= checkingIndex
+                case .top, .bottom:
+                    checkingIndex <= 8
+                    || 57 <= checkingIndex
+                case .left, .right:
+                    checkingIndex % 8 == 1
+                    || checkingIndex % 8 == 0
+            }
+        }
+    }
 }
