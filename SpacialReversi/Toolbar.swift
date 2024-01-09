@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct SideSelectionBar: ViewModifier {
+struct Toolbar: ViewModifier {
     func body(content: Content) -> some View {
         content
             .overlay(alignment: .bottom) { Self.ContentView() }
@@ -23,7 +23,7 @@ struct SideSelectionBar: ViewModifier {
     }
 }
 
-private extension SideSelectionBar {
+private extension Toolbar {
     private struct ContentView: View {
         @EnvironmentObject var model: AppModel
         @Environment(\.openWindow) var openWindow
@@ -60,12 +60,13 @@ private extension SideSelectionBar {
                         .padding(4)
                         .frame(width: 42, height: 42)
                 }
+                .disabled(self.model.presentSettingWindow)
             }
             .buttonStyle(.plain)
             .padding(12)
             .padding(.horizontal, 24)
             .glassBackgroundEffect()
-            .frame(height: FixedValue.sideSelectionBarHeight)
+            .frame(height: FixedValue.toolbarHeight)
         }
     }
 }

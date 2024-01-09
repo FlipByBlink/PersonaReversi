@@ -4,6 +4,7 @@ class AppModel: ObservableObject {
     @Published var pieces: Pieces = .init()
     @Published var side: Side = .white
     @Published var presentResult: Bool = false
+    @Published var presentSettingWindow: Bool = false
 }
 
 extension AppModel {

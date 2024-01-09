@@ -29,6 +29,8 @@ struct SettingView: View {
             }
             .navigationTitle("Setting")
         }
-        .frame(width: 300, height: 300)
+        .frame(width: 300, height: 500)
+        .onAppear { self.model.presentSettingWindow = true }
+        .onDisappear { self.model.presentSettingWindow = false }
     }
 }
