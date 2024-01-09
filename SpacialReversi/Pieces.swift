@@ -1,5 +1,5 @@
 struct Pieces {
-    private var value: [Int: Piece] = Self.preset
+    private var value: [Int: Piece] = [:]
 }
 
 extension Pieces {
@@ -15,10 +15,7 @@ extension Pieces {
     mutating func toggle(_ index: Int) {
         self.value[index]?.side.toggle()
     }
-}
-
-fileprivate extension Pieces {
-    private static let preset: [Int: Piece] = {
+    static let preset: [Int: Piece] = {
         [28: .init(side: .black, phase: .complete),
          29: .init(side: .white, phase: .complete),
          36: .init(side: .white, phase: .complete),

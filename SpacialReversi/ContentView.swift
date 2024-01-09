@@ -43,5 +43,6 @@ struct ContentView: View {
         .frame(width: FixedValue.windowLength, height: FixedValue.windowLength)
         .frame(depth: FixedValue.windowLength)
         .modifier(SideSelectionBar())
+        .task { self.model.applyPreset() }
     }
 }

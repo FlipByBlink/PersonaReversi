@@ -51,4 +51,19 @@ extension AppModel {
             }
         }
     }
+    func applyPreset() {
+        for (index, piece) in Pieces.preset {
+            withAnimation {
+                self.pieces.set(index, piece.side)
+            } completion: {
+                withAnimation(.default.speed(2)) {
+                    self.pieces.changePhase(index, .fadeIn)
+                } completion: {
+                    withAnimation {
+                        self.pieces.changePhase(index, .slideDown)
+                    }
+                }
+            }
+        }
+    }
 }
