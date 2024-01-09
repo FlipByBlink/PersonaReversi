@@ -7,6 +7,10 @@ struct SpacialReversiApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(self.model)
+                .handlesExternalEvents(
+                    preferring: ["net.aaaakkkkssssttttnnnn.SpacialReversi.👤GroupActivity"],
+                    allowing: ["net.aaaakkkkssssttttnnnn.SpacialReversi.👤GroupActivity"]
+                )
         }
         .windowStyle(.volumetric)
         .defaultSize(width: FixedValue.windowLength,
@@ -15,6 +19,7 @@ struct SpacialReversiApp: App {
         WindowGroup(id: "setting") {
             SettingView()
                 .environmentObject(self.model)
+                .handlesExternalEvents(preferring: [], allowing: [])
         }
         .windowResizability(.contentSize)
         .defaultSize(width: 300, height: 300)

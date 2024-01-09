@@ -9,7 +9,7 @@ enum 👤Registration {
             guard key == .linkPresentationMetadata else { return nil }
             let metadata = LPLinkMetadata()
             metadata.title = "SharePlay reversi"
-            //metadata.imageProvider = NSItemProvider(object: UIImage(named: "explore-activity")!)
+            metadata.imageProvider = NSItemProvider(object: UIImage(resource: .whole))
             return metadata
         }
         UIApplication.shared
