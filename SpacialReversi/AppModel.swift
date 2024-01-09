@@ -3,6 +3,7 @@ import SwiftUI
 class AppModel: ObservableObject {
     @Published var pieces: Pieces = .init()
     @Published var side: Side = .white
+    @Published var presentResult: Bool = false
 }
 
 extension AppModel {
@@ -36,6 +37,7 @@ extension AppModel {
                                 }
                             }
                         }
+                        self.handleResultView()
                     }
                 }
             }
@@ -71,11 +73,25 @@ extension AppModel {
     }
     func reset() {
         withAnimation {
+            self.presentResult = false
             self.pieces = .init()
         } completion: {
             Task { @MainActor in
                 try? await Task.sleep(for: .seconds(0.3))
                 self.applyPreset()
+            }
+        }
+    }
+}
+
+fileprivate extension AppModel {
+    private func handleResultView() {
+        Task { @MainActor in
+            try? await Task.sleep(for: .seconds(2))
+            if self.pieces.isMax {
+                withAnimation {
+                    self.presentResult = true
+                }
             }
         }
     }
