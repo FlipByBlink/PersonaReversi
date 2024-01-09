@@ -2,6 +2,8 @@ import SwiftUI
 
 struct SettingView: View {
     @EnvironmentObject var model: AppModel
+    @Environment(\.scenePhase) var scenePhase
+    @Environment(\.dismissWindow) var dismissWindow
     var body: some View {
         NavigationStack {
             List {
@@ -32,5 +34,10 @@ struct SettingView: View {
         .frame(width: 300, height: 500)
         .onAppear { self.model.presentSettingWindow = true }
         .onDisappear { self.model.presentSettingWindow = false }
+        .onChange(of: self.scenePhase) { _, newValue in
+            if newValue != .active {
+                self.dismissWindow(id: "setting")
+            }
+        }
     }
 }
