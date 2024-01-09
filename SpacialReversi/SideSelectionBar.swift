@@ -51,7 +51,7 @@ private extension SideSelectionBar {
             }
             .padding()
             .glassBackgroundEffect()
-            .frame(height: FixedValue.toolbarHeight)
+            .frame(height: FixedValue.sideSelectionBarHeight)
         }
     }
 }
