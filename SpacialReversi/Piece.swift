@@ -13,7 +13,11 @@ extension Piece {
         .degrees(self.side == .black ? 180 : 0)
     }
     var zOffset: Double {
-        [.clear, .fadeIn, .slideUp, .flip].contains(self.phase) ? 70 : 0
+        switch self.phase {
+            case .clear, .fadeIn: 70
+            case .slideUp, .flip: 50
+            default: 0
+        }
     }
     var opacity: Double {
         self.phase == .clear ? 0 : 1
