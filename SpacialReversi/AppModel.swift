@@ -67,7 +67,13 @@ extension AppModel {
         }
     }
     func reset() {
-        self.pieces = .init()
-        self.applyPreset()
+        withAnimation {
+            self.pieces = .init()
+        } completion: {
+            Task { @MainActor in
+                try? await Task.sleep(for: .seconds(0.3))
+                self.applyPreset()
+            }
+        }
     }
 }
