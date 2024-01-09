@@ -66,4 +66,8 @@ extension AppModel {
             }
         }
     }
+    func reset() {
+        self.pieces = .init()
+        self.applyPreset()
+    }
 }

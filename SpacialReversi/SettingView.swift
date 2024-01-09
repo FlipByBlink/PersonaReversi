@@ -5,6 +5,11 @@ struct SettingView: View {
     var body: some View {
         NavigationStack {
             List {
+                Button {
+                    self.model.reset()
+                } label: {
+                    Label("Reset", systemImage: "arrow.counterclockwise")
+                }
                 Picker("Side", selection: self.$model.side) {
                     Label {
                         Text("White")

@@ -26,6 +26,7 @@ struct SideSelectionBar: ViewModifier {
 private extension SideSelectionBar {
     private struct ContentView: View {
         @EnvironmentObject var model: AppModel
+        @Environment(\.openWindow) var openWindow
         var body: some View {
             HStack(spacing: 16) {
                 ForEach([Side.white, .black], id: \.self) { side in
@@ -46,10 +47,23 @@ private extension SideSelectionBar {
                                 }
                             }
                     }
-                    .buttonStyle(.plain)
+                }
+                Divider()
+                    .padding(.vertical)
+                Button {
+                    self.openWindow(id: "setting")
+                } label: {
+                    Image(systemName: "gearshape")
+                        .resizable()
+                        .fontWeight(.light)
+                        .scaledToFit()
+                        .padding(4)
+                        .frame(width: 42, height: 42)
                 }
             }
-            .padding()
+            .buttonStyle(.plain)
+            .padding(12)
+            .padding(.horizontal, 24)
             .glassBackgroundEffect()
             .frame(height: FixedValue.sideSelectionBarHeight)
         }
