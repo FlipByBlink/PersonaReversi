@@ -43,7 +43,6 @@ extension AppModel {
         groupSession.$activeParticipants
             .sink { activeParticipants in
                 let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
-                
                 Task {
                     try? await messenger.send(self.pieces, to: .only(newParticipants))
                 }
@@ -52,7 +51,11 @@ extension AppModel {
         
         let task = Task {
             for await (message, _) in messenger.messages(of: Pieces.self) {
-                self.pieces = message
+                Task { @MainActor in
+                    withAnimation {
+                        self.pieces = message
+                    }
+                }
             }
         }
         self.tasks.insert(task)
@@ -118,14 +121,18 @@ extension AppModel {
         if self.pieces[index] == nil {
             withAnimation(.default.speed(2)) {
                 self.pieces.set(index, self.side)
+                self.sync()
             } completion: {
                 withAnimation(.default.speed(1.6)) {
                     self.pieces.changePhase(index, .fadeIn)
+                    self.sync()
                 } completion: {
                     withAnimation {
                         self.pieces.changePhase(index, .slideDown)
+                        self.sync()
                     } completion: {
                         self.handleSetEffect(index)
+                        self.sync()
                         self.handleResultView()
                     }
                 }
@@ -135,12 +142,15 @@ extension AppModel {
     func toggle(_ index: Int) {
         withAnimation {
             self.pieces.changePhase(index, .slideUp)
+            self.sync()
         } completion: {
             withAnimation {
                 self.pieces.toggle(index)
+                self.sync()
             } completion: {
                 withAnimation {
                     self.pieces.changePhase(index, .slideDown)
+                    self.sync()
                 }
             }
         }
@@ -149,12 +159,15 @@ extension AppModel {
         for (index, piece) in Pieces.preset {
             withAnimation {
                 self.pieces.set(index, piece.side)
+                self.sync()
             } completion: {
                 withAnimation(.default.speed(2)) {
                     self.pieces.changePhase(index, .fadeIn)
+                    self.sync()
                 } completion: {
                     withAnimation {
                         self.pieces.changePhase(index, .slideDown)
+                        self.sync()
                     }
                 }
             }
@@ -164,6 +177,7 @@ extension AppModel {
         withAnimation {
             self.presentResult = false
             self.pieces = .init()
+            self.sync()
         } completion: {
             Task { @MainActor in
                 try? await Task.sleep(for: .seconds(0.3))

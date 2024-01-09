@@ -9,6 +9,8 @@ struct ContentView: View {
                 Text("White").tag(Side.white)
                 Text("Black").tag(Side.black)
             }
+            ShareLink(item: 👤GroupActivity(),
+                      preview: .init("SHAREPLAY"))
         }
         .task {
             for await session in 👤GroupActivity.sessions() {
