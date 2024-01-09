@@ -28,6 +28,8 @@ struct SettingView: View {
                 }
                 .pickerStyle(.inline)
                 .labelsHidden()
+                ShareLink(item: 👤GroupActivity(),
+                          preview: .init("SHAREPLAY"))
             }
             .navigationTitle("Setting")
         }
