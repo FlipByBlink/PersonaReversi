@@ -188,20 +188,26 @@ extension AppModel {
 }
 
 fileprivate extension AppModel {
-    private func handleSetEffect(_ index: Int) {
-        for direction in [-9, -8, -7, -1, 1, 7, 8, 9] {
+    private func handleSetEffect(_ centerIndex: Int) {
+        for direction in Direction.allCases {
             var counts: Int = 0
             while counts < 8 {
-                if let piece = self.pieces[index + (direction * (counts + 1))] {
+                print("🖨️counts: ", counts)
+                let checkingIndex = centerIndex + (direction.offset * (counts + 1))
+                if let piece = self.pieces[checkingIndex] {
                     if piece.side == self.side {
                         if counts > 0 {
                             (1...counts).forEach {
-                                self.toggle(index + direction * $0)
+                                self.toggle(centerIndex + direction.offset * $0)
                             }
                         }
                         break
                     } else {
-                        counts += 1
+                        if direction.isLast(checkingIndex) {
+                            break
+                        } else {
+                            counts += 1
+                        }
                     }
                 } else {
                     break
@@ -216,6 +222,38 @@ fileprivate extension AppModel {
                 withAnimation {
                     self.presentResult = true
                 }
+            }
+        }
+    }
+    enum Direction: CaseIterable {
+        case leftTop, top, rightTop,
+             left, right,
+             leftBottom, bottom, rightBottom
+        var offset: Int {
+            switch self {
+                case .leftTop: -9
+                case .top: -8
+                case .rightTop: -7
+                case .left: -1
+                case .right: 1
+                case .leftBottom: 7
+                case .bottom: 8
+                case .rightBottom: 9
+            }
+        }
+        func isLast(_ checkingIndex: Int) -> Bool {
+            switch self {
+                case .leftTop, .rightTop, .leftBottom, .rightBottom:
+                    checkingIndex <= 8
+                    || checkingIndex % 8 == 1
+                    || checkingIndex % 8 == 0
+                    || 57 <= checkingIndex
+                case .top, .bottom:
+                    checkingIndex <= 8
+                    || 57 <= checkingIndex
+                case .left, .right:
+                    checkingIndex % 8 == 1
+                    || checkingIndex % 8 == 0
             }
         }
     }

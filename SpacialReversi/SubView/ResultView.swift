@@ -56,10 +56,10 @@ struct ResultEffect: ViewModifier {
                 }
             }
 #if DEBUG
-            .task {
-                try? await Task.sleep(for: .seconds(2))
-                self.model.presentResult = true
-            }
+//            .task {
+//                try? await Task.sleep(for: .seconds(2))
+//                self.model.presentResult = true
+//            }
 #endif
     }
 }
