@@ -9,7 +9,9 @@ extension Piece {
     enum Phase {
         case clear, fadeIn, slideDown, complete, slideUp, flip
     }
-    var angle: Angle { .degrees(self.side == .black ? 180 : 0) }
+    var angle: Angle {
+        .degrees(self.side == .black ? 180 : 0)
+    }
     var zOffset: Double {
         [.clear, .fadeIn, .slideUp, .flip].contains(self.phase) ? 70 : 0
     }

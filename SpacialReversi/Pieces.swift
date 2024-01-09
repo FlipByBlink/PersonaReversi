@@ -15,7 +15,10 @@ extension Pieces {
     mutating func toggle(_ index: Int) {
         self.value[index]?.side.toggle()
     }
-    static let preset: [Int: Piece] = {
+}
+
+fileprivate extension Pieces {
+    private static let preset: [Int: Piece] = {
         [28: .init(side: .black, phase: .complete),
          29: .init(side: .white, phase: .complete),
          36: .init(side: .white, phase: .complete),
