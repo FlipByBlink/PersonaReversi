@@ -16,8 +16,6 @@ struct ContentView: View {
                     self.model.configureGroupSession(session)
                 }
             }
-#if os(iOS) || os(visionOS)
             .task { 👤Registration.execute() }
-#endif
     }
 }
