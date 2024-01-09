@@ -18,25 +18,7 @@ extension AppModel {
                     withAnimation {
                         self.pieces.changePhase(index, .slideDown)
                     } completion: {
-                        for direction in [-9, -8, -7, -1, 1, 7, 8, 9] {
-                            var counts: Int = 0
-                            while counts < 8 {
-                                if let piece = self.pieces[index + (direction * (counts + 1))] {
-                                    if piece.side == self.side {
-                                        if counts > 0 {
-                                            (1...counts).forEach {
-                                                self.toggle(index + direction * $0)
-                                            }
-                                        }
-                                        break
-                                    } else {
-                                        counts += 1
-                                    }
-                                } else {
-                                    break
-                                }
-                            }
-                        }
+                        self.handleSetEffect(index)
                         self.handleResultView()
                     }
                 }
@@ -85,6 +67,27 @@ extension AppModel {
 }
 
 fileprivate extension AppModel {
+    private func handleSetEffect(_ index: Int) {
+        for direction in [-9, -8, -7, -1, 1, 7, 8, 9] {
+            var counts: Int = 0
+            while counts < 8 {
+                if let piece = self.pieces[index + (direction * (counts + 1))] {
+                    if piece.side == self.side {
+                        if counts > 0 {
+                            (1...counts).forEach {
+                                self.toggle(index + direction * $0)
+                            }
+                        }
+                        break
+                    } else {
+                        counts += 1
+                    }
+                } else {
+                    break
+                }
+            }
+        }
+    }
     private func handleResultView() {
         Task { @MainActor in
             try? await Task.sleep(for: .seconds(2))
