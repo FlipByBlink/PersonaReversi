@@ -5,8 +5,8 @@ struct Piece {
     var phase: Self.Phase
 }
 
-extension Piece {
-    enum Phase {
+extension Piece: Codable {
+    enum Phase: Codable {
         case clear, fadeIn, slideDown, complete, slideUp, flip
     }
     var angle: Angle {

@@ -2,7 +2,7 @@ struct Pieces {
     private var value: [Int: Piece] = [:]
 }
 
-extension Pieces {
+extension Pieces: Codable {
     subscript(_ index: Int) -> Piece? {
         self.value[index]
     }

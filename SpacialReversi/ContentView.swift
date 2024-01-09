@@ -11,5 +11,13 @@ struct ContentView: View {
             .modifier(Toolbar())
             .task { self.model.applyPreset() }
             .modifier(ResultEffect())
+            .task {
+                for await session in 👤GroupActivity.sessions() {
+                    self.model.configureGroupSession(session)
+                }
+            }
+#if os(iOS) || os(visionOS)
+            .task { 👤Registration.execute() }
+#endif
     }
 }

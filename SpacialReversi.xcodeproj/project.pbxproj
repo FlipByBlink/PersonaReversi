@@ -22,6 +22,8 @@
 		160ED7AA2B4CCC17002AD987 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED7A92B4CCC16002AD987 /* BoardView.swift */; };
 		16C158A72B4CEA2B00835A85 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C158A62B4CEA2B00835A85 /* ResultView.swift */; };
 		16C158AB2B4D05F000835A85 /* PieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C158AA2B4D05F000835A85 /* PieceView.swift */; };
+		16CDEE992B4D0B3500664815 /* 👤GroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */; };
+		16CDEE9A2B4D0B3500664815 /* 👤Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CDEE982B4D0B3500664815 /* 👤Registration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,9 @@
 		160ED7A92B4CCC16002AD987 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		16C158A62B4CEA2B00835A85 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		16C158AA2B4D05F000835A85 /* PieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceView.swift; sourceTree = "<group>"; };
+		16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "👤GroupActivity.swift"; sourceTree = "<group>"; };
+		16CDEE982B4D0B3500664815 /* 👤Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "👤Registration.swift"; sourceTree = "<group>"; };
+		16CDEE9B2B4D0C6E00664815 /* SpacialReversi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpacialReversi.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +81,12 @@
 		1601FF062B4AA8BA0050457E /* SpacialReversi */ = {
 			isa = PBXGroup;
 			children = (
+				16CDEE9B2B4D0C6E00664815 /* SpacialReversi.entitlements */,
 				1601FF0B2B4AA8BA0050457E /* App.swift */,
 				1601FF0D2B4AA8BA0050457E /* ContentView.swift */,
 				160ED79B2B4B827E002AD987 /* AppModel.swift */,
+				16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */,
+				16CDEE982B4D0B3500664815 /* 👤Registration.swift */,
 				16C158A92B4D058300835A85 /* SubView */,
 				16C158A82B4D057B00835A85 /* SubModel */,
 				1601FF0F2B4AA8BC0050457E /* Assets.xcassets */,
@@ -193,6 +201,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				160ED7AA2B4CCC17002AD987 /* BoardView.swift in Sources */,
+				16CDEE992B4D0B3500664815 /* 👤GroupActivity.swift in Sources */,
 				160ED7A42B4CC153002AD987 /* Pieces.swift in Sources */,
 				160ED7A02B4BB705002AD987 /* FixedValue.swift in Sources */,
 				1601FF0E2B4AA8BA0050457E /* ContentView.swift in Sources */,
@@ -202,6 +211,7 @@
 				160ED7A62B4CC15A002AD987 /* Piece.swift in Sources */,
 				160ED7A82B4CC20D002AD987 /* Toolbar.swift in Sources */,
 				160ED7A22B4CC0F9002AD987 /* SquareView.swift in Sources */,
+				16CDEE9A2B4D0B3500664815 /* 👤Registration.swift in Sources */,
 				160ED79A2B4B8147002AD987 /* Side.swift in Sources */,
 				16C158AB2B4D05F000835A85 /* PieceView.swift in Sources */,
 				160ED79C2B4B827E002AD987 /* AppModel.swift in Sources */,
@@ -335,6 +345,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SpacialReversi/SpacialReversi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -362,6 +373,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SpacialReversi/SpacialReversi.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
