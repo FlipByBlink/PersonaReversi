@@ -4,9 +4,8 @@ import SwiftUI
 struct 👤GroupActivity: GroupActivity {
     var metadata: GroupActivityMetadata {
         var metadata = GroupActivityMetadata()
-        metadata.title = String(localized: "⚪︎×Game")
+        metadata.title = String(localized: "Reversi")
         metadata.type = .generic
-        //metadata.sceneAssociationBehavior = .content("document-1")
         return metadata
     }
 }

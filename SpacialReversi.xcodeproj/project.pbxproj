@@ -81,7 +81,6 @@
 		1601FF062B4AA8BA0050457E /* SpacialReversi */ = {
 			isa = PBXGroup;
 			children = (
-				16CDEE9B2B4D0C6E00664815 /* SpacialReversi.entitlements */,
 				1601FF0B2B4AA8BA0050457E /* App.swift */,
 				1601FF0D2B4AA8BA0050457E /* ContentView.swift */,
 				160ED79B2B4B827E002AD987 /* AppModel.swift */,
@@ -91,6 +90,7 @@
 				16C158A82B4D057B00835A85 /* SubModel */,
 				1601FF0F2B4AA8BC0050457E /* Assets.xcassets */,
 				1601FF142B4AA8BC0050457E /* Info.plist */,
+				16CDEE9B2B4D0C6E00664815 /* SpacialReversi.entitlements */,
 			);
 			path = SpacialReversi;
 			sourceTree = "<group>";
