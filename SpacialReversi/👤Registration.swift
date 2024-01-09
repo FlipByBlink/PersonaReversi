@@ -1,4 +1,3 @@
-#if os(iOS) || os(visionOS)
 import LinkPresentation
 
 enum 👤Registration {
@@ -43,4 +42,3 @@ enum 👤Registration {
  }
  self.activityItemsConfiguration = configuration
  ======== */
-#endif
