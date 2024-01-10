@@ -224,7 +224,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1601FEFF2B4AA8BA0050457E /* Build configuration list for PBXProject "SpacialReversi" */;
+			buildConfigurationList = 1601FEFF2B4AA8BA0050457E /* Build configuration list for PBXProject "SpatialReversi" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -549,7 +549,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1601FEFF2B4AA8BA0050457E /* Build configuration list for PBXProject "SpacialReversi" */ = {
+		1601FEFF2B4AA8BA0050457E /* Build configuration list for PBXProject "SpatialReversi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1601FF152B4AA8BC0050457E /* Debug */,
