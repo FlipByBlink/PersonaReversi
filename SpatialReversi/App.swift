@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct SpacialReversiApp: App {
+struct SpatialReversiApp: App {
     @StateObject private var model: AppModel = .init()
     var body: some Scene {
         WindowGroup {
