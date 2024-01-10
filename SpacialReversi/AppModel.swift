@@ -12,6 +12,8 @@ class AppModel: ObservableObject {
     var messenger: GroupSessionMessenger?
     var subscriptions = Set<AnyCancellable>()
     var tasks = Set<Task<Void, Never>>()
+    
+    let soundEffect: 📢SoundEffect = .init()
 }
 
 extension AppModel {
@@ -131,6 +133,7 @@ extension AppModel {
                         self.pieces.changePhase(index, .slideDown)
                         self.sync()
                     } completion: {
+                        self.soundEffect.execute()
                         self.pieces.affected(index).forEach { self.toggle($0) }
                         self.sync()
                         self.handleResultView()
