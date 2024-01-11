@@ -18,6 +18,6 @@ struct ContentView: View {
             }
             .task { 👤Registration.execute() }
             .task { 📢SoundEffect.setCategory() }
-            .task { self.model.setRandomly() }
+//            .task { self.model.setRandomly() }
     }
 }

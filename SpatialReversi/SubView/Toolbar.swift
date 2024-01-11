@@ -38,6 +38,7 @@ private extension Toolbar {
                         Circle()
                             .fill(side == .white ? .white : .black)
                             .opacity(self.model.side == side ? 1 : 0.75)
+                            .shadow(color: .gray, radius: 2)
                             .frame(width: 42, height: 42)
                             .overlay {
                                 if self.model.side == side {
