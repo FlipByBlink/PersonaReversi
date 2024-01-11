@@ -51,16 +51,22 @@ private extension Toolbar {
                 Divider()
                     .padding(.vertical)
                 Button {
-                    self.openWindow(id: "setting")
+                    self.model.reset()
                 } label: {
-                    Image(systemName: "gearshape")
+                    Image(systemName: "arrow.counterclockwise")
                         .resizable()
                         .fontWeight(.light)
                         .scaledToFit()
                         .padding(4)
                         .frame(width: 42, height: 42)
                 }
-                .disabled(self.model.presentSettingWindow)
+                .help("Reset")
+                Button {
+                    self.openWindow(id: "setting")
+                } label: {
+                    Image(systemName: "gearshape")
+                }
+                .disabled(self.model.presentSettingPanel)
             }
             .buttonStyle(.plain)
             .padding(12)

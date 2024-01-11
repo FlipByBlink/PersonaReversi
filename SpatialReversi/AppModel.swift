@@ -6,7 +6,7 @@ class AppModel: ObservableObject {
     @Published var pieces: Pieces = .init()
     @Published var side: Side = .white
     @Published var presentResult: Bool = false
-    @Published var presentSettingWindow: Bool = false
+    @Published var presentSettingPanel: Bool = false
     
     @Published var groupSession: GroupSession<👤GroupActivity>?
     var messenger: GroupSessionMessenger?
