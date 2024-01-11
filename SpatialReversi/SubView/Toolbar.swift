@@ -26,7 +26,6 @@ struct Toolbar: ViewModifier {
 private extension Toolbar {
     private struct ContentView: View {
         @EnvironmentObject var model: AppModel
-        @Environment(\.openWindow) var openWindow
         var body: some View {
             HStack(spacing: 16) {
                 ForEach([Side.white, .black], id: \.self) { side in
@@ -52,20 +51,16 @@ private extension Toolbar {
                 Divider()
                     .padding(.vertical)
                 Button {
-                    self.model.reset()
+                    withAnimation {
+                        self.model.presentSettingPanel = true
+                    }
                 } label: {
-                    Image(systemName: "arrow.counterclockwise")
+                    Image(systemName: "gearshape")
                         .resizable()
                         .fontWeight(.light)
                         .scaledToFit()
                         .padding(4)
                         .frame(width: 42, height: 42)
-                }
-                .help("Reset")
-                Button {
-                    self.openWindow(id: "setting")
-                } label: {
-                    Image(systemName: "gearshape")
                 }
                 .disabled(self.model.presentSettingPanel)
             }

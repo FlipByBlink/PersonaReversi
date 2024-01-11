@@ -8,6 +8,7 @@ struct ContentView: View {
             .offset(y: (FixedValue.windowLength / 2) - FixedValue.toolbarHeight)
             .frame(width: FixedValue.windowLength, height: FixedValue.windowLength)
             .frame(depth: FixedValue.windowLength)
+            .overlay(alignment: .top) { SettingPanel() }
             .modifier(Toolbar())
             .task { self.model.applyPreset() }
             .modifier(ResultEffect())
