@@ -204,11 +204,14 @@ fileprivate extension AppModel {
 }
 
 extension AppModel {
-    func setRandomly() {
+    func setPiecesForDebug() {
 #if DEBUG
-        (0..<81).forEach { index in
-            if Bool.random() {
-                self.set(index)
+        Task { @MainActor in
+            for index in (1...64) {
+                if ![28, 29, 36, 37, 63].contains(index) {
+                    try? await Task.sleep(for: .seconds(0.1))
+                    self.set(index)
+                }
             }
         }
 #endif
