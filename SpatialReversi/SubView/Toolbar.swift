@@ -36,7 +36,7 @@ private extension Toolbar {
                     } label: {
                         Circle()
                             .fill(side == .white ? .white : .black)
-                            .opacity(self.model.side == side ? 1 : 0.75)
+                            .opacity(self.model.side == side ? 0.9 : 0.75)
                             .shadow(color: .gray, radius: 2)
                             .frame(width: 42, height: 42)
                             .overlay {
@@ -48,26 +48,36 @@ private extension Toolbar {
                             }
                     }
                 }
-                Divider()
-                    .padding(.vertical)
-                Button {
-                    withAnimation {
-                        self.model.presentSettingPanel = true
+                if self.model.pieces.isMax {
+                    Button {
+                        self.model.reset()
+                    } label: {
+                        Label("Reset", systemImage: "arrow.counterclockwise")
+                            .font(.title3)
                     }
-                } label: {
-                    Image(systemName: "gearshape")
-                        .resizable()
-                        .fontWeight(.light)
-                        .scaledToFit()
-                        .padding(4)
-                        .frame(width: 42, height: 42)
+                    .padding(.leading)
                 }
-                .disabled(self.model.presentSettingPanel)
+//                Divider()
+//                    .padding(.vertical)
+//                Button {
+//                    withAnimation {
+//                        self.model.presentSettingPanel = true
+//                    }
+//                } label: {
+//                    Image(systemName: "gearshape")
+//                        .resizable()
+//                        .fontWeight(.light)
+//                        .scaledToFit()
+//                        .padding(4)
+//                        .frame(width: 42, height: 42)
+//                }
+//                .disabled(self.model.presentSettingPanel)
             }
             .buttonStyle(.plain)
             .padding(12)
             .padding(.horizontal, 24)
             .glassBackgroundEffect()
+            .animation(.default.speed(0.5), value: self.model.pieces.isMax)
             .frame(height: FixedValue.toolbarHeight)
         }
     }
