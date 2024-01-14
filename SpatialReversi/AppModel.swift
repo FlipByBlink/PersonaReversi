@@ -88,8 +88,8 @@ extension AppModel {
         Task {
             if let systemCoordinator = await groupSession.systemCoordinator {
                 var configuration = SystemCoordinator.Configuration()
-                configuration.spatialTemplatePreference = .conversational
-                configuration.supportsGroupImmersiveSpace = true
+                //configuration.spatialTemplatePreference = .conversational
+                //configuration.supportsGroupImmersiveSpace = true
                 systemCoordinator.configuration = configuration
                 groupSession.join()
             }
