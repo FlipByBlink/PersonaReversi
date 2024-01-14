@@ -27,6 +27,9 @@ extension Pieces: Codable {
     var isMax: Bool {
         self.value.count == 64
     }
+    var shoudPlaySound: Bool {
+        self.value.values.contains { $0.phase == .fadeIn }
+    }
     func affected(_ centerIndex: Int) -> [Int] {
         var value: [Int] = []
         for direction in Self.Direction.allCases {

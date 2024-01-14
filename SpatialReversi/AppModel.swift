@@ -56,6 +56,10 @@ extension AppModel {
                 Task { @MainActor in
                     withAnimation {
                         self.pieces = message
+                    } completion: {
+                        if message.shoudPlaySound {
+                            self.soundEffect.execute()
+                        }
                     }
                 }
             }
