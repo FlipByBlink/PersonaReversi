@@ -17,7 +17,7 @@ class AppModel: ObservableObject {
 }
 
 extension AppModel {
-    func startSharing() {
+    func activateGroupActivity() {
         Task {
             do {
                 _ = try await 👤GroupActivity().activate()
@@ -27,7 +27,7 @@ extension AppModel {
         }
     }
     func configureGroupSession(_ groupSession: GroupSession<👤GroupActivity>) {
-        self.pieces = .init()
+        self.reset()
         
         self.groupSession = groupSession
         let messenger = GroupSessionMessenger(session: groupSession)
@@ -110,10 +110,10 @@ extension AppModel {
     //    if self.groupSession != nil {
     //        self.groupSession?.leave()
     //        self.groupSession = nil
-    //        self.startSharing()
+    //        self.activateGroupActivity()
     //    }
     //}
-    func sync() {
+    func send() {
         Task {
             try? await self.messenger?.send(self.pieces)
         }
@@ -125,19 +125,19 @@ extension AppModel {
         if self.pieces[index] == nil {
             withAnimation(.default.speed(2)) {
                 self.pieces.set(index, self.side)
-                self.sync()
+                self.send()
             } completion: {
                 withAnimation(.default.speed(1.6)) {
                     self.pieces.changePhase(index, .fadeIn)
-                    self.sync()
+                    self.send()
                 } completion: {
                     withAnimation {
                         self.pieces.changePhase(index, .slideDown)
-                        self.sync()
+                        self.send()
                     } completion: {
                         self.soundEffect.execute()
                         self.pieces.affected(index).forEach { self.toggle($0) }
-                        self.sync()
+                        self.send()
                         self.handleResultView()
                     }
                 }
@@ -147,15 +147,15 @@ extension AppModel {
     func toggle(_ index: Int) {
         withAnimation {
             self.pieces.changePhase(index, .slideUp)
-            self.sync()
+            self.send()
         } completion: {
             withAnimation {
                 self.pieces.toggle(index)
-                self.sync()
+                self.send()
             } completion: {
                 withAnimation {
                     self.pieces.changePhase(index, .slideDown)
-                    self.sync()
+                    self.send()
                 }
             }
         }
@@ -164,15 +164,15 @@ extension AppModel {
         for (index, piece) in Pieces.preset {
             withAnimation {
                 self.pieces.set(index, piece.side)
-                self.sync()
+                self.send()
             } completion: {
                 withAnimation(.default.speed(2)) {
                     self.pieces.changePhase(index, .fadeIn)
-                    self.sync()
+                    self.send()
                 } completion: {
                     withAnimation {
                         self.pieces.changePhase(index, .slideDown)
-                        self.sync()
+                        self.send()
                     }
                 }
             }
@@ -182,7 +182,7 @@ extension AppModel {
         withAnimation {
             self.presentResult = false
             self.pieces = .init()
-            self.sync()
+            self.send()
         } completion: {
             Task { @MainActor in
                 try? await Task.sleep(for: .seconds(0.3))
