@@ -63,17 +63,18 @@ extension AppModel {
         self.tasks.insert(task)
         
 #if os(visionOS)
-        Task {
-            if let systemCoordinator = await groupSession.systemCoordinator {
-                for await localParticipantState in systemCoordinator.localParticipantStates {
-                    if localParticipantState.isSpatial {
-                        // Start syncing spacial-actions
-                    } else {
-                        // Stop syncing spacial-actions
-                    }
-                }
-            }
-        }
+        //Task {
+        //    if let systemCoordinator = await groupSession.systemCoordinator {
+        //        for await localParticipantState in systemCoordinator.localParticipantStates {
+        //            if localParticipantState.isSpatial {
+        //                // Start syncing spacial-actions
+        //            } else {
+        //                // Stop syncing spacial-actions
+        //            }
+        //        }
+        //    }
+        //}
+        
         //Task {
         //    if let systemCoordinator = await groupSession.systemCoordinator {
         //        for await immersionStyle in systemCoordinator.groupImmersionStyle {
@@ -85,10 +86,11 @@ extension AppModel {
         //        }
         //    }
         //}
+        
         Task {
             if let systemCoordinator = await groupSession.systemCoordinator {
                 var configuration = SystemCoordinator.Configuration()
-                //configuration.spatialTemplatePreference = .conversational
+                configuration.spatialTemplatePreference = .none
                 //configuration.supportsGroupImmersiveSpace = true
                 systemCoordinator.configuration = configuration
                 groupSession.join()
@@ -98,19 +100,19 @@ extension AppModel {
         groupSession.join()
 #endif
     }
-    func restartGroupActivity() {
-        self.reset()
-        
-        self.messenger = nil
-        self.tasks.forEach { $0.cancel() }
-        self.tasks = []
-        self.subscriptions = []
-        if self.groupSession != nil {
-            self.groupSession?.leave()
-            self.groupSession = nil
-            //self.startSharing()
-        }
-    }
+    //func restartGroupActivity() {
+    //    self.reset()
+    //
+    //    self.messenger = nil
+    //    self.tasks.forEach { $0.cancel() }
+    //    self.tasks = []
+    //    self.subscriptions = []
+    //    if self.groupSession != nil {
+    //        self.groupSession?.leave()
+    //        self.groupSession = nil
+    //        self.startSharing()
+    //    }
+    //}
     func sync() {
         Task {
             try? await self.messenger?.send(self.pieces)
