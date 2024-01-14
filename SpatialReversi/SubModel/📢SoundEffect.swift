@@ -38,6 +38,11 @@ class 📢SoundEffect {
         }
     }
     static func setCategory() {
-        try? AVAudioSession().setCategory(.ambient)
+        do {
+            try AVAudioSession().setCategory(.ambient)
+        } catch {
+            print(error)
+            assertionFailure()
+        }
     }
 }
