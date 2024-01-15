@@ -46,18 +46,21 @@ extension AppModel {
             .sink { activeParticipants in
                 let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
                 Task {
-                    try? await messenger.send(self.pieces, to: .only(newParticipants))
+                    try? await messenger.send(👤Message(pieces: self.pieces,
+                                                        animate: .default(),
+                                                        playingSound: false),
+                                              to: .only(newParticipants))
                 }
             }
             .store(in: &subscriptions)
         
         let task = Task {
-            for await (message, _) in messenger.messages(of: Pieces.self) {
+            for await (message, _) in messenger.messages(of: 👤Message.self) {
                 Task { @MainActor in
-                    withAnimation {
-                        self.pieces = message
+                    withAnimation(message.animate.value) {
+                        self.pieces = message.pieces
                     } completion: {
-                        if message.shoudPlaySound {
+                        if message.playingSound {
                             self.soundEffect.execute()
                         }
                     }
@@ -117,9 +120,11 @@ extension AppModel {
     //        self.activateGroupActivity()
     //    }
     //}
-    func send() {
+    func send(animate: 👤Message.Animate = .default(), playingSound: Bool = false) {
         Task {
-            try? await self.messenger?.send(self.pieces)
+            try? await self.messenger?.send(👤Message(pieces: self.pieces,
+                                                      animate: animate,
+                                                      playingSound: playingSound))
         }
     }
 }
@@ -129,15 +134,15 @@ extension AppModel {
         if self.pieces[index] == nil {
             withAnimation(.default.speed(2)) {
                 self.pieces.set(index, self.side)
-                self.send()
+                self.send(animate: .default(speed: 2))
             } completion: {
                 withAnimation(.default.speed(1.6)) {
                     self.pieces.changePhase(index, .fadeIn)
-                    self.send()
+                    self.send(animate: .default(speed: 1.6))
                 } completion: {
                     withAnimation {
                         self.pieces.changePhase(index, .slideDown)
-                        self.send()
+                        self.send(playingSound: true)
                     } completion: {
                         self.soundEffect.execute()
                         self.pieces.affected(index).forEach { self.toggle($0) }
@@ -172,7 +177,7 @@ extension AppModel {
             } completion: {
                 withAnimation(.default.speed(2)) {
                     self.pieces.changePhase(index, .fadeIn)
-                    self.send()
+                    self.send(animate: .default(speed: 2))
                 } completion: {
                     withAnimation {
                         self.pieces.changePhase(index, .slideDown)
