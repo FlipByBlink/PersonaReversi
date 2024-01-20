@@ -72,6 +72,7 @@
 		16CDEEB52B4D100600664815 /* SR_iOS_debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SR_iOS_debug.entitlements; sourceTree = "<group>"; };
 		16EF41352B5BF445002312FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		16EF41382B5BF620002312FA /* appstore_badge.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = appstore_badge.svg; sourceTree = "<group>"; };
+		16EF41392B5BFA26002312FA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +198,7 @@
 		16EF41372B5BF5BF002312FA /* README assets */ = {
 			isa = PBXGroup;
 			children = (
+				16EF41392B5BFA26002312FA /* icon.png */,
 				16EF41382B5BF620002312FA /* appstore_badge.svg */,
 			);
 			path = "README assets";

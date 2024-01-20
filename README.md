@@ -1,6 +1,8 @@
 SpatialReversi
 ==============
-__Reversi SharePlay app for Apple Vision Pro__
+__Apple Vision Pro__
+
+_Reversi for Spatial SharePlay_
 
 <img src="SpatialReversi/Supporting files/README assets/icon.png" width="64">
 
@@ -13,7 +15,7 @@ __Reversi SharePlay app for Apple Vision Pro__
 
 Description
 ------------
-Reversi app for Spatial SharePlay !!
+Reversi for Spatial SharePlay
 
 
 App Store link
