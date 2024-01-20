@@ -4,7 +4,7 @@ __Reversi SharePlay app for Apple Vision Pro__
 
 <img src="SpatialReversi/Supporting files/README assets/icon.png" width="64">
 
-<a href="https://apps.apple.com/app/" target="blank">
+<a href="https://apps.apple.com/app/id6475770446" target="blank">
     <img src="SpatialReversi/Supporting files/README assets/appstore_badge.svg">
 </a>
 
@@ -18,7 +18,7 @@ Reversi app for Spatial SharePlay !!
 
 App Store link
 ---------------
-[apps.apple.com/app/](https://apps.apple.com/app/)
+[apps.apple.com/app/id6475770446](https://apps.apple.com/app/id6475770446)
 
 
 Source code link

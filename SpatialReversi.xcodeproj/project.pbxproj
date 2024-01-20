@@ -122,10 +122,7 @@
 				16CDEE982B4D0B3500664815 /* 👤Registration.swift */,
 				16C158A92B4D058300835A85 /* SubView */,
 				16C158A82B4D057B00835A85 /* SubModel */,
-				1638F8062B4F904200E0CAD2 /* Archive */,
-				1601FF0F2B4AA8BC0050457E /* Assets.xcassets */,
-				1601FF142B4AA8BC0050457E /* Info.plist */,
-				16CDEE9B2B4D0C6E00664815 /* SpatialReversi.entitlements */,
+				16EF41362B5BF4E6002312FA /* Supporting files */,
 			);
 			path = SpatialReversi;
 			sourceTree = "<group>";
@@ -182,6 +179,17 @@
 				16CDEEB52B4D100600664815 /* SR_iOS_debug.entitlements */,
 			);
 			path = SR_iOS_debug;
+			sourceTree = "<group>";
+		};
+		16EF41362B5BF4E6002312FA /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				1601FF0F2B4AA8BC0050457E /* Assets.xcassets */,
+				1601FF142B4AA8BC0050457E /* Info.plist */,
+				16CDEE9B2B4D0C6E00664815 /* SpatialReversi.entitlements */,
+				1638F8062B4F904200E0CAD2 /* Archive */,
+			);
+			path = "Supporting files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,14 +459,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SpatialReversi/SpatialReversi.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "SpatialReversi/Supporting files/SpatialReversi.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting files/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -479,14 +487,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SpatialReversi/SpatialReversi.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "SpatialReversi/Supporting files/SpatialReversi.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 6696GEY228;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting files/Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
