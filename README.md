@@ -1,6 +1,6 @@
 SpatialReversi
 ==============
-__Apple Vision Pro__
+__Platform: Apple Vision Pro__
 
 _Reversi for Spatial SharePlay_
 
