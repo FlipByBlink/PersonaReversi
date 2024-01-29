@@ -48,7 +48,7 @@ private extension Toolbar {
                             }
                     }
                 }
-                if self.model.pieces.isMax {
+                if self.model.presentResult {
                     Button {
                         self.model.reset()
                     } label: {
@@ -77,7 +77,7 @@ private extension Toolbar {
             .padding(12)
             .padding(.horizontal, 24)
             .glassBackgroundEffect()
-            .animation(.default.speed(0.5), value: self.model.pieces.isMax)
+            .animation(.default.speed(0.33), value: self.model.presentResult)
             .frame(height: FixedValue.toolbarHeight)
         }
     }
