@@ -40,7 +40,7 @@ extension AppModel {
                     self.reset()
                 }
             }
-            .store(in: &subscriptions)
+            .store(in: &self.subscriptions)
         
         groupSession.$activeParticipants
             .sink { activeParticipants in
@@ -52,22 +52,23 @@ extension AppModel {
                                               to: .only(newParticipants))
                 }
             }
-            .store(in: &subscriptions)
+            .store(in: &self.subscriptions)
         
-        let task = Task {
-            for await (message, _) in messenger.messages(of: 👤Message.self) {
-                Task { @MainActor in
-                    withAnimation(message.animate.value) {
-                        self.pieces = message.pieces
-                    } completion: {
-                        if message.playingSound {
-                            self.soundEffect.execute()
+        self.tasks.insert(
+            Task {
+                for await (message, _) in messenger.messages(of: 👤Message.self) {
+                    Task { @MainActor in
+                        withAnimation(message.animate.value) {
+                            self.pieces = message.pieces
+                        } completion: {
+                            if message.playingSound {
+                                self.soundEffect.execute()
+                            }
                         }
                     }
                 }
             }
-        }
-        self.tasks.insert(task)
+        )
         
 #if os(visionOS)
         //Task {
@@ -201,7 +202,7 @@ extension AppModel {
     }
 }
 
-fileprivate extension AppModel {
+private extension AppModel {
     private func handleResultView() {
         Task { @MainActor in
             try? await Task.sleep(for: .seconds(2))

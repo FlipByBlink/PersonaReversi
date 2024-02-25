@@ -120,8 +120,7 @@
 				1601FF0B2B4AA8BA0050457E /* App.swift */,
 				1601FF0D2B4AA8BA0050457E /* ContentView.swift */,
 				160ED79B2B4B827E002AD987 /* AppModel.swift */,
-				16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */,
-				16CDEE982B4D0B3500664815 /* 👤Registration.swift */,
+				16C477162B8B067F00343DD8 /* 👤SharePlay */,
 				16C158A92B4D058300835A85 /* SubView */,
 				16C158A82B4D057B00835A85 /* SubModel */,
 				16EF41362B5BF4E6002312FA /* Supporting files */,
@@ -149,7 +148,6 @@
 		16C158A82B4D057B00835A85 /* SubModel */ = {
 			isa = PBXGroup;
 			children = (
-				16C4CE2D2B54AF30002260A6 /* 👤Message.swift */,
 				160ED7A32B4CC153002AD987 /* Pieces.swift */,
 				160ED7A52B4CC15A002AD987 /* Piece.swift */,
 				160ED7992B4B8147002AD987 /* Side.swift */,
@@ -170,6 +168,16 @@
 				1638F8092B4F962900E0CAD2 /* SettingPanel.swift */,
 			);
 			path = SubView;
+			sourceTree = "<group>";
+		};
+		16C477162B8B067F00343DD8 /* 👤SharePlay */ = {
+			isa = PBXGroup;
+			children = (
+				16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */,
+				16C4CE2D2B54AF30002260A6 /* 👤Message.swift */,
+				16CDEE982B4D0B3500664815 /* 👤Registration.swift */,
+			);
+			path = "👤SharePlay";
 			sourceTree = "<group>";
 		};
 		16CDEEA12B4D0FBF00664815 /* SR_iOS_debug */ = {

@@ -66,7 +66,7 @@ extension Pieces: Codable {
     }()
 }
 
-fileprivate extension Pieces {
+private extension Pieces {
     enum Direction: CaseIterable {
         case leftTop, top, rightTop,
              left, right,
