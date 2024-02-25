@@ -36,7 +36,7 @@ struct BoardView: View {
                     .stroke(lineWidth: 5)
             }
         }
-        .padding(128)
+        .padding(96)
         .glassBackgroundEffect()
     }
 }
