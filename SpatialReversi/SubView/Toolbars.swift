@@ -29,7 +29,7 @@ private extension Toolbars {
     private struct ContentView: View {
         @EnvironmentObject var model: 🥽AppModel
         var body: some View {
-            HStack(spacing: 16) {
+            HStack(spacing: 24) {
                 ForEach([Side.white, .black], id: \.self) { side in
                     Button {
                         withAnimation(.default.speed(1.5)) {
@@ -50,8 +50,23 @@ private extension Toolbars {
                             }
                     }
                 }
-                .opacity(self.model.presentResult ? 0 : 1)
+                HStack(spacing: 8) {
+                    Button {
+                        self.model.viewHeight.value += 50
+                    } label: {
+                        Image(systemName: "chevron.up")
+                            .frame(width: 32, height: 32)
+                    }
+                    Button {
+                        self.model.viewHeight.value -= 50
+                    } label: {
+                        Image(systemName: "chevron.down")
+                            .frame(width: 32, height: 32)
+                    }
+                }
+                .buttonBorderShape(.circle)
             }
+            .opacity(self.model.presentResult ? 0 : 1)
             .buttonStyle(.plain)
             .padding(12)
             .padding(.horizontal, 24)
