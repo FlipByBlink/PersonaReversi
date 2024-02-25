@@ -6,6 +6,7 @@ class 📢SoundEffect {
     private var secondEffectPlayer: AVAudioPlayer?
     init() {
         Task(priority: .background) {
+            Self.setCategory()
             self.actionPlayers = (1...6).compactMap {
                 if let ⓓata = NSDataAsset(name: "sound\($0)")?.data,
                    let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
@@ -37,7 +38,7 @@ class 📢SoundEffect {
             self.secondEffectPlayer?.play()
         }
     }
-    static func setCategory() {
+    private static func setCategory() {
         do {
             try AVAudioSession().setCategory(.ambient)
         } catch {

@@ -12,14 +12,9 @@ struct ContentView: View {
             ShareLink(item: 👤GroupActivity(),
                       preview: .init("SHAREPLAY"))
         }
-        .task {
-            for await session in 👤GroupActivity.sessions() {
-                self.model.configureGroupSession(session)
-            }
-        }
+        .task { await self.model.configureGroupSessions() }
         .task { 👤Registration.execute() }
         .task { self.model.applyPreset() }
-        .onAppear { 📢SoundEffect.setCategory() }
     }
 }
 

@@ -12,13 +12,8 @@ struct ContentView: View {
             .modifier(Toolbar())
             .task { self.model.applyPreset() }
             .modifier(ResultEffect())
-            .task {
-                for await session in 👤GroupActivity.sessions() {
-                    self.model.configureGroupSession(session)
-                }
-            }
+            .task { await self.model.configureGroupSessions() }
             .task { 👤Registration.execute() }
-            .task { 📢SoundEffect.setCategory() }
             .task { self.model.setPiecesForDebug() }
     }
 }
