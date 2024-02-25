@@ -22,7 +22,12 @@ extension 🥽AppModel {
             groupSession.$state
                 .sink {
                     if case .invalidated = $0 {
+                        self.messenger = nil
+                        self.tasks.forEach { $0.cancel() }
+                        self.tasks = []
+                        self.subscriptions = []
                         self.groupSession = nil
+                        self.isSpatial = nil
                         self.reset()
                     }
                 }
@@ -57,17 +62,15 @@ extension 🥽AppModel {
             )
             
 #if os(visionOS)
-            //Task {
-            //    if let systemCoordinator = await groupSession.systemCoordinator {
-            //        for await localParticipantState in systemCoordinator.localParticipantStates {
-            //            if localParticipantState.isSpatial {
-            //                // Start syncing spacial-actions
-            //            } else {
-            //                // Stop syncing spacial-actions
-            //            }
-            //        }
-            //    }
-            //}
+            self.tasks.insert(
+                Task {
+                    if let systemCoordinator = await groupSession.systemCoordinator {
+                        for await localParticipantState in systemCoordinator.localParticipantStates {
+                            self.isSpatial = localParticipantState.isSpatial
+                        }
+                    }
+                }
+            )
             
             //Task {
             //    if let systemCoordinator = await groupSession.systemCoordinator {

@@ -11,6 +11,7 @@ class 🥽AppModel: ObservableObject {
     var messenger: GroupSessionMessenger?
     var subscriptions = Set<AnyCancellable>()
     var tasks = Set<Task<Void, Never>>()
+    @Published var isSpatial: Bool? = nil
     
     let soundEffect: SoundEffect = .init()
 }
