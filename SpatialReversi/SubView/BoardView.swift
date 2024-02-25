@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct BoardView: View {
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         GeometryReader { proxy in
             HStack(spacing: 0) {

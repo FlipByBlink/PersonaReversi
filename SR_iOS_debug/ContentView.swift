@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         VStack {
             BoardView()
@@ -24,7 +24,7 @@ struct ContentView: View {
 }
 
 struct BoardView: View {
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         GeometryReader { proxy in
             HStack(spacing: 0) {
@@ -74,7 +74,7 @@ struct BoardView: View {
 struct PieceView: View {
     var index: Int
     var piece: Piece
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         Circle()
             .fill(self.piece.side == .white ? .white : .black)

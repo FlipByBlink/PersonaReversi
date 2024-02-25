@@ -3,7 +3,7 @@ import RealityKit
 import RealityKitContent
 
 struct ResultEffect: ViewModifier {
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     @State private var yOffset: Double = 400
     @State private var opacity: Double = 0
     func body(content: Content) -> some View {

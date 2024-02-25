@@ -25,7 +25,7 @@ struct Toolbar: ViewModifier {
 
 private extension Toolbar {
     private struct ContentView: View {
-        @EnvironmentObject var model: AppModel
+        @EnvironmentObject var model: 🥽AppModel
         var body: some View {
             HStack(spacing: 16) {
                 ForEach([Side.white, .black], id: \.self) { side in

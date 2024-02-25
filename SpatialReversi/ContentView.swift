@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         BoardView()
             .rotation3DEffect(.init(angle: .degrees(90), axis: .x))

@@ -5,7 +5,7 @@ import RealityKitContent
 struct PieceView: View {
     var index: Int
     var piece: Piece
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         Model3D(named: "Piece", bundle: realityKitContentBundle) {
             $0

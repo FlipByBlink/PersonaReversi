@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct SettingPanel: View {
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         if self.model.presentSettingPanel {
             NavigationStack {

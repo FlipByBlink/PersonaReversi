@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SquareView: View {
     var index: Int
-    @EnvironmentObject var model: AppModel
+    @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         Color.clear
             .contentShape(.rect)
