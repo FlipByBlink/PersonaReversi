@@ -11,6 +11,7 @@ struct ContentView: View {
             }
         }
         .task {
+            self.model.configureGroupSessions()
             self.model.applyPreset()
             👤Registration.execute()
         }

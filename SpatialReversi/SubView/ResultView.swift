@@ -43,7 +43,7 @@ struct ResultEffect: ViewModifier {
                         .font(.system(size: 200))
                         .rotation3DEffect(.degrees(context.date.timeIntervalSinceReferenceDate * 16),
                                           axis: .y)
-                        .offset(z: -FixedValue.windowLength / 2)
+                        .offset(z: -Size.windowLength / 2)
                     }
                     .offset(y: self.yOffset)
                     .opacity(self.opacity)
@@ -55,11 +55,5 @@ struct ResultEffect: ViewModifier {
                     }
                 }
             }
-#if DEBUG
-//            .task {
-//                try? await Task.sleep(for: .seconds(2))
-//                self.model.presentResult = true
-//            }
-#endif
     }
 }

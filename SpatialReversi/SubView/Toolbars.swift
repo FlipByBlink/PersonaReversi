@@ -1,19 +1,19 @@
 import SwiftUI
 
-struct Toolbar: ViewModifier {
+struct Toolbars: ViewModifier {
     func body(content: Content) -> some View {
         content
             .overlay(alignment: .bottom) { Self.ContentView() }
             .overlay(alignment: .bottom) {
                 Self.ContentView()
-                    .offset(x: FixedValue.windowLength / 2)
-                    .offset(z: FixedValue.windowLength / 2)
+                    .offset(x: Size.windowLength / 2)
+                    .offset(z: Size.windowLength / 2)
                     .rotation3DEffect(.init(angle: .degrees(90), axis: .y))
             }
             .overlay(alignment: .bottom) {
                 Self.ContentView()
-                    .offset(x: -FixedValue.windowLength / 2)
-                    .offset(z: FixedValue.windowLength / 2)
+                    .offset(x: -Size.windowLength / 2)
+                    .offset(z: Size.windowLength / 2)
                     .rotation3DEffect(.init(angle: .degrees(270), axis: .y))
             }
             .background(alignment: .bottom) {
@@ -23,7 +23,7 @@ struct Toolbar: ViewModifier {
     }
 }
 
-private extension Toolbar {
+private extension Toolbars {
     private struct ContentView: View {
         @EnvironmentObject var model: 🥽AppModel
         var body: some View {
@@ -63,7 +63,7 @@ private extension Toolbar {
             .padding(.horizontal, 24)
             .glassBackgroundEffect()
             .animation(.default.speed(0.33), value: self.model.presentResult)
-            .frame(height: FixedValue.toolbarHeight)
+            .frame(height: Size.toolbarHeight)
         }
     }
 }

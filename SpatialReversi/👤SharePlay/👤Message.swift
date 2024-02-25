@@ -1,12 +1,10 @@
 import SwiftUI
 
-struct 👤Message {
+struct 👤Message: Codable {
     var pieces: Pieces
     var animate: Self.Animate
     var playingSound: Bool
 }
-
-extension 👤Message: Codable {}
 
 extension 👤Message {
     enum Animate: Codable {

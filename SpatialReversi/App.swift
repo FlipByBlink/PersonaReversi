@@ -9,8 +9,8 @@ struct SpatialReversiApp: App {
                 .environmentObject(self.model)
         }
         .windowStyle(.volumetric)
-        .defaultSize(width: FixedValue.windowLength,
-                     height: FixedValue.windowLength,
-                     depth: FixedValue.windowLength)
+        .defaultSize(width: Size.windowLength,
+                     height: Size.windowLength,
+                     depth: Size.windowLength)
     }
 }

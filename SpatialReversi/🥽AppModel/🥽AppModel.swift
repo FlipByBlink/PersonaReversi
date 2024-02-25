@@ -15,8 +15,4 @@ class 🥽AppModel: ObservableObject {
     @Published var isSpatial: Bool?
     
     let soundFeedback: SoundFeedback = .init()
-    
-    init() {
-        self.configureGroupSessions()
-    }
 }

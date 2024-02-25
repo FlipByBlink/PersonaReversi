@@ -5,12 +5,13 @@ struct ContentView: View {
     var body: some View {
         BoardView()
             .rotation3DEffect(.init(angle: .degrees(90), axis: .x))
-            .offset(y: (FixedValue.windowLength / 2) - FixedValue.toolbarHeight)
-            .frame(width: FixedValue.windowLength, height: FixedValue.windowLength)
-            .frame(depth: FixedValue.windowLength)
-            .modifier(Toolbar())
+            .offset(y: (Size.windowLength / 2) - Size.toolbarHeight)
+            .frame(width: Size.windowLength, height: Size.windowLength)
+            .frame(depth: Size.windowLength)
+            .modifier(Toolbars())
             .modifier(ResultEffect())
             .task {
+                self.model.configureGroupSessions()
                 self.model.applyPreset()
                 👤Registration.execute()
                 self.model.setPiecesForDebug()
