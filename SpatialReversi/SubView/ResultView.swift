@@ -36,7 +36,7 @@ struct ResultEffect: ViewModifier {
                                         textEntity.position.y -= 0.04
                                         content.add(textEntity)
                                     }
-                                    .frame(width: 200, height: 200)
+                                    .frame(width: 350, height: 200)
                                 }
                             }
                         }
