@@ -6,7 +6,6 @@ class 🥽AppModel: ObservableObject {
     @Published var pieces: Pieces = .empty
     @Published var side: Side = .white
     @Published var presentResult: Bool = false
-    @Published var presentSettingPanel: Bool = false
     
     @Published var groupSession: GroupSession<👤GroupActivity>?
     var messenger: GroupSessionMessenger?

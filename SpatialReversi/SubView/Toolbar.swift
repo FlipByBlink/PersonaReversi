@@ -57,21 +57,6 @@ private extension Toolbar {
                     }
                     .padding(.leading)
                 }
-//                Divider()
-//                    .padding(.vertical)
-//                Button {
-//                    withAnimation {
-//                        self.model.presentSettingPanel = true
-//                    }
-//                } label: {
-//                    Image(systemName: "gearshape")
-//                        .resizable()
-//                        .fontWeight(.light)
-//                        .scaledToFit()
-//                        .padding(4)
-//                        .frame(width: 42, height: 42)
-//                }
-//                .disabled(self.model.presentSettingPanel)
             }
             .buttonStyle(.plain)
             .padding(12)
