@@ -28,6 +28,7 @@ struct Toolbars: ViewModifier {
 private extension Toolbars {
     private struct ContentView: View {
         @EnvironmentObject var model: 🥽AppModel
+        @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
         var body: some View {
             HStack(spacing: 24) {
                 ForEach([Side.white, .black], id: \.self) { side in
@@ -65,6 +66,14 @@ private extension Toolbars {
                     }
                 }
                 .buttonBorderShape(.circle)
+                Button {
+                    Task {
+                        await self.dismissImmersiveSpace()
+                    }
+                } label: {
+                    Label("Exit", systemImage: "escape")
+                        .padding(8)
+                }
             }
             .opacity(self.model.presentResult ? 0 : 1)
             .buttonStyle(.plain)
