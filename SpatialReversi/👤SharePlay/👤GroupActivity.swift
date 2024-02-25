@@ -3,11 +3,11 @@ import SwiftUI
 
 struct 👤GroupActivity: GroupActivity {
     var metadata: GroupActivityMetadata {
-        var metadata = GroupActivityMetadata()
-        metadata.title = String(localized: "Reversi")
-        metadata.type = .generic
-        metadata.previewImage = UIImage(resource: .whole).cgImage
-        return metadata
+        var value = GroupActivityMetadata()
+        value.title = String(localized: "Reversi")
+        value.type = .generic
+        value.previewImage = UIImage(resource: .whole).cgImage
+        return value
     }
 }
 

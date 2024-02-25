@@ -1,5 +1,5 @@
 struct Pieces {
-    private var value: [Int: Piece] = [:]
+    private var value: [Int: Piece]
 }
 
 extension Pieces: Codable {
@@ -58,6 +58,7 @@ extension Pieces: Codable {
         }
         return value
     }
+    static let empty: Self = .init(value: [:])
     static let preset: [Int: Piece] = {
         [28: .init(side: .black, phase: .complete),
          29: .init(side: .white, phase: .complete),

@@ -61,7 +61,7 @@ extension 🥽AppModel {
     func reset() {
         withAnimation {
             self.presentResult = false
-            self.pieces = .init()
+            self.pieces = .empty
             self.send()
         } completion: {
             Task { @MainActor in

@@ -7,7 +7,12 @@ struct Piece {
 
 extension Piece: Codable {
     enum Phase: Codable {
-        case clear, fadeIn, slideDown, complete, slideUp, flip
+        case clear,
+             fadeIn,
+             slideDown,
+             complete,
+             slideUp,
+             flip
     }
     var angle: Angle {
         .degrees(self.side == .black ? 180 : 0)

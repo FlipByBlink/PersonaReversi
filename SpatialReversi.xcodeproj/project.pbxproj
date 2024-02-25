@@ -19,8 +19,8 @@
 		160ED7A62B4CC15A002AD987 /* Piece.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED7A52B4CC15A002AD987 /* Piece.swift */; };
 		160ED7A82B4CC20D002AD987 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED7A72B4CC20D002AD987 /* Toolbar.swift */; };
 		160ED7AA2B4CCC17002AD987 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED7A92B4CCC16002AD987 /* BoardView.swift */; };
-		16253CFF2B4E37B20028F0E2 /* 📢SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16253CFE2B4E37B20028F0E2 /* 📢SoundEffect.swift */; };
-		16253D002B4E37B20028F0E2 /* 📢SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16253CFE2B4E37B20028F0E2 /* 📢SoundEffect.swift */; };
+		16253CFF2B4E37B20028F0E2 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16253CFE2B4E37B20028F0E2 /* SoundEffect.swift */; };
+		16253D002B4E37B20028F0E2 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16253CFE2B4E37B20028F0E2 /* SoundEffect.swift */; };
 		1638F80A2B4F962900E0CAD2 /* SettingPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638F8092B4F962900E0CAD2 /* SettingPanel.swift */; };
 		16C158A72B4CEA2B00835A85 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C158A62B4CEA2B00835A85 /* ResultView.swift */; };
 		16C158AB2B4D05F000835A85 /* PieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C158AA2B4D05F000835A85 /* PieceView.swift */; };
@@ -62,7 +62,7 @@
 		160ED7A52B4CC15A002AD987 /* Piece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piece.swift; sourceTree = "<group>"; };
 		160ED7A72B4CC20D002AD987 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		160ED7A92B4CCC16002AD987 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
-		16253CFE2B4E37B20028F0E2 /* 📢SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📢SoundEffect.swift"; sourceTree = "<group>"; };
+		16253CFE2B4E37B20028F0E2 /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 		1638F8072B4F90CC00E0CAD2 /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		1638F8092B4F962900E0CAD2 /* SettingPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingPanel.swift; sourceTree = "<group>"; };
 		16C158A62B4CEA2B00835A85 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
@@ -132,6 +132,7 @@
 				16C477162B8B067F00343DD8 /* 👤SharePlay */,
 				16C158A92B4D058300835A85 /* SubView */,
 				16C158A82B4D057B00835A85 /* SubModel */,
+				16C477212B8B22EE00343DD8 /* Rest */,
 				16EF41362B5BF4E6002312FA /* Supporting files */,
 			);
 			path = SpatialReversi;
@@ -161,7 +162,6 @@
 				160ED7A52B4CC15A002AD987 /* Piece.swift */,
 				160ED7992B4B8147002AD987 /* Side.swift */,
 				160ED79F2B4BB705002AD987 /* FixedValue.swift */,
-				16253CFE2B4E37B20028F0E2 /* 📢SoundEffect.swift */,
 			);
 			path = SubModel;
 			sourceTree = "<group>";
@@ -198,6 +198,14 @@
 				16C4771E2B8B195600343DD8 /* 🥽debug.swift */,
 			);
 			path = "🥽AppModel";
+			sourceTree = "<group>";
+		};
+		16C477212B8B22EE00343DD8 /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				16253CFE2B4E37B20028F0E2 /* SoundEffect.swift */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		16CDEEA12B4D0FBF00664815 /* SR_iOS_debug */ = {
@@ -338,7 +346,7 @@
 				16C477192B8B191C00343DD8 /* 🥽sharePlay.swift in Sources */,
 				16CDEE992B4D0B3500664815 /* 👤GroupActivity.swift in Sources */,
 				160ED7A42B4CC153002AD987 /* Pieces.swift in Sources */,
-				16253CFF2B4E37B20028F0E2 /* 📢SoundEffect.swift in Sources */,
+				16253CFF2B4E37B20028F0E2 /* SoundEffect.swift in Sources */,
 				160ED7A02B4BB705002AD987 /* FixedValue.swift in Sources */,
 				1601FF0E2B4AA8BA0050457E /* ContentView.swift in Sources */,
 				16C4771C2B8B193100343DD8 /* 🥽reversi.swift in Sources */,
@@ -363,7 +371,7 @@
 			files = (
 				16CDEEB32B4D0FF200664815 /* Pieces.swift in Sources */,
 				16C4771A2B8B191C00343DD8 /* 🥽sharePlay.swift in Sources */,
-				16253D002B4E37B20028F0E2 /* 📢SoundEffect.swift in Sources */,
+				16253D002B4E37B20028F0E2 /* SoundEffect.swift in Sources */,
 				16CDEEA52B4D0FBF00664815 /* ContentView.swift in Sources */,
 				16CDEEB22B4D0FF200664815 /* 👤GroupActivity.swift in Sources */,
 				16C477202B8B195600343DD8 /* 🥽debug.swift in Sources */,

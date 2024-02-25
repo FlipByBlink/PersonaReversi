@@ -1,12 +1,12 @@
 import SwiftUI
 import AVFAudio
 
-class 📢SoundEffect {
+class SoundEffect {
     private var actionPlayers: [AVAudioPlayer] = []
     private var secondEffectPlayer: AVAudioPlayer?
     init() {
         Task(priority: .background) {
-            Self.setCategory()
+            try? AVAudioSession().setCategory(.ambient)
             self.actionPlayers = (1...6).compactMap {
                 if let ⓓata = NSDataAsset(name: "sound\($0)")?.data,
                    let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
@@ -36,14 +36,6 @@ class 📢SoundEffect {
     func secondAction() {
         Task(priority: .background) {
             self.secondEffectPlayer?.play()
-        }
-    }
-    private static func setCategory() {
-        do {
-            try AVAudioSession().setCategory(.ambient)
-        } catch {
-            print(error)
-            assertionFailure()
         }
     }
 }

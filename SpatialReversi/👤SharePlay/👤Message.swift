@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct 👤Message {
-    var pieces: Pieces = .init()
+    var pieces: Pieces
     var animate: Self.Animate
-    var playingSound: Bool = false
+    var playingSound: Bool
 }
 
 extension 👤Message: Codable {
