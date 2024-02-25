@@ -84,13 +84,12 @@ extension 🥽AppModel {
             Task {
                 if let systemCoordinator = await groupSession.systemCoordinator {
                     var configuration = SystemCoordinator.Configuration()
-                    configuration.spatialTemplatePreference = .none
-                    //configuration.supportsGroupImmersiveSpace = true
+                    configuration.supportsGroupImmersiveSpace = true
                     systemCoordinator.configuration = configuration
                     groupSession.join()
                 }
             }
-#else
+#elseif os(iOS)
             groupSession.join()
 #endif
         }
