@@ -6,7 +6,9 @@ struct 👤Message {
     var playingSound: Bool
 }
 
-extension 👤Message: Codable {
+extension 👤Message: Codable {}
+
+extension 👤Message {
     enum Animate: Codable {
         case none
         case `default`(speed: Double = 1)

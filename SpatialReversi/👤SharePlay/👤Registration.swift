@@ -8,7 +8,7 @@ enum 👤Registration {
         configuration.metadataProvider = { key in
             guard key == .linkPresentationMetadata else { return nil }
             let metadata = LPLinkMetadata()
-            metadata.title = "SharePlay reversi"
+            metadata.title = "Reversi"
             metadata.imageProvider = NSItemProvider(object: UIImage(resource: .whole))
             return metadata
         }
@@ -41,4 +41,4 @@ enum 👤Registration {
  return metadata
  }
  self.activityItemsConfiguration = configuration
- ======== */
+ ============================================================ */
