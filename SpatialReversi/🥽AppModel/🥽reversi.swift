@@ -15,7 +15,7 @@ extension 🥽AppModel {
                         self.pieces.changePhase(index, .slideDown)
                         self.send(playingSound: true)
                     } completion: {
-                        self.soundEffect.execute()
+                        self.soundFeedback.execute()
                         self.pieces.affected(index).forEach { self.toggle($0) }
                         self.send()
                         self.handleResultView()

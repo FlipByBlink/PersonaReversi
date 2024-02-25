@@ -10,9 +10,10 @@ struct ContentView: View {
                 Text("Black").tag(Side.black)
             }
         }
-        .task { await self.model.configureGroupSessions() }
-        .task { 👤Registration.execute() }
-        .task { self.model.applyPreset() }
+        .task {
+            self.model.applyPreset()
+            👤Registration.execute()
+        }
     }
 }
 

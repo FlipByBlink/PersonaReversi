@@ -9,10 +9,11 @@ struct ContentView: View {
             .frame(width: FixedValue.windowLength, height: FixedValue.windowLength)
             .frame(depth: FixedValue.windowLength)
             .modifier(Toolbar())
-            .task { self.model.applyPreset() }
             .modifier(ResultEffect())
-            .task { await self.model.configureGroupSessions() }
-            .task { 👤Registration.execute() }
-            .task { self.model.setPiecesForDebug() }
+            .task {
+                self.model.applyPreset()
+                👤Registration.execute()
+                self.model.setPiecesForDebug()
+            }
     }
 }

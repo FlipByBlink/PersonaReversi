@@ -2,6 +2,7 @@ import SwiftUI
 import GroupActivities
 import Combine
 
+@MainActor
 class 🥽AppModel: ObservableObject {
     @Published var pieces: Pieces = .empty
     @Published var side: Side = .white
@@ -13,5 +14,9 @@ class 🥽AppModel: ObservableObject {
     var tasks: Set<Task<Void, Never>> = []
     @Published var isSpatial: Bool?
     
-    let soundEffect: SoundEffect = .init()
+    let soundFeedback: SoundFeedback = .init()
+    
+    init() {
+        self.configureGroupSessions()
+    }
 }

@@ -1,7 +1,7 @@
 import SwiftUI
 import AVFAudio
 
-class SoundEffect {
+class SoundFeedback {
     private var actionPlayers: [AVAudioPlayer] = []
     private var secondEffectPlayer: AVAudioPlayer?
     init() {
