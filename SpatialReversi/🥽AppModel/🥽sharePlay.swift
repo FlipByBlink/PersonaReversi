@@ -29,6 +29,7 @@ extension 🥽AppModel {
                             self.subscriptions = []
                             self.groupSession = nil
                             self.isSpatial = nil
+                            self.viewHeight = .default
                             self.reset()
                         }
                     }
@@ -56,6 +57,18 @@ extension 🥽AppModel {
                                     if message.playingSound {
                                         self.soundFeedback.execute()
                                     }
+                                }
+                            }
+                        }
+                    }
+                )
+                
+                self.tasks.insert(
+                    Task {
+                        for await (message, _) in messenger.messages(of: ViewHeight.self) {
+                            Task { @MainActor in
+                                withAnimation {
+                                    self.viewHeight = message
                                 }
                             }
                         }
@@ -104,6 +117,11 @@ extension 🥽AppModel {
             try? await self.messenger?.send(👤Message(pieces: self.pieces,
                                                       animate: animate,
                                                       playingSound: playingSound))
+        }
+    }
+    func send(_ newValue: ViewHeight) {
+        Task {
+            try? await self.messenger?.send(newValue)
         }
     }
 }
