@@ -7,8 +7,7 @@ struct PieceView: View {
     var piece: Piece
     @EnvironmentObject var model: AppModel
     var body: some View {
-        Model3D(named: "Piece",
-                bundle: realityKitContentBundle) {
+        Model3D(named: "Piece", bundle: realityKitContentBundle) {
             $0
                 .resizable()
                 .aspectRatio(contentMode: .fit)

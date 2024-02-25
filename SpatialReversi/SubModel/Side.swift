@@ -1,5 +1,6 @@
 enum Side {
-    case white, black
+    case white,
+         black
 }
 
 extension Side: Codable {

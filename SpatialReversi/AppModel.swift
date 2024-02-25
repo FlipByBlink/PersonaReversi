@@ -34,8 +34,8 @@ extension AppModel {
         self.messenger = messenger
         
         groupSession.$state
-            .sink { state in
-                if case .invalidated = state {
+            .sink {
+                if case .invalidated = $0 {
                     self.groupSession = nil
                     self.reset()
                 }
@@ -43,8 +43,8 @@ extension AppModel {
             .store(in: &self.subscriptions)
         
         groupSession.$activeParticipants
-            .sink { activeParticipants in
-                let newParticipants = activeParticipants.subtracting(groupSession.activeParticipants)
+            .sink {
+                let newParticipants = $0.subtracting(groupSession.activeParticipants)
                 Task {
                     try? await messenger.send(👤Message(pieces: self.pieces,
                                                         animate: .default(),
