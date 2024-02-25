@@ -3,7 +3,9 @@ import SwiftUI
 struct Toolbars: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .overlay(alignment: .bottom) { Self.ContentView() }
+            .overlay(alignment: .bottom) {
+                Self.ContentView()
+            }
             .overlay(alignment: .bottom) {
                 Self.ContentView()
                     .offset(x: Size.windowLength / 2)
@@ -48,20 +50,24 @@ private extension Toolbars {
                             }
                     }
                 }
-                if self.model.presentResult {
-                    Button {
-                        self.model.reset()
-                    } label: {
-                        Label("Reset", systemImage: "arrow.counterclockwise")
-                            .font(.title3)
-                    }
-                    .padding(.leading)
-                }
+                .opacity(self.model.presentResult ? 0 : 1)
             }
             .buttonStyle(.plain)
             .padding(12)
             .padding(.horizontal, 24)
             .glassBackgroundEffect()
+            .overlay {
+                Button {
+                    self.model.reset()
+                } label: {
+                    Label("Reset", systemImage: "arrow.counterclockwise")
+                        .font(.title3)
+                        .padding(8)
+                }
+                .buttonStyle(.plain)
+                .opacity(self.model.presentResult ? 1 : 0)
+                .disabled(!self.model.presentResult)
+            }
             .animation(.default.speed(0.33), value: self.model.presentResult)
             .frame(height: Size.toolbarHeight)
         }
