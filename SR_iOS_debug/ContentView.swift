@@ -9,8 +9,6 @@ struct ContentView: View {
                 Text("White").tag(Side.white)
                 Text("Black").tag(Side.black)
             }
-            ShareLink(item: 👤GroupActivity(),
-                      preview: .init("SHAREPLAY"))
         }
         .task { await self.model.configureGroupSessions() }
         .task { 👤Registration.execute() }

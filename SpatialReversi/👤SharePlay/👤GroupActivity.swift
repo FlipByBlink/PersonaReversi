@@ -10,5 +10,3 @@ struct 👤GroupActivity: GroupActivity {
         return value
     }
 }
-
-extension 👤GroupActivity: Transferable {}
