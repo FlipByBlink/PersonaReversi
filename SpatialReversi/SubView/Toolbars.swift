@@ -4,18 +4,18 @@ struct ToolbarsView: View {
     var body: some View {
         ZStack {
             Self.ContentView()
-                .offset(z: Size.board / 2)
+                .offset(z: Size.toolbarOffset)
             Self.ContentView()
                 .rotation3DEffect(.init(angle: .degrees(90), axis: .y))
-                .offset(x: Size.board / 2)
+                .offset(x: Size.toolbarOffset)
             Self.ContentView()
                 .rotation3DEffect(.init(angle: .degrees(270), axis: .y))
-                .offset(x: -Size.board / 2)
+                .offset(x: -Size.toolbarOffset)
             Self.ContentView()
                 .rotation3DEffect(.init(angle: .degrees(180), axis: .y))
-                .offset(z: -Size.board / 2)
+                .offset(z: -Size.toolbarOffset)
         }
-        .offset(y: (Size.toolbarHeight / 2) + 16)
+        .offset(y: (Size.toolbarHeight / 2) + 20)
     }
 }
 
@@ -26,6 +26,15 @@ private extension ToolbarsView {
         var body: some View {
             HStack(spacing: 0) {
                 if !self.model.presentResult {
+                    Button {
+                        Task {
+                            await self.dismissImmersiveSpace()
+                        }
+                    } label: {
+                        Label("Exit", systemImage: "escape")
+                            .padding(12)
+                    }
+                    .frame(width: 160)
                     Spacer()
                     HStack(spacing: 20) {
                         ForEach([Side.white, .black], id: \.self) { side in
@@ -38,7 +47,7 @@ private extension ToolbarsView {
                                     .fill(side == .white ? .white : .black)
                                     .opacity(self.model.side == side ? 0.9 : 0.75)
                                     .shadow(color: .gray, radius: 2)
-                                    .frame(width: 44, height: 44)
+                                    .frame(width: 48, height: 48)
                                     .overlay {
                                         if self.model.side == side {
                                             Image(systemName: "checkmark")
@@ -67,16 +76,7 @@ private extension ToolbarsView {
                         }
                     }
                     .buttonBorderShape(.circle)
-                    Spacer()
-                    Button {
-                        Task {
-                            await self.dismissImmersiveSpace()
-                        }
-                    } label: {
-                        Label("Exit", systemImage: "escape")
-                            .padding(12)
-                    }
-                    Spacer()
+                    .frame(width: 160)
                 } else {
                     Button {
                         self.model.reset()
@@ -92,6 +92,7 @@ private extension ToolbarsView {
             .padding(12)
             .frame(width: Size.square * 4, height: Size.toolbarHeight)
             .glassBackgroundEffect()
+            .rotation3DEffect(.degrees(20), axis: .x)
             .animation(.default.speed(0.5), value: self.model.presentResult)
         }
     }
