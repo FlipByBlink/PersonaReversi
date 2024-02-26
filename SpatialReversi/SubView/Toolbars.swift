@@ -1,31 +1,25 @@
 import SwiftUI
 
-struct Toolbars: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .overlay(alignment: .bottom) {
-                Self.ContentView()
-            }
-            .overlay(alignment: .bottom) {
-                Self.ContentView()
-                    .offset(x: Size.windowLength / 2)
-                    .offset(z: Size.windowLength / 2)
-                    .rotation3DEffect(.init(angle: .degrees(90), axis: .y))
-            }
-            .overlay(alignment: .bottom) {
-                Self.ContentView()
-                    .offset(x: -Size.windowLength / 2)
-                    .offset(z: Size.windowLength / 2)
-                    .rotation3DEffect(.init(angle: .degrees(270), axis: .y))
-            }
-            .background(alignment: .bottom) {
-                Self.ContentView()
-                    .rotation3DEffect(.init(angle: .degrees(180), axis: .y))
-            }
+struct ToolbarsView: View {
+    var body: some View {
+        ZStack {
+            Self.ContentView()
+                .offset(z: Size.board / 2)
+            Self.ContentView()
+                .rotation3DEffect(.init(angle: .degrees(90), axis: .y))
+                .offset(x: Size.board / 2)
+            Self.ContentView()
+                .rotation3DEffect(.init(angle: .degrees(270), axis: .y))
+                .offset(x: -Size.board / 2)
+            Self.ContentView()
+                .rotation3DEffect(.init(angle: .degrees(180), axis: .y))
+                .offset(z: -Size.board / 2)
+        }
+        .offset(y: Size.toolbarHeight / 2)
     }
 }
 
-private extension Toolbars {
+private extension ToolbarsView {
     private struct ContentView: View {
         @EnvironmentObject var model: 🥽AppModel
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace

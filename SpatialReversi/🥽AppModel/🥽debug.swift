@@ -4,6 +4,7 @@ extension 🥽AppModel {
     func setPiecesForDebug() {
 #if DEBUG
         Task { @MainActor in
+            try? await Task.sleep(for: .seconds(1))
             for index in (1...64) {
                 if ![28, 29, 36, 37, 63].contains(index) {
                     try? await Task.sleep(for: .seconds(0.2))
