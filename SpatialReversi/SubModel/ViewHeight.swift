@@ -1,4 +1,4 @@
 struct ViewHeight: Codable {
     var value: Double
-    static let `default`: Self = .init(value: 1600)
+    static let `default`: Self = .init(value: 1900)
 }

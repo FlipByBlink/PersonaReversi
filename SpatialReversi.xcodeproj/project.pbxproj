@@ -46,6 +46,7 @@
 		16CDEEB22B4D0FF200664815 /* 👤GroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */; };
 		16CDEEB32B4D0FF200664815 /* Pieces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED7A32B4CC153002AD987 /* Pieces.swift */; };
 		16CDEEB42B4D0FF200664815 /* 🥽AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED79B2B4B827E002AD987 /* 🥽AppModel.swift */; };
+		16EDF0572B8C3E7B0096217A /* ReversiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF0562B8C3E7B0096217A /* ReversiView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,7 @@
 		16CDEEA42B4D0FBF00664815 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16CDEEA62B4D0FC100664815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16CDEEB52B4D100600664815 /* SR_iOS_debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SR_iOS_debug.entitlements; sourceTree = "<group>"; };
+		16EDF0562B8C3E7B0096217A /* ReversiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversiView.swift; sourceTree = "<group>"; };
 		16EF41352B5BF445002312FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		16EF41382B5BF620002312FA /* appstore_badge.svg */ = {isa = PBXFileReference; lastKnownFileType = text; path = appstore_badge.svg; sourceTree = "<group>"; };
 		16EF41392B5BFA26002312FA /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				167761C22B8B72340092CB24 /* EntranceView.swift */,
+				16EDF0562B8C3E7B0096217A /* ReversiView.swift */,
 				160ED7A92B4CCC16002AD987 /* BoardView.swift */,
 				160ED7A12B4CC0F9002AD987 /* SquareView.swift */,
 				16C158AA2B4D05F000835A85 /* PieceView.swift */,
@@ -359,6 +362,7 @@
 				1601FF0C2B4AA8BA0050457E /* App.swift in Sources */,
 				16C4CE2E2B54AF30002260A6 /* 👤Message.swift in Sources */,
 				16C4771F2B8B195600343DD8 /* 🥽debug.swift in Sources */,
+				16EDF0572B8C3E7B0096217A /* ReversiView.swift in Sources */,
 				160ED7A62B4CC15A002AD987 /* Piece.swift in Sources */,
 				160ED7A82B4CC20D002AD987 /* Toolbars.swift in Sources */,
 				160ED7A22B4CC0F9002AD987 /* SquareView.swift in Sources */,

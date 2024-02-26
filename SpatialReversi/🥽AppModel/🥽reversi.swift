@@ -83,7 +83,7 @@ extension 🥽AppModel {
 private extension 🥽AppModel {
     private func handleResultView() {
         Task { @MainActor in
-            try? await Task.sleep(for: .seconds(2))
+            try? await Task.sleep(for: .seconds(1.5))
             if self.pieces.isMax {
                 withAnimation {
                     self.presentResult = true
