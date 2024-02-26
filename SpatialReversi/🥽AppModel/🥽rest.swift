@@ -3,8 +3,8 @@ import SwiftUI
 extension 🥽AppModel {
     var showEntrance: Bool {
 #if DEBUG
-//        true
-        false
+        true
+//        false
 #else
         self.groupSession == nil
 #endif
