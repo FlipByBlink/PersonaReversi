@@ -1,32 +1,21 @@
 import SwiftUI
+import RealityKit
 
 struct ContentView: View {
     @EnvironmentObject var model: 🥽AppModel
     var body: some View {
-        Group {
-            if self.showEntrance {
-                EntranceView()
-                    .offset(y: -2600)
-                    .offset(z: -1300)
-            } else {
-                ReversiView()
-                    .offset(z: -1300)//実際には0
-            }
+        RealityView { content, attachments in
+            content.add(attachments.entity(for: "entrance")!)
+            content.add(attachments.entity(for: "reversi")!)
+        } attachments: {
+            Attachment(id: "entrance") { EntranceView() }
+            Attachment(id: "reversi") { ReversiView() }
         }
+        .animation(.default, value: self.model.showEntrance)
+        .animation(.default, value: self.model.showReversi)
         .task {
             self.model.configureGroupSessions()
             👤Registration.execute()
         }
-    }
-}
-
-private extension ContentView {
-    private var showEntrance: Bool {
-#if !DEBUG
-        self.model.groupSession == nil
-#else
-//        true
-        false
-#endif
     }
 }
