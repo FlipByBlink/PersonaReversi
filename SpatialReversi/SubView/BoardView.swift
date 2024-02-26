@@ -31,11 +31,11 @@ struct BoardView: View {
             }
         }
         .overlay {
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
+            RoundedRectangle(cornerRadius: 24)
                 .stroke(lineWidth: 5)
         }
         .padding(Size.boardPadding)
-        .glassBackgroundEffect()
+        .glassBackgroundEffect(in: RoundedRectangle(cornerRadius: 96))
         .frame(width: Size.board, height: Size.board)
         .rotation3DEffect(.init(angle: .degrees(90), axis: .x))
     }
