@@ -47,13 +47,13 @@ private extension ToolbarsView {
                 }
                 HStack(spacing: 8) {
                     Button {
-                        self.model.viewHeight.value += 50
+                        self.model.raiseBoard()
                     } label: {
                         Image(systemName: "chevron.up")
                             .frame(width: 32, height: 32)
                     }
                     Button {
-                        self.model.viewHeight.value -= 50
+                        self.model.lowerBoard()
                     } label: {
                         Image(systemName: "chevron.down")
                             .frame(width: 32, height: 32)
@@ -73,7 +73,6 @@ private extension ToolbarsView {
             .buttonStyle(.plain)
             .padding(12)
             .padding(.horizontal, 24)
-            .glassBackgroundEffect()
             .overlay {
                 Button {
                     self.model.reset()
@@ -86,6 +85,7 @@ private extension ToolbarsView {
                 .opacity(self.model.presentResult ? 1 : 0)
                 .disabled(!self.model.presentResult)
             }
+            .glassBackgroundEffect()
             .animation(.default.speed(0.33), value: self.model.presentResult)
             .frame(height: Size.toolbarHeight)
         }

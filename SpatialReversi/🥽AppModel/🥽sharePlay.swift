@@ -119,9 +119,9 @@ extension 🥽AppModel {
                                                       playingSound: playingSound))
         }
     }
-    func send(_ newValue: ViewHeight) {
+    func sendViewHeight() {
         Task {
-            try? await self.messenger?.send(newValue)
+            try? await self.messenger?.send(self.viewHeight)
         }
     }
 }

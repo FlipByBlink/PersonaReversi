@@ -70,6 +70,14 @@ extension 🥽AppModel {
             }
         }
     }
+    func raiseBoard() {
+        self.viewHeight.value += 50
+        self.sendViewHeight()
+    }
+    func lowerBoard() {
+        self.viewHeight.value -= 50
+        self.sendViewHeight()
+    }
 }
 
 private extension 🥽AppModel {

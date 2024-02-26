@@ -21,7 +21,8 @@ struct ContentView: View {
 //            self.model.setPiecesForDebug()
 //            self.model.showResultView()
         }
-        .offset(y: -1600)
+        .offset(y: -self.model.viewHeight.value)
+        .animation(.default, value: self.model.viewHeight.value)
         .offset(z: -1300)//実際には0
     }
 }
