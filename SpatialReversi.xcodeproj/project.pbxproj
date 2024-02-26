@@ -135,8 +135,9 @@
 				1601FF0D2B4AA8BA0050457E /* ContentView.swift */,
 				16C477172B8B190400343DD8 /* 🥽AppModel */,
 				16C477162B8B067F00343DD8 /* 👤SharePlay */,
-				16C158A92B4D058300835A85 /* SubView */,
 				16C158A82B4D057B00835A85 /* SubModel */,
+				16C158A92B4D058300835A85 /* ReversiView */,
+				16EDF0582B8C40720096217A /* EntranceView */,
 				16C477212B8B22EE00343DD8 /* Rest */,
 				16EF41362B5BF4E6002312FA /* Supporting files */,
 			);
@@ -171,18 +172,15 @@
 			path = SubModel;
 			sourceTree = "<group>";
 		};
-		16C158A92B4D058300835A85 /* SubView */ = {
+		16C158A92B4D058300835A85 /* ReversiView */ = {
 			isa = PBXGroup;
 			children = (
-				167761C22B8B72340092CB24 /* EntranceView.swift */,
 				16EDF0562B8C3E7B0096217A /* ReversiView.swift */,
-				160ED7A92B4CCC16002AD987 /* BoardView.swift */,
-				160ED7A12B4CC0F9002AD987 /* SquareView.swift */,
-				16C158AA2B4D05F000835A85 /* PieceView.swift */,
 				160ED7A72B4CC20D002AD987 /* Toolbars.swift */,
 				16C158A62B4CEA2B00835A85 /* ResultView.swift */,
+				16EDF0592B8C40810096217A /* BoardView */,
 			);
-			path = SubView;
+			path = ReversiView;
 			sourceTree = "<group>";
 		};
 		16C477162B8B067F00343DD8 /* 👤SharePlay */ = {
@@ -224,6 +222,24 @@
 				16CDEEB52B4D100600664815 /* SR_iOS_debug.entitlements */,
 			);
 			path = SR_iOS_debug;
+			sourceTree = "<group>";
+		};
+		16EDF0582B8C40720096217A /* EntranceView */ = {
+			isa = PBXGroup;
+			children = (
+				167761C22B8B72340092CB24 /* EntranceView.swift */,
+			);
+			path = EntranceView;
+			sourceTree = "<group>";
+		};
+		16EDF0592B8C40810096217A /* BoardView */ = {
+			isa = PBXGroup;
+			children = (
+				160ED7A92B4CCC16002AD987 /* BoardView.swift */,
+				160ED7A12B4CC0F9002AD987 /* SquareView.swift */,
+				16C158AA2B4D05F000835A85 /* PieceView.swift */,
+			);
+			path = BoardView;
 			sourceTree = "<group>";
 		};
 		16EF41362B5BF4E6002312FA /* Supporting files */ = {
