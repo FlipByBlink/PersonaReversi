@@ -5,9 +5,31 @@ struct ContentView: View {
     var body: some View {
         VStack {
             BoardView()
-            Picker("Side", selection: self.$model.side) {
-                Text("White").tag(Side.white)
-                Text("Black").tag(Side.black)
+                .offset(y: (ViewHeight.default.value-self.model.viewHeight.value)/3)
+            Button("Start activity!") {
+                self.model.activateGroupActivity()
+            }
+            HStack {
+                Picker("Side", selection: self.$model.side) {
+                    Text("White").tag(Side.white)
+                    Text("Black").tag(Side.black)
+                }
+                HStack(spacing: 6) {
+                    Button {
+                        self.model.raiseBoard()
+                    } label: {
+                        Image(systemName: "chevron.up")
+                            .frame(width: 32, height: 32)
+                            .padding(8)
+                    }
+                    Button {
+                        self.model.lowerBoard()
+                    } label: {
+                        Image(systemName: "chevron.down")
+                            .frame(width: 32, height: 32)
+                            .padding(8)
+                    }
+                }
             }
         }
         .task {

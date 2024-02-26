@@ -48,6 +48,7 @@
 		16CDEEB42B4D0FF200664815 /* 🥽AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED79B2B4B827E002AD987 /* 🥽AppModel.swift */; };
 		16EDF0572B8C3E7B0096217A /* ReversiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF0562B8C3E7B0096217A /* ReversiView.swift */; };
 		16EDF05B2B8C41C10096217A /* 🥽rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF05A2B8C41C10096217A /* 🥽rest.swift */; };
+		16EDF05C2B8C4AFF0096217A /* 🥽rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF05A2B8C41C10096217A /* 🥽rest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -398,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16EDF05C2B8C4AFF0096217A /* 🥽rest.swift in Sources */,
 				16CDEEB32B4D0FF200664815 /* Pieces.swift in Sources */,
 				16C4771A2B8B191C00343DD8 /* 🥽sharePlay.swift in Sources */,
 				16253D002B4E37B20028F0E2 /* SoundFeedback.swift in Sources */,
