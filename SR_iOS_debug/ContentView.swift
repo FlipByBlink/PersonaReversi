@@ -4,30 +4,34 @@ struct ContentView: View {
     @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         VStack {
-            BoardView()
-                .offset(y: (ViewHeight.default.value-self.model.viewHeight.value)/3)
-            Button("Start activity!") {
-                self.model.activateGroupActivity()
-            }
-            HStack {
-                Picker("Side", selection: self.$model.side) {
-                    Text("White").tag(Side.white)
-                    Text("Black").tag(Side.black)
+            if self.model.showEntrance {
+                Button("Start activity!") {
+                    self.model.activateGroupActivity()
                 }
-                HStack(spacing: 6) {
-                    Button {
-                        self.model.raiseBoard()
-                    } label: {
-                        Image(systemName: "chevron.up")
-                            .frame(width: 32, height: 32)
-                            .padding(8)
+            }
+            if self.model.showReversi {
+                BoardView()
+                    .offset(y: (ViewHeight.default.value-self.model.viewHeight.value)/3)
+                HStack {
+                    Picker("Side", selection: self.$model.side) {
+                        Text("White").tag(Side.white)
+                        Text("Black").tag(Side.black)
                     }
-                    Button {
-                        self.model.lowerBoard()
-                    } label: {
-                        Image(systemName: "chevron.down")
-                            .frame(width: 32, height: 32)
-                            .padding(8)
+                    HStack(spacing: 6) {
+                        Button {
+                            self.model.raiseBoard()
+                        } label: {
+                            Image(systemName: "chevron.up")
+                                .frame(width: 32, height: 32)
+                                .padding(8)
+                        }
+                        Button {
+                            self.model.lowerBoard()
+                        } label: {
+                            Image(systemName: "chevron.down")
+                                .frame(width: 32, height: 32)
+                                .padding(8)
+                        }
                     }
                 }
             }
@@ -35,7 +39,6 @@ struct ContentView: View {
         .task {
             self.model.configureGroupSessions()
             self.model.applyPreset()
-            👤Registration.execute()
         }
     }
 }

@@ -11,9 +11,6 @@ struct ContentView: View {
             Attachment(id: "entrance") { EntranceView() }
             Attachment(id: "reversi") { ReversiView() }
         }
-        .task {
-            self.model.configureGroupSessions()
-            👤Registration.execute()
-        }
+        .task { self.model.configureGroupSessions() }
     }
 }

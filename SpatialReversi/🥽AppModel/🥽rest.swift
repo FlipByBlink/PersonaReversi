@@ -2,9 +2,8 @@ import SwiftUI
 
 extension 🥽AppModel {
     var showEntrance: Bool {
-#if DEBUG
+#if targetEnvironment(simulator)
         true
-//        false
 #else
         self.groupSession == nil
 #endif
