@@ -14,22 +14,18 @@ struct ReversiView: View {
             Attachment(id: "result") { ResultView() }
         }
         .offset(y: -self.model.viewHeight.value)
-#if DEBUG
+#if targetEnvironment(simulator)
         .offset(z: -1300)//実際には0
 #endif
         .opacity(self.model.showReversi ? 1 : 0)
         .animation(.default, value: self.model.viewHeight.value)
         .animation(.default, value: self.model.showReversi)
-#if DEBUG
-        .onChange(of: self.model.showReversi) { _, newValue in
-            if newValue == true {
-                Task {
-                    try? await Task.sleep(for: .seconds(1))
-                    self.model.applyPreset()
-                    //            self.model.setPiecesForDebug()
-                    //            self.model.showResultView()
-                }
-            }
+#if targetEnvironment(simulator)
+        .task {
+            try? await Task.sleep(for: .seconds(1))
+            self.model.applyPreset()
+            //self.model.setPiecesForDebug()
+            //self.model.showResultView()
         }
 #endif
     }
