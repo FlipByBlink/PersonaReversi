@@ -24,7 +24,6 @@ struct PieceView: View {
                 .padding(12)
         }
         .opacity(self.piece.opacity)
-        .onTapGesture { self.model.toggle(self.index) }
     }
     init(_ index: Int, _ piece: Piece) {
         self.index = index
