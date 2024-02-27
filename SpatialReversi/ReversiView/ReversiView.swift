@@ -16,6 +16,8 @@ struct ReversiView: View {
         .offset(y: -self.model.viewHeight.value)
 #if targetEnvironment(simulator)
         .offset(z: -1300)//実際には0
+#else
+        .offset(z: self.model.isSpatial == true ? 0 : -1300)
 #endif
         .opacity(self.model.showReversi ? 1 : 0)
         .animation(.default, value: self.model.viewHeight.value)
