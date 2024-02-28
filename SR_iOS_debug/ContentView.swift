@@ -66,7 +66,7 @@ struct BoardView: View {
                                 .overlay(alignment: .bottomTrailing) {
                                     if self.model.puttable(index) {
                                         Text("hoverEffect")
-                                            .font(.caption)
+                                            .font(.footnote)
                                             .foregroundStyle(.green)
                                     }
                                 }
@@ -112,7 +112,7 @@ struct BoardView: View {
                     ⚫️ \(self.model.pieces?.pieceCounts[.black] ?? 0)
                     ⚪️ \(self.model.pieces?.pieceCounts[.white] ?? 0)
                     """)
-                    .font(.system(size: 50).bold())
+                    .font(.system(size: 70).bold())
                     .foregroundStyle(.green)
                 }
             }
@@ -130,13 +130,17 @@ struct PieceView: View {
             .fill(self.piece.side == .white ? .white : .black)
             .overlay { Circle().stroke() }
             .overlay {
-                switch self.model.pieces?[index]?.phase {
-                    case .fadeIn, .flip, .slideDown, .slideUp:
-                        ProgressView()
-                            .background { Circle().fill(.regularMaterial) }
-                    default:
-                        EmptyView()
+                Group {
+                    switch self.model.pieces?[index]?.phase {
+                        case .fadeIn: Text("fadeIn")
+                        case .flip: Text("flip")
+                        case .slideDown: Text("down")
+                        case .slideUp: Text("up")
+                        default: EmptyView()
+                    }
                 }
+                .font(.footnote)
+                .foregroundStyle(.green)
             }
             .padding(4)
     }
