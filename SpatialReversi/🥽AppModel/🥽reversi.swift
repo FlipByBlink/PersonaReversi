@@ -16,26 +16,33 @@ extension 🥽AppModel {
                         self.send(playingSound: true)
                     } completion: {
                         self.soundFeedback.execute()
-                        self.pieces.affected(index).forEach { self.toggle($0) }
-                        self.send()
-                        self.handleResultView()
+                        let affectedIndexes = self.pieces.affected(index)
+                        if affectedIndexes.count > 0 {
+                            withAnimation {
+                                affectedIndexes.forEach {
+                                    self.pieces.changePhase($0, .slideUp)
+                                }
+                                self.send()
+                            } completion: {
+                                withAnimation {
+                                    affectedIndexes.forEach {
+                                        self.pieces.toggle($0)
+                                    }
+                                    self.send()
+                                } completion: {
+                                    withAnimation {
+                                        affectedIndexes.forEach {
+                                            self.pieces.changePhase($0, .slideDown)
+                                        }
+                                        self.send()
+                                        self.handleResultView()
+                                    }
+                                }
+                            }
+                        } else {
+                            self.handleResultView()
+                        }
                     }
-                }
-            }
-        }
-    }
-    func toggle(_ index: Int) {
-        withAnimation {
-            self.pieces.changePhase(index, .slideUp)
-            self.send()
-        } completion: {
-            withAnimation {
-                self.pieces.toggle(index)
-                self.send()
-            } completion: {
-                withAnimation {
-                    self.pieces.changePhase(index, .slideDown)
-                    self.send()
                 }
             }
         }
