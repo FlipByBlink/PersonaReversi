@@ -24,8 +24,10 @@ extension Pieces: Codable {
             }
         }
     }
-    var isMax: Bool {
+    var isFinished: Bool {
         self.value.count == 64
+        &&
+        self.value.allSatisfy { $0.value.phase == .complete }
     }
     var shoudPlaySound: Bool {
         self.value.values.contains { $0.phase == .fadeIn }

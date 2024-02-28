@@ -7,7 +7,7 @@ struct ResultView: View {
     @State private var yOffset: Double = 400
     @State private var opacity: Double = 0
     var body: some View {
-        if self.model.presentResult {
+        if self.model.showResult {
             TimelineView(.animation) { context in
                 VStack(spacing: 64) {
                     ForEach([Side.white, .black], id: \.self) { side in

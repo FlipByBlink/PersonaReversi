@@ -42,12 +42,9 @@ extension 🥽AppModel {
                                             self.pieces.changePhase($0, .complete)
                                         }
                                         self.send()
-                                        self.handleResultView()
                                     }
                                 }
                             }
-                        } else {
-                            self.handleResultView()
                         }
                     }
                 }
@@ -77,7 +74,6 @@ extension 🥽AppModel {
     }
     func reset() {
         withAnimation {
-            self.presentResult = false
             self.pieces = .empty
             self.send()
         } completion: {
@@ -87,16 +83,7 @@ extension 🥽AppModel {
             }
         }
     }
-    func handleResultView() {
-        Task { @MainActor in
-            try? await Task.sleep(for: .seconds(1.5))
-            if self.pieces.isMax {
-                withAnimation {
-                    self.presentResult = true
-                }
-            } else {
-                self.presentResult = false
-            }
-        }
+    var showResult: Bool {
+        self.pieces.isFinished
     }
 }

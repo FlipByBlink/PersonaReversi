@@ -26,8 +26,7 @@ struct ReversiView: View {
         .task {
             try? await Task.sleep(for: .seconds(1))
             self.model.applyPreset()
-            //self.model.setPiecesForDebug()
-            //self.model.showResultView()
+            self.model.setPiecesForDebug()
         }
 #endif
     }

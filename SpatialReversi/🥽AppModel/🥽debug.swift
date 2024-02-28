@@ -15,12 +15,4 @@ extension 🥽AppModel {
         }
 #endif
     }
-    func showResultView() {
-#if DEBUG
-        Task { @MainActor in
-            try? await Task.sleep(for: .seconds(2))
-            self.presentResult = true
-        }
-#endif
-    }
 }

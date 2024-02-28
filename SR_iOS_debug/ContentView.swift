@@ -90,7 +90,7 @@ struct BoardView: View {
                     .stroke(lineWidth: 5)
             }
             .overlay {
-                if self.model.presentResult {
+                if self.model.showResult {
                     Text("""
                     ⚫️ \(self.model.pieces.pieceCounts[.black] ?? 0)
                     ⚪️ \(self.model.pieces.pieceCounts[.white] ?? 0)

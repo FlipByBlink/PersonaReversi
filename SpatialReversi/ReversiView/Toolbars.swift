@@ -25,7 +25,7 @@ private extension ToolbarsView {
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
         var body: some View {
             HStack(spacing: 0) {
-                if !self.model.presentResult {
+                if !self.model.showResult {
                     Button {
                         Task {
                             await self.dismissImmersiveSpace()
@@ -93,7 +93,7 @@ private extension ToolbarsView {
             .frame(width: Size.square * 4, height: Size.toolbarHeight)
             .glassBackgroundEffect()
             .rotation3DEffect(.degrees(20), axis: .x)
-            .animation(.default.speed(0.5), value: self.model.presentResult)
+            .animation(.default.speed(0.5), value: self.model.showResult)
         }
     }
 }
