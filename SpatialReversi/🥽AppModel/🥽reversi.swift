@@ -16,6 +16,7 @@ extension 🥽AppModel {
                         self.send(playingSound: true)
                     } completion: {
                         self.pieces.changePhase(index, .complete)
+                        self.send()
                         self.soundFeedback.execute()
                         let affectedIndexes = self.pieces.affected(index)
                         if affectedIndexes.count > 0 {
