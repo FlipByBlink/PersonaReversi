@@ -48,7 +48,7 @@ struct ResultView: View {
             .offset(y: -600)
             .opacity(self.opacity)
             .task {
-                try? await Task.sleep(for: .seconds(2))
+                try? await Task.sleep(for: .seconds(1))
                 withAnimation(.default.speed(0.25)) {
                     self.yOffset = 0
                     self.opacity = 1

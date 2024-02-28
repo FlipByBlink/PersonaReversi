@@ -15,8 +15,6 @@ extension 🥽AppModel {
                         self.pieces?.changePhase(index, .slideDown)
                         self.send(playingSound: true)
                     } completion: {
-                        self.pieces?.changePhase(index, .complete)
-                        self.send()
                         self.soundFeedback.execute()
                         let affectedIndexes = self.pieces?.affected(index) ?? []
                         if affectedIndexes.count > 0 {
@@ -41,10 +39,14 @@ extension 🥽AppModel {
                                         affectedIndexes.forEach {
                                             self.pieces?.changePhase($0, .complete)
                                         }
+                                        self.pieces?.changePhase(index, .complete)
                                         self.send()
                                     }
                                 }
                             }
+                        } else {
+                            self.pieces?.changePhase(index, .complete)
+                            self.send()
                         }
                     }
                 }
