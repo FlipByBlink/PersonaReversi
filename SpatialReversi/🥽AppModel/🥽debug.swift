@@ -6,7 +6,7 @@ extension 🥽AppModel {
         Task {
             self.pieces = .empty
             self.viewHeight = .default
-            try? await Task.sleep(for: .seconds(0.5))
+            try? await Task.sleep(for: .seconds(1))
             self.applyPreset()
         }
 #endif

@@ -80,7 +80,6 @@ private extension ToolbarsView {
                         self.model.reset()
                     } label: {
                         Label("Reset", systemImage: "arrow.counterclockwise")
-                            .font(.title3)
                             .padding(12)
                             .minimumScaleFactor(0.5)
                     }
