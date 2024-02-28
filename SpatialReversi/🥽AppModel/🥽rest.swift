@@ -3,7 +3,7 @@ import SwiftUI
 extension 🥽AppModel {
     var showEntrance: Bool {
 #if targetEnvironment(simulator)
-        !true
+        false
 #else
         self.groupSession == nil
 #endif

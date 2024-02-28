@@ -48,14 +48,13 @@ extension 🥽AppModel {
                 groupSession.$activeParticipants
                     .sink {
                         let newParticipants = $0.subtracting(groupSession.activeParticipants)
-                        Task {
-                            if let pieces = self.pieces {
+                        Task { @MainActor in
+                            if let pieces = self.pieces,
+                               let viewHeight = self.viewHeight {
                                 try? await messenger.send(👤Message(pieces: pieces,
                                                                     animate: .default(),
                                                                     playingSound: false),
                                                           to: .only(newParticipants))
-                            }
-                            if let viewHeight = self.viewHeight {
                                 try? await messenger.send(viewHeight)
                             }
                         }
@@ -92,7 +91,7 @@ extension 🥽AppModel {
                 
 #if os(visionOS)
                 self.tasks.insert(
-                    Task {
+                    Task { @MainActor in
                         if let systemCoordinator = await groupSession.systemCoordinator {
                             for await localParticipantState in systemCoordinator.localParticipantStates {
                                 self.isSpatial = localParticipantState.isSpatial
@@ -100,18 +99,6 @@ extension 🥽AppModel {
                         }
                     }
                 )
-                
-                //Task {
-                //    if let systemCoordinator = await groupSession.systemCoordinator {
-                //        for await immersionStyle in systemCoordinator.groupImmersionStyle {
-                //            if let immersionStyle {
-                //                // Open an immersive space with the same immersion style
-                //            } else {
-                //                // Dismiss the immersive space
-                //            }
-                //        }
-                //    }
-                //}
                 
                 Task {
                     if let systemCoordinator = await groupSession.systemCoordinator {
