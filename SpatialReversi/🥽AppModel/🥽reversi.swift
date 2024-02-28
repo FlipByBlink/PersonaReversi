@@ -5,17 +5,17 @@ extension 🥽AppModel {
         if self.pieces?[index] == nil {
             withAnimation(.default.speed(2)) {
                 self.pieces?.set(index, self.side)
-                self.send(animate: .default(speed: 2))
+                self.send(pieceAnimation: .default(speed: 2))
             } completion: {
                 withAnimation(.default.speed(1.6)) {
                     self.pieces?.changePhase(index, .fadeIn)
-                    self.send(animate: .default(speed: 1.6))
+                    self.send(pieceAnimation: .default(speed: 1.6))
                 } completion: {
                     withAnimation {
                         self.pieces?.changePhase(index, .slideDown)
-                        self.send(playingSound: true)
+                        self.send()
                     } completion: {
-                        self.soundFeedback.execute()
+                        self.playSound(.crack)
                         let affectedIndexes = self.pieces?.affected(index) ?? []
                         if affectedIndexes.count > 0 {
                             withAnimation {
@@ -61,7 +61,7 @@ extension 🥽AppModel {
             } completion: {
                 withAnimation(.default.speed(2)) {
                     self.pieces?.changePhase(index, .fadeIn)
-                    self.send(animate: .default(speed: 2))
+                    self.send(pieceAnimation: .default(speed: 2))
                 } completion: {
                     withAnimation {
                         self.pieces?.changePhase(index, .slideDown)

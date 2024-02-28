@@ -26,13 +26,19 @@ extension 🥽AppModel {
     func raiseBoard() {
         if let value = self.viewHeight?.value {
             self.viewHeight?.value = value + 50
-            self.sendViewHeight()
+            self.send()
         }
     }
     func lowerBoard() {
         if let value = self.viewHeight?.value {
             self.viewHeight?.value = value - 50
-            self.sendViewHeight()
+            self.send()
+        }
+    }
+    func playSound(_ file: SoundFile) {
+        self.soundFeedback.play(file)
+        Task {
+            try? await self.messenger?.send(👤PlaySound(file: file))
         }
     }
 }

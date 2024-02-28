@@ -51,11 +51,10 @@ extension 🥽AppModel {
                         Task { @MainActor in
                             if let pieces = self.pieces,
                                let viewHeight = self.viewHeight {
-                                try? await messenger.send(👤Message(pieces: pieces,
-                                                                    animate: .default(),
-                                                                    playingSound: false),
+                                try? await messenger.send(👤ActivityState(pieces: pieces,
+                                                                          pieceAnimation: .default(),
+                                                                          viewHeight: viewHeight),
                                                           to: .only(newParticipants))
-                                try? await messenger.send(viewHeight)
                             }
                         }
                     }
@@ -63,14 +62,11 @@ extension 🥽AppModel {
                 
                 self.tasks.insert(
                     Task {
-                        for await (message, _) in messenger.messages(of: 👤Message.self) {
+                        for await (message, _) in messenger.messages(of: 👤ActivityState.self) {
                             Task { @MainActor in
-                                withAnimation(message.animate.value) {
+                                withAnimation(message.pieceAnimation.value) {
                                     self.pieces = message.pieces
-                                } completion: {
-                                    if message.playingSound {
-                                        self.soundFeedback.execute()
-                                    }
+                                    self.viewHeight = message.viewHeight
                                 }
                             }
                         }
@@ -79,11 +75,9 @@ extension 🥽AppModel {
                 
                 self.tasks.insert(
                     Task {
-                        for await (message, _) in messenger.messages(of: ViewHeight.self) {
+                        for await (message, _) in messenger.messages(of: 👤PlaySound.self) {
                             Task { @MainActor in
-                                withAnimation {
-                                    self.viewHeight = message
-                                }
+                                self.soundFeedback.play(message.file)
                             }
                         }
                     }
@@ -114,19 +108,13 @@ extension 🥽AppModel {
             }
         }
     }
-    func send(animate: 👤Message.Animate = .default(), playingSound: Bool = false) {
+    func send(pieceAnimation: 👤ActivityState.PieceAnimation = .default()) {
         Task {
-            if let pieces = self.pieces {
-                try? await self.messenger?.send(👤Message(pieces: pieces,
-                                                          animate: animate,
-                                                          playingSound: playingSound))
-            }
-        }
-    }
-    func sendViewHeight() {
-        Task {
-            if let viewHeight = self.viewHeight {
-                try? await self.messenger?.send(viewHeight)
+            if let pieces = self.pieces,
+               let viewHeight = self.viewHeight {
+                try? await self.messenger?.send(👤ActivityState(pieces: pieces,
+                                                                pieceAnimation: pieceAnimation,
+                                                                viewHeight: viewHeight))
             }
         }
     }

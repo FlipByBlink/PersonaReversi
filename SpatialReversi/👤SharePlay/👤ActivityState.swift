@@ -1,13 +1,13 @@
 import SwiftUI
 
-struct 👤Message: Codable {
+struct 👤ActivityState: Codable {
     var pieces: Pieces
-    var animate: Self.Animate
-    var playingSound: Bool
+    var pieceAnimation: Self.PieceAnimation
+    var viewHeight: ViewHeight
 }
 
-extension 👤Message {
-    enum Animate: Codable {
+extension 👤ActivityState {
+    enum PieceAnimation: Codable {
         case none
         case `default`(speed: Double = 1)
         var value: Animation? {
