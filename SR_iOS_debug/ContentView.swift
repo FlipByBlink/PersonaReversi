@@ -45,10 +45,7 @@ struct ContentView: View {
                 }
             }
         }
-        .task {
-            self.model.configureGroupSessions()
-            self.model.applyPreset()
-        }
+        .task { self.model.configureGroupSessions() }
     }
 }
 
