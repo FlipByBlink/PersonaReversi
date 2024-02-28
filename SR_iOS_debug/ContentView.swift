@@ -112,6 +112,15 @@ struct PieceView: View {
         Circle()
             .fill(self.piece.side == .white ? .white : .black)
             .overlay { Circle().stroke() }
+            .overlay {
+                switch self.model.pieces[index]?.phase {
+                    case .fadeIn, .flip, .slideDown, .slideUp:
+                        ProgressView()
+                            .background { Circle().fill(.regularMaterial) }
+                    default:
+                        EmptyView()
+                }
+            }
             .padding(4)
     }
     init(_ index: Int, _ piece: Piece) {
