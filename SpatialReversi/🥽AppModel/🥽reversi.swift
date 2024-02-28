@@ -85,7 +85,4 @@ extension 🥽AppModel {
         &&
         self.pieces?.isMoving == false
     }
-    var showResult: Bool {
-        self.pieces?.isFinished ?? false
-    }
 }

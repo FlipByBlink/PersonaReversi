@@ -10,7 +10,7 @@ extension 🥽AppModel {
                 let result = try await 👤GroupActivity().activate()
                 switch result {
                     case true:
-                        try? await Task.sleep(for: .seconds(0.5))
+                        try? await Task.sleep(for: .seconds(1.5))
                         self.applyPreset()
                     case false:
                         self.pieces = nil

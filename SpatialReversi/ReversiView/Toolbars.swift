@@ -24,18 +24,17 @@ private extension ToolbarsView {
         @EnvironmentObject var model: 🥽AppModel
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
         var body: some View {
-            HStack(spacing: 0) {
-                if !self.model.showResult {
-                    Button {
-                        Task {
-                            await self.dismissImmersiveSpace()
-                        }
-                    } label: {
-                        Label("Exit", systemImage: "escape")
-                            .padding(12)
+            HStack(spacing: 24) {
+                Button {
+                    Task {
+                        await self.dismissImmersiveSpace()
                     }
-                    .frame(width: 160)
-                    Spacer()
+                } label: {
+                    Label("Exit", systemImage: "escape")
+                        .padding(20)
+                }
+                .glassBackgroundEffect()
+                HStack(spacing: 0) {
                     HStack(spacing: 20) {
                         ForEach([Side.white, .black], id: \.self) { side in
                             Button {
@@ -76,8 +75,7 @@ private extension ToolbarsView {
                         }
                     }
                     .buttonBorderShape(.circle)
-                    .frame(width: 160)
-                } else {
+                    Spacer()
                     Button {
                         self.model.reset()
                     } label: {
@@ -87,13 +85,13 @@ private extension ToolbarsView {
                             .minimumScaleFactor(0.5)
                     }
                 }
+                .padding(12)
+                .padding(.horizontal, 32)
+                .frame(width: Size.square * 4, height: Size.toolbarHeight)
+                .glassBackgroundEffect()
             }
             .buttonStyle(.plain)
-            .padding(12)
-            .frame(width: Size.square * 4, height: Size.toolbarHeight)
-            .glassBackgroundEffect()
             .rotation3DEffect(.degrees(20), axis: .x)
-            .animation(.default.speed(0.5), value: self.model.showResult)
         }
     }
 }
