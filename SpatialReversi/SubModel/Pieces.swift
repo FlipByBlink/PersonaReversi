@@ -32,14 +32,22 @@ extension Pieces: Codable {
     var shoudPlaySound: Bool {
         self.value.values.contains { $0.phase == .fadeIn }
     }
-    func affected(_ centerIndex: Int) -> [Int] {
+    var isMoving: Bool {
+        !(self.value.allSatisfy { $0.value.phase == .complete })
+    }
+    func puttable(_ mySide: Side, _ index: Int) -> Bool {
+        (self[index] == nil)
+        &&
+        (self.effectivePieces(mySide, index).isEmpty == false)
+    }
+    func effectivePieces(_ centerSide: Side, _ centerIndex: Int) -> [Int] {
         var value: [Int] = []
         for direction in Self.Direction.allCases {
             var counts: Int = 0
             while counts < 8 {
                 let checkingIndex = centerIndex + (direction.offset * (counts + 1))
                 if let piece = self[checkingIndex] {
-                    if piece.side == self[centerIndex]?.side {
+                    if piece.side == centerSide {
                         if counts > 0 {
                             (1...counts).forEach {
                                 value.append(centerIndex + direction.offset * $0)

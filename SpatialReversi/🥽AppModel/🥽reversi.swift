@@ -16,7 +16,7 @@ extension 🥽AppModel {
                         self.sync()
                     } completion: {
                         self.playSound(.crack)
-                        let affectedIndexes = self.pieces?.affected(index) ?? []
+                        let affectedIndexes = self.pieces?.effectivePieces(self.side, index) ?? []
                         if affectedIndexes.count > 0 {
                             withAnimation {
                                 affectedIndexes.forEach {
@@ -79,6 +79,11 @@ extension 🥽AppModel {
                 }
             }
         }
+    }
+    func puttable(_ index: Int) -> Bool {
+        self.pieces?.puttable(self.side, index) == true
+        &&
+        self.pieces?.isMoving == false
     }
     var showResult: Bool {
         self.pieces?.isFinished ?? false

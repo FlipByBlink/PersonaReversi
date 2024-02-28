@@ -14,8 +14,7 @@ extension 🥽AppModel {
     func setPiecesForDebug() {
 #if DEBUG
         Task { @MainActor in
-            try? await Task.sleep(for: .seconds(2))
-            let indexes = (1...64).filter { ![28, 29, 36, 37, 63].contains($0) }
+            let indexes = (1...64).filter { ![28, 29, 36, 37, 62, 63].contains($0) }
             indexes.forEach {
                 self.pieces?.set($0, Bool.random() ? .black : .white)
             }
