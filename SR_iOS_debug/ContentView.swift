@@ -11,7 +11,13 @@ struct ContentView: View {
             }
             if self.model.showReversi {
                 BoardView()
-                    .offset(y: (ViewHeight.default.value-self.model.viewHeight.value)/3)
+                    .offset(y: {
+                        if let viewHeight = self.model.viewHeight {
+                            (ViewHeight.default.value - viewHeight.value) / 3
+                        } else {
+                            0
+                        }
+                    }())
                 HStack {
                     Picker("Side", selection: self.$model.side) {
                         Text("White").tag(Side.white)
@@ -57,9 +63,20 @@ struct BoardView: View {
                             let index: Int = column + row * 8
                             Color.clear
                                 .contentShape(.rect)
-                                .onTapGesture { self.model.set(index) }
+                                .overlay(alignment: .bottomTrailing) {
+                                    if self.model.puttable(index) {
+                                        Text("hoverEffect")
+                                            .font(.caption)
+                                            .foregroundStyle(.green)
+                                    }
+                                }
+                                .onTapGesture {
+                                    if self.model.puttable(index) {
+                                        self.model.set(index)
+                                    }
+                                }
                                 .overlay {
-                                    if let piece = self.model.pieces[index] {
+                                    if let piece = self.model.pieces?[index] {
                                         PieceView(index, piece)
                                     }
                                 }
@@ -92,8 +109,8 @@ struct BoardView: View {
             .overlay {
                 if self.model.showResult {
                     Text("""
-                    ⚫️ \(self.model.pieces.pieceCounts[.black] ?? 0)
-                    ⚪️ \(self.model.pieces.pieceCounts[.white] ?? 0)
+                    ⚫️ \(self.model.pieces?.pieceCounts[.black] ?? 0)
+                    ⚪️ \(self.model.pieces?.pieceCounts[.white] ?? 0)
                     """)
                     .font(.system(size: 50).bold())
                     .foregroundStyle(.green)
@@ -113,7 +130,7 @@ struct PieceView: View {
             .fill(self.piece.side == .white ? .white : .black)
             .overlay { Circle().stroke() }
             .overlay {
-                switch self.model.pieces[index]?.phase {
+                switch self.model.pieces?[index]?.phase {
                     case .fadeIn, .flip, .slideDown, .slideUp:
                         ProgressView()
                             .background { Circle().fill(.regularMaterial) }
