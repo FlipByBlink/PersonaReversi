@@ -1,9 +1,9 @@
 import SwiftUI
 
 struct 👤ActivityState: Codable {
-    var pieces: Pieces
-    var pieceAnimation: Self.PieceAnimation
-    var viewHeight: ViewHeight
+    let pieces: Pieces
+    let pieceAnimation: Self.PieceAnimation
+    let viewHeight: ViewHeight
 }
 
 extension 👤ActivityState {

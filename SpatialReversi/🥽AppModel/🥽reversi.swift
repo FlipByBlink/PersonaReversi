@@ -54,22 +54,28 @@ extension 🥽AppModel {
         }
     }
     func applyPreset() {
-        for (index, piece) in Pieces.preset {
-            withAnimation {
-                self.pieces?.set(index, piece.side)
-                self.sync()
+        withAnimation {
+            Pieces.preset.forEach {
+                self.pieces?.set($0, $1.side)
+            }
+            self.sync()
+        } completion: {
+            withAnimation(.default.speed(2)) {
+                Pieces.preset.keys.forEach {
+                    self.pieces?.changePhase($0, .fadeIn)
+                }
+                self.sync(animation: .default(speed: 2))
             } completion: {
-                withAnimation(.default.speed(2)) {
-                    self.pieces?.changePhase(index, .fadeIn)
-                    self.sync(animation: .default(speed: 2))
-                } completion: {
-                    withAnimation {
-                        self.pieces?.changePhase(index, .slideDown)
-                        self.sync()
-                    } completion: {
-                        self.pieces?.changePhase(index, .complete)
-                        self.sync()
+                withAnimation {
+                    Pieces.preset.keys.forEach {
+                        self.pieces?.changePhase($0, .slideDown)
                     }
+                    self.sync()
+                } completion: {
+                    Pieces.preset.keys.forEach {
+                        self.pieces?.changePhase($0, .complete)
+                    }
+                    self.sync()
                 }
             }
         }
