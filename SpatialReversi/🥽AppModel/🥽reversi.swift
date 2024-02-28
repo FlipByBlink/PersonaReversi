@@ -84,6 +84,8 @@ extension 🥽AppModel {
                 withAnimation {
                     self.presentResult = true
                 }
+            } else {
+                self.presentResult = false
             }
         }
     }
