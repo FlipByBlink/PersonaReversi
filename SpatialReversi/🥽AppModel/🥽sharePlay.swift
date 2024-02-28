@@ -5,17 +5,27 @@ extension 🥽AppModel {
     func activateGroupActivity() {
         Task {
             do {
-                _ = try await 👤GroupActivity().activate()
+                self.pieces = .empty
+                self.viewHeight = .default
+                let result = try await 👤GroupActivity().activate()
+                switch result {
+                    case true:
+                        try? await Task.sleep(for: .seconds(0.5))
+                        self.applyPreset()
+                    case false:
+                        self.pieces = nil
+                        self.viewHeight = nil
+                }
             } catch {
                 print("Failed to activate activity: \(error)")
+                self.pieces = nil
+                self.viewHeight = nil
             }
         }
     }
     func configureGroupSessions() {
         Task {
             for await groupSession in 👤GroupActivity.sessions() {
-                self.reset()
-                
                 self.groupSession = groupSession
                 let messenger = GroupSessionMessenger(session: groupSession)
                 self.messenger = messenger
@@ -29,8 +39,8 @@ extension 🥽AppModel {
                             self.subscriptions = []
                             self.groupSession = nil
                             self.isSpatial = nil
-                            self.viewHeight = .default
-                            self.reset()
+                            self.pieces = nil
+                            self.viewHeight = nil
                         }
                     }
                     .store(in: &self.subscriptions)
@@ -39,10 +49,15 @@ extension 🥽AppModel {
                     .sink {
                         let newParticipants = $0.subtracting(groupSession.activeParticipants)
                         Task {
-                            try? await messenger.send(👤Message(pieces: self.pieces,
-                                                                animate: .default(),
-                                                                playingSound: false),
-                                                      to: .only(newParticipants))
+                            if let pieces = self.pieces {
+                                try? await messenger.send(👤Message(pieces: pieces,
+                                                                    animate: .default(),
+                                                                    playingSound: false),
+                                                          to: .only(newParticipants))
+                            }
+                            if let viewHeight = self.viewHeight {
+                                try? await messenger.send(viewHeight)
+                            }
                         }
                     }
                     .store(in: &self.subscriptions)
@@ -114,14 +129,18 @@ extension 🥽AppModel {
     }
     func send(animate: 👤Message.Animate = .default(), playingSound: Bool = false) {
         Task {
-            try? await self.messenger?.send(👤Message(pieces: self.pieces,
-                                                      animate: animate,
-                                                      playingSound: playingSound))
+            if let pieces = self.pieces {
+                try? await self.messenger?.send(👤Message(pieces: pieces,
+                                                          animate: animate,
+                                                          playingSound: playingSound))
+            }
         }
     }
     func sendViewHeight() {
         Task {
-            try? await self.messenger?.send(self.viewHeight)
+            if let viewHeight = self.viewHeight {
+                try? await self.messenger?.send(viewHeight)
+            }
         }
     }
 }

@@ -12,11 +12,15 @@ extension 🥽AppModel {
         !self.showEntrance
     }
     func raiseBoard() {
-        self.viewHeight.value += 50
-        self.sendViewHeight()
+        if let value = self.viewHeight?.value {
+            self.viewHeight?.value = value + 50
+            self.sendViewHeight()
+        }
     }
     func lowerBoard() {
-        self.viewHeight.value -= 50
-        self.sendViewHeight()
+        if let value = self.viewHeight?.value {
+            self.viewHeight?.value = value - 50
+            self.sendViewHeight()
+        }
     }
 }

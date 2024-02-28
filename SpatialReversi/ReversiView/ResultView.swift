@@ -23,7 +23,7 @@ struct ResultView: View {
                             }
                             .frame(width: 200, height: 200)
                             RealityView { content in
-                                let text = "\(self.model.pieces.pieceCounts[side] ?? 0)"
+                                let text = "\(self.model.pieces?.pieceCounts[side] ?? 0)"
                                 let textMeshResource: MeshResource = .generateText(text,
                                                                                    extrusionDepth: 0.015,
                                                                                    font: .systemFont(ofSize: 0.15,
@@ -48,6 +48,7 @@ struct ResultView: View {
             .offset(y: -600)
             .opacity(self.opacity)
             .task {
+                try? await Task.sleep(for: .seconds(2))
                 withAnimation(.default.speed(0.25)) {
                     self.yOffset = 0
                     self.opacity = 1

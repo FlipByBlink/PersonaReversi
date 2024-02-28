@@ -1,6 +1,16 @@
 import Foundation
 
 extension 🥽AppModel {
+    func setUpForDebug() {
+#if DEBUG
+        Task {
+            self.pieces = .empty
+            self.viewHeight = .default
+            try? await Task.sleep(for: .seconds(0.5))
+            self.applyPreset()
+        }
+#endif
+    }
     func setPiecesForDebug() {
 #if DEBUG
         Task { @MainActor in

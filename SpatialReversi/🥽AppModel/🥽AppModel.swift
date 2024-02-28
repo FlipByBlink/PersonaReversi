@@ -4,9 +4,9 @@ import Combine
 
 @MainActor
 class 🥽AppModel: ObservableObject {
-    @Published var pieces: Pieces = .empty
+    @Published var pieces: Pieces?
+    @Published var viewHeight: ViewHeight?
     @Published var side: Side = .white
-    @Published var viewHeight: ViewHeight = .default
     
     @Published var groupSession: GroupSession<👤GroupActivity>?
     var messenger: GroupSessionMessenger?
