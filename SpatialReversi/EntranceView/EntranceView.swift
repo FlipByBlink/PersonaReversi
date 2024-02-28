@@ -4,6 +4,7 @@ import GroupActivities
 struct EntranceView: View {
     @EnvironmentObject var model: 🥽AppModel
     @StateObject private var groupStateObserver = GroupStateObserver()
+    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
     var body: some View {
         NavigationStack {
             List {
@@ -52,6 +53,17 @@ struct EntranceView: View {
                 if self.model.groupSession?.state != nil {
                     Section { self.groupSessionStateText() }
                 }
+            }
+            .overlay(alignment: .bottom) {
+                Button {
+                    Task {
+                        await self.dismissImmersiveSpace()
+                    }
+                } label: {
+                    Label("Exit", systemImage: "escape")
+                        .padding(12)
+                }
+                .padding(24)
             }
             .navigationTitle("SpatialReversi")
         }

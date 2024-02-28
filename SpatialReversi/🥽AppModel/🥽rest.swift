@@ -3,7 +3,7 @@ import SwiftUI
 extension 🥽AppModel {
     var showEntrance: Bool {
 #if targetEnvironment(simulator)
-        true
+        false
 #else
         self.groupSession == nil
 #endif
@@ -19,7 +19,7 @@ extension 🥽AppModel {
             self.sync()
         } completion: {
             Task { @MainActor in
-                try? await Task.sleep(for: .seconds(1.4))
+                try? await Task.sleep(for: .seconds(1))
                 self.applyPreset()
             }
         }

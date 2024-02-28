@@ -24,8 +24,8 @@ struct ReversiView: View {
         .animation(.default, value: self.model.showReversi)
 #if targetEnvironment(simulator)
         .task {
-            try? await Task.sleep(for: .seconds(1))
-            self.model.setUpForDebug()
+//            try? await Task.sleep(for: .seconds(1))
+//            self.model.setUpForDebug()
 //            try? await Task.sleep(for: .seconds(2))
 //            self.model.setPiecesForDebug()
         }
