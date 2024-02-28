@@ -34,7 +34,7 @@ struct ContentView: View {
                         }
                     }
                     Button("reset") {
-                        
+                        self.model.reset()
                     }
                 }
             }
