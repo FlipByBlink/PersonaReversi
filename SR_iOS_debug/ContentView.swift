@@ -46,6 +46,10 @@ struct ContentView: View {
             }
         }
         .task { self.model.configureGroupSessions() }
+        .task {
+//            try? await Task.sleep(for: .seconds(2))
+//            self.model.setPiecesForDebug()
+        }
     }
 }
 
