@@ -59,8 +59,8 @@ struct EntranceView: View {
         .glassBackgroundEffect()
         .opacity(self.model.showEntrance ? 1 : 0)
         .animation(.default, value: self.model.showEntrance)
-        .offset(y: -2600)
-        .offset(z: -1300)
+        .offset(y: -2850)
+        .offset(z: -1100)
     }
 }
 
