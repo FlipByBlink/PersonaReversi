@@ -6,6 +6,7 @@ import Combine
 class 🥽AppModel: ObservableObject {
     @Published var pieces: Pieces?
     @Published var viewHeight: ViewHeight?
+    
     @Published var side: Side = .white
     
     @Published var groupSession: GroupSession<👤GroupActivity>?

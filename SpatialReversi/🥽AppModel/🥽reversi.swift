@@ -74,17 +74,6 @@ extension 🥽AppModel {
             }
         }
     }
-    func reset() {
-        withAnimation {
-            self.pieces = .empty
-            self.send()
-        } completion: {
-            Task { @MainActor in
-                try? await Task.sleep(for: .seconds(0.3))
-                self.applyPreset()
-            }
-        }
-    }
     var showResult: Bool {
         self.pieces?.isFinished ?? false
     }
