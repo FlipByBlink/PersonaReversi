@@ -3,7 +3,7 @@ import AVFAudio
 
 class SoundFeedback {
     private var crackPlayers: [AVAudioPlayer] = []
-    private var resetEffectPlayer: AVAudioPlayer?
+    private var resetPlayer: AVAudioPlayer?
     init() {
         Task(priority: .background) {
             try? AVAudioSession().setCategory(.ambient)
@@ -18,11 +18,11 @@ class SoundFeedback {
                     return nil
                 }
             }
-            if let ⓓata = NSDataAsset(name: "BigActionSound")?.data,
+            if let ⓓata = NSDataAsset(name: "resetSound")?.data,
                let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
-                self.resetEffectPlayer = ⓟlayer
-                self.resetEffectPlayer?.volume = 0.13
-                self.resetEffectPlayer?.prepareToPlay()
+                self.resetPlayer = ⓟlayer
+                self.resetPlayer?.volume = 0.13
+                self.resetPlayer?.prepareToPlay()
             } else {
                 assertionFailure()
             }
@@ -34,7 +34,7 @@ class SoundFeedback {
                 case .crack:
                     self.crackPlayers.randomElement()?.play()
                 case .reset:
-                    self.resetEffectPlayer?.play()
+                    self.resetPlayer?.play()
             }
         }
     }

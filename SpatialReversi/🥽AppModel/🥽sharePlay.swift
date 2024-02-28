@@ -108,12 +108,12 @@ extension 🥽AppModel {
             }
         }
     }
-    func send(pieceAnimation: 👤ActivityState.PieceAnimation = .default()) {
+    func sync(animation: 👤ActivityState.PieceAnimation = .default()) {
         Task {
             if let pieces = self.pieces,
                let viewHeight = self.viewHeight {
                 try? await self.messenger?.send(👤ActivityState(pieces: pieces,
-                                                                pieceAnimation: pieceAnimation,
+                                                                pieceAnimation: animation,
                                                                 viewHeight: viewHeight))
             }
         }

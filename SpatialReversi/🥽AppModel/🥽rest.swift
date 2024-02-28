@@ -15,7 +15,8 @@ extension 🥽AppModel {
         withAnimation {
             self.pieces = .empty
             self.viewHeight = .default
-            self.send()
+            self.playSound(.reset)
+            self.sync()
         } completion: {
             Task { @MainActor in
                 try? await Task.sleep(for: .seconds(0.3))
@@ -26,13 +27,13 @@ extension 🥽AppModel {
     func raiseBoard() {
         if let value = self.viewHeight?.value {
             self.viewHeight?.value = value + 50
-            self.send()
+            self.sync()
         }
     }
     func lowerBoard() {
         if let value = self.viewHeight?.value {
             self.viewHeight?.value = value - 50
-            self.send()
+            self.sync()
         }
     }
     func playSound(_ file: SoundFile) {

@@ -5,15 +5,15 @@ extension 🥽AppModel {
         if self.pieces?[index] == nil {
             withAnimation(.default.speed(2)) {
                 self.pieces?.set(index, self.side)
-                self.send(pieceAnimation: .default(speed: 2))
+                self.sync(animation: .default(speed: 2))
             } completion: {
                 withAnimation(.default.speed(1.6)) {
                     self.pieces?.changePhase(index, .fadeIn)
-                    self.send(pieceAnimation: .default(speed: 1.6))
+                    self.sync(animation: .default(speed: 1.6))
                 } completion: {
                     withAnimation {
                         self.pieces?.changePhase(index, .slideDown)
-                        self.send()
+                        self.sync()
                     } completion: {
                         self.playSound(.crack)
                         let affectedIndexes = self.pieces?.affected(index) ?? []
@@ -22,31 +22,31 @@ extension 🥽AppModel {
                                 affectedIndexes.forEach {
                                     self.pieces?.changePhase($0, .slideUp)
                                 }
-                                self.send()
+                                self.sync()
                             } completion: {
                                 withAnimation {
                                     affectedIndexes.forEach {
                                         self.pieces?.toggle($0)
                                     }
-                                    self.send()
+                                    self.sync()
                                 } completion: {
                                     withAnimation {
                                         affectedIndexes.forEach {
                                             self.pieces?.changePhase($0, .slideDown)
                                         }
-                                        self.send()
+                                        self.sync()
                                     } completion: {
                                         affectedIndexes.forEach {
                                             self.pieces?.changePhase($0, .complete)
                                         }
                                         self.pieces?.changePhase(index, .complete)
-                                        self.send()
+                                        self.sync()
                                     }
                                 }
                             }
                         } else {
                             self.pieces?.changePhase(index, .complete)
-                            self.send()
+                            self.sync()
                         }
                     }
                 }
@@ -57,18 +57,18 @@ extension 🥽AppModel {
         for (index, piece) in Pieces.preset {
             withAnimation {
                 self.pieces?.set(index, piece.side)
-                self.send()
+                self.sync()
             } completion: {
                 withAnimation(.default.speed(2)) {
                     self.pieces?.changePhase(index, .fadeIn)
-                    self.send(pieceAnimation: .default(speed: 2))
+                    self.sync(animation: .default(speed: 2))
                 } completion: {
                     withAnimation {
                         self.pieces?.changePhase(index, .slideDown)
-                        self.send()
+                        self.sync()
                     } completion: {
                         self.pieces?.changePhase(index, .complete)
-                        self.send()
+                        self.sync()
                     }
                 }
             }
