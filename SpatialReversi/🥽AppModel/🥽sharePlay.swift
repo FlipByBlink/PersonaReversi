@@ -57,6 +57,7 @@ extension 🥽AppModel {
                                     if message.playingSound {
                                         self.soundFeedback.execute()
                                     }
+                                    self.handleResultView()
                                 }
                             }
                         }

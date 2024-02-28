@@ -33,6 +33,9 @@ struct ContentView: View {
                                 .padding(8)
                         }
                     }
+                    Button("reset") {
+                        
+                    }
                 }
             }
         }
@@ -86,6 +89,16 @@ struct BoardView: View {
                 RoundedRectangle(cornerRadius: 24, style: .continuous)
                     .stroke(lineWidth: 5)
             }
+            .overlay {
+                if self.model.presentResult {
+                    Text("""
+                    ⚫️ \(self.model.pieces.pieceCounts[.black] ?? 0)
+                    ⚪️ \(self.model.pieces.pieceCounts[.white] ?? 0)
+                    """)
+                    .font(.system(size: 50).bold())
+                    .foregroundStyle(.green)
+                }
+            }
         }
         .padding()
     }
@@ -100,7 +113,6 @@ struct PieceView: View {
             .fill(self.piece.side == .white ? .white : .black)
             .overlay { Circle().stroke() }
             .padding(4)
-            .onTapGesture { self.model.toggle(self.index) }
     }
     init(_ index: Int, _ piece: Piece) {
         self.index = index
