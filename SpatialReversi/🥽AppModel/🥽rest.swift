@@ -3,18 +3,19 @@ import SwiftUI
 extension 🥽AppModel {
     var showEntrance: Bool {
 #if targetEnvironment(simulator)
-        false
+        true
+//        false
 #else
         self.groupSession == nil
 #endif
     }
-    var showReversi: Bool {
-        !self.showEntrance
-    }
     func reset() {
         withAnimation {
-            self.pieces = .empty
-            self.viewHeight = .default
+            self.activityState.pieces = .empty
+            self.activityState.viewHeight = .default
+            if self.groupSession != nil {
+                self.activityState.mode = .sharePlay
+            }
             self.playSound(.reset)
             self.sync()
         } completion: {
@@ -25,16 +26,12 @@ extension 🥽AppModel {
         }
     }
     func raiseBoard() {
-        if let value = self.viewHeight?.value {
-            self.viewHeight?.value = value + 50
-            self.sync()
-        }
+        self.activityState.viewHeight.value += 0.1
+        self.sync()
     }
     func lowerBoard() {
-        if let value = self.viewHeight?.value {
-            self.viewHeight?.value = value - 50
-            self.sync()
-        }
+        self.activityState.viewHeight.value -= 0.1
+        self.sync()
     }
     func playSound(_ file: SoundFile) {
         self.soundFeedback.play(file)
@@ -43,6 +40,6 @@ extension 🥽AppModel {
         }
     }
     var showResult: Bool {
-        self.pieces?.isFinished ?? false
+        self.activityState.pieces.isFinished
     }
 }

@@ -4,7 +4,7 @@ import GroupActivities
 struct EntranceView: View {
     @EnvironmentObject var model: 🥽AppModel
     @StateObject private var groupStateObserver = GroupStateObserver()
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+    @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         NavigationStack {
             List {
@@ -15,14 +15,16 @@ struct EntranceView: View {
                                 Image(.exampleSharePlay)
                                     .resizable()
                                     .scaledToFit()
-                                    .frame(width: 360)
+                                    .frame(width: 500)
                                 Text("With SharePlay in the FaceTime app, you can play reversi in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
+                                    .font(.title)
                                 //"With SharePlay in the FaceTime app, you can stream TV shows, movies, and music in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced playback and shared controls, you see and hear the same moments at the same time."
                             }
                             .padding()
                         }
                         .navigationTitle("What's SharePlay?")
                     }
+                    .font(.system(size: 48))
                 }
                 Section {
                     NavigationLink("No activity?") {
@@ -33,10 +35,17 @@ struct EntranceView: View {
                                 } label: {
                                     Text("Eligible for SharePlay:")
                                 }
+                                .font(.largeTitle)
                             }
                             Section {
-                                Button("Start activity!") {
+                                Button {
                                     self.model.activateGroupActivity()
+                                } label: {
+                                    HStack(spacing: 12) {
+                                        Image(systemName: "shareplay")
+                                        Text("Start with SharePlay!")
+                                    }
+                                    .padding(.leading)
                                 }
                                 .font(.extraLargeTitle2)
                                 .disabled(
@@ -49,34 +58,34 @@ struct EntranceView: View {
                             }
                         }
                     }
+                    .font(.system(size: 48))
                 }
                 if self.model.groupSession?.state != nil {
                     Section { self.groupSessionStateText() }
                 }
             }
-            .overlay(alignment: .bottom) {
-                Button {
-                    Task {
-                        await self.dismissImmersiveSpace()
-                    }
-                } label: {
-                    Label("Exit", systemImage: "escape")
-                        .padding(12)
-                }
-                .padding(24)
-            }
             .navigationTitle("SpatialReversi")
         }
-        .frame(width: 800, height: 600)
+        .frame(width: 1000, height: 700)
         .glassBackgroundEffect()
-        .opacity(self.model.showEntrance ? 1 : 0)
         .animation(.default, value: self.model.showEntrance)
-        .offset(y: -2850)
-        .offset(z: -1100)
+        .offset(y: -self.yOffset)
+        .offset(z: -self.zOffset)
+        .animation(.default, value: self.yOffset)
     }
 }
 
 private extension EntranceView {
+    private var yOffset: CGFloat {
+        600
+        +
+        self.physicalMetrics.convert(self.model.activityState.viewHeight.value, from: .meters)
+    }
+    private var zOffset: CGFloat {
+        (Size.board / 2)
+        +
+        self.physicalMetrics.convert(1, from: .meters)
+    }
     private func groupSessionStateText() -> some View {
         LabeledContent {
             Text({

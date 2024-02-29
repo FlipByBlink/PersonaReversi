@@ -3,6 +3,7 @@ import RealityKit
 
 struct ReversiView: View {
     @EnvironmentObject var model: 🥽AppModel
+    @Environment(\.physicalMetrics) var physicalMetrics
     var body: some View {
         RealityView { content, attachments in
             content.add(attachments.entity(for: "board")!)
@@ -13,15 +14,9 @@ struct ReversiView: View {
             Attachment(id: "toolbars") { ToolbarsView() }
             Attachment(id: "result") { ResultView() }
         }
-        .offset(y: -(self.model.viewHeight?.value ?? ViewHeight.default.value))
-#if targetEnvironment(simulator)
-        .offset(z: -1300)//実際には0
-#else
-        .offset(z: self.model.isSpatial == true ? 0 : -1300)
-#endif
-        .opacity(self.model.showReversi ? 1 : 0)
-        .animation(.default, value: self.model.viewHeight?.value)
-        .animation(.default, value: self.model.showReversi)
+        .offset(y: -self.yOffset)
+        .offset(z: -self.zOffset)
+        .animation(.default, value: self.yOffset)
 #if targetEnvironment(simulator)
         .task {
 //            try? await Task.sleep(for: .seconds(1))
@@ -30,5 +25,18 @@ struct ReversiView: View {
 //            self.model.setPiecesForDebug()
         }
 #endif
+    }
+}
+
+private extension ReversiView {
+    private var yOffset: CGFloat {
+        self.physicalMetrics.convert(self.model.activityState.viewHeight.value, from: .meters)
+    }
+    private var zOffset: CGFloat {
+        if self.model.isSpatial == true {
+            0
+        } else {
+            self.physicalMetrics.convert(1, from: .meters)
+        }
     }
 }

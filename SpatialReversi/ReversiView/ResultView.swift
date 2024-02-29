@@ -23,7 +23,7 @@ struct ResultView: View {
                             }
                             .frame(width: 200, height: 200)
                             RealityView { content in
-                                let text = "\(self.model.pieces?.pieceCounts[side] ?? 0)"
+                                let text = "\(self.model.activityState.pieces.pieceCounts[side] ?? 0)"
                                 let textMeshResource: MeshResource = .generateText(text,
                                                                                    extrusionDepth: 0.015,
                                                                                    font: .systemFont(ofSize: 0.15,

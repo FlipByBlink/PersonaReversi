@@ -1,13 +1,12 @@
 import SwiftUI
 
-struct 👤ActivityState: Codable {
-    let pieces: Pieces
+struct 👤Message: Codable, Equatable {
+    let activityState: ActivityState
     let pieceAnimation: Self.PieceAnimation
-    let viewHeight: ViewHeight
 }
 
-extension 👤ActivityState {
-    enum PieceAnimation: Codable {
+extension 👤Message {
+    enum PieceAnimation: Codable, Equatable {
         case none
         case `default`(speed: Double = 1)
         var value: Animation? {

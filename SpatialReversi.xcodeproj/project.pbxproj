@@ -50,6 +50,10 @@
 		16CDEEB22B4D0FF200664815 /* 👤GroupActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */; };
 		16CDEEB32B4D0FF200664815 /* Pieces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED7A32B4CC153002AD987 /* Pieces.swift */; };
 		16CDEEB42B4D0FF200664815 /* 🥽AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 160ED79B2B4B827E002AD987 /* 🥽AppModel.swift */; };
+		16D237B92B90973000282592 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D237B82B90972F00282592 /* ActivityState.swift */; };
+		16D237BA2B90973000282592 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D237B82B90972F00282592 /* ActivityState.swift */; };
+		16D237BC2B90975900282592 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D237BB2B90975700282592 /* Mode.swift */; };
+		16D237BD2B90975900282592 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D237BB2B90975700282592 /* Mode.swift */; };
 		16EDF0572B8C3E7B0096217A /* ReversiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF0562B8C3E7B0096217A /* ReversiView.swift */; };
 		16EDF05B2B8C41C10096217A /* 🥽rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF05A2B8C41C10096217A /* 🥽rest.swift */; };
 		16EDF05C2B8C4AFF0096217A /* 🥽rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF05A2B8C41C10096217A /* 🥽rest.swift */; };
@@ -91,6 +95,8 @@
 		16CDEEA42B4D0FBF00664815 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16CDEEA62B4D0FC100664815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		16CDEEB52B4D100600664815 /* SR_iOS_debug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SR_iOS_debug.entitlements; sourceTree = "<group>"; };
+		16D237B82B90972F00282592 /* ActivityState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityState.swift; sourceTree = "<group>"; };
+		16D237BB2B90975700282592 /* Mode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		16EDF0562B8C3E7B0096217A /* ReversiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversiView.swift; sourceTree = "<group>"; };
 		16EDF05A2B8C41C10096217A /* 🥽rest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🥽rest.swift"; sourceTree = "<group>"; };
 		16EF41352B5BF445002312FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -182,10 +188,12 @@
 		16C158A82B4D057B00835A85 /* SubModel */ = {
 			isa = PBXGroup;
 			children = (
+				16D237B82B90972F00282592 /* ActivityState.swift */,
 				160ED7A32B4CC153002AD987 /* Pieces.swift */,
 				160ED7A52B4CC15A002AD987 /* Piece.swift */,
 				160ED7992B4B8147002AD987 /* Side.swift */,
 				167761BF2B8B6ABF0092CB24 /* ViewHeight.swift */,
+				16D237BB2B90975700282592 /* Mode.swift */,
 			);
 			path = SubModel;
 			sourceTree = "<group>";
@@ -385,6 +393,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16D237B92B90973000282592 /* ActivityState.swift in Sources */,
 				160ED7AA2B4CCC17002AD987 /* BoardView.swift in Sources */,
 				16C477192B8B191C00343DD8 /* 🥽sharePlay.swift in Sources */,
 				16CDEE992B4D0B3500664815 /* 👤GroupActivity.swift in Sources */,
@@ -392,6 +401,7 @@
 				16253CFF2B4E37B20028F0E2 /* SoundFeedback.swift in Sources */,
 				160ED7A02B4BB705002AD987 /* Size.swift in Sources */,
 				1601FF0E2B4AA8BA0050457E /* ContentView.swift in Sources */,
+				16D237BC2B90975900282592 /* Mode.swift in Sources */,
 				16C4771C2B8B193100343DD8 /* 🥽reversi.swift in Sources */,
 				16C158A72B4CEA2B00835A85 /* ResultView.swift in Sources */,
 				167761C32B8B72340092CB24 /* EntranceView.swift in Sources */,
@@ -421,7 +431,9 @@
 				16602B342B8ED87F00AF1D4A /* SoundFile.swift in Sources */,
 				16CDEEB32B4D0FF200664815 /* Pieces.swift in Sources */,
 				16C4771A2B8B191C00343DD8 /* 🥽sharePlay.swift in Sources */,
+				16D237BA2B90973000282592 /* ActivityState.swift in Sources */,
 				16602B312B8ED7C400AF1D4A /* 👤PlaySound.swift in Sources */,
+				16D237BD2B90975900282592 /* Mode.swift in Sources */,
 				16253D002B4E37B20028F0E2 /* SoundFeedback.swift in Sources */,
 				16CDEEA52B4D0FBF00664815 /* ContentView.swift in Sources */,
 				16CDEEB22B4D0FF200664815 /* 👤GroupActivity.swift in Sources */,

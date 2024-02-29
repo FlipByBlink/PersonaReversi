@@ -4,8 +4,7 @@ import Combine
 
 @MainActor
 class 🥽AppModel: ObservableObject {
-    @Published var pieces: Pieces?
-    @Published var viewHeight: ViewHeight?
+    @Published var activityState: ActivityState = .init()
     
     @Published var side: Side = .white
     

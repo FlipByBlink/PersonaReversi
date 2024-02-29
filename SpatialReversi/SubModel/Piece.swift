@@ -5,7 +5,7 @@ struct Piece {
     var phase: Self.Phase
 }
 
-extension Piece: Codable {
+extension Piece: Codable, Equatable {
     enum Phase: Codable {
         case clear,
              fadeIn,

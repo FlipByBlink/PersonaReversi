@@ -25,7 +25,7 @@ struct PieceView: View {
         }
 #if targetEnvironment(simulator)
         .overlay {
-            switch self.model.pieces?[index]?.phase {
+            switch self.model.activityState.pieces[index]?.phase {
                 case .fadeIn, .flip, .slideDown, .slideUp:
                     ProgressView().offset(z: 100)
                 default:

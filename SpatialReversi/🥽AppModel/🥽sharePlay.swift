@@ -5,21 +5,19 @@ extension 🥽AppModel {
     func activateGroupActivity() {
         Task {
             do {
-                self.pieces = .empty
-                self.viewHeight = .default
+                self.activityState.pieces = .default
+                self.activityState.mode = .sharePlay
                 let result = try await 👤GroupActivity().activate()
                 switch result {
                     case true:
                         try? await Task.sleep(for: .seconds(1.5))
                         self.applyPreset()
                     case false:
-                        self.pieces = nil
-                        self.viewHeight = nil
+                        self.activityState.mode = .localOnly
                 }
             } catch {
                 print("Failed to activate activity: \(error)")
-                self.pieces = nil
-                self.viewHeight = nil
+                self.activityState.mode = .localOnly
             }
         }
     }
@@ -39,8 +37,9 @@ extension 🥽AppModel {
                             self.subscriptions = []
                             self.groupSession = nil
                             self.isSpatial = nil
-                            self.pieces = nil
-                            self.viewHeight = nil
+                            self.activityState.pieces = .default
+                            self.activityState.viewHeight = .default
+                            self.activityState.mode = .localOnly
                         }
                     }
                     .store(in: &self.subscriptions)
@@ -49,24 +48,19 @@ extension 🥽AppModel {
                     .sink {
                         let newParticipants = $0.subtracting(groupSession.activeParticipants)
                         Task { @MainActor in
-                            if let pieces = self.pieces,
-                               let viewHeight = self.viewHeight {
-                                try? await messenger.send(👤ActivityState(pieces: pieces,
-                                                                          pieceAnimation: .default(),
-                                                                          viewHeight: viewHeight),
-                                                          to: .only(newParticipants))
-                            }
+                            try? await messenger.send(👤Message(activityState: self.activityState,
+                                                                pieceAnimation: .default()),
+                                                      to: .only(newParticipants))
                         }
                     }
                     .store(in: &self.subscriptions)
                 
                 self.tasks.insert(
                     Task {
-                        for await (message, _) in messenger.messages(of: 👤ActivityState.self) {
+                        for await (message, _) in messenger.messages(of: 👤Message.self) {
                             Task { @MainActor in
                                 withAnimation(message.pieceAnimation.value) {
-                                    self.pieces = message.pieces
-                                    self.viewHeight = message.viewHeight
+                                    self.activityState = message.activityState
                                 }
                             }
                         }
@@ -108,14 +102,10 @@ extension 🥽AppModel {
             }
         }
     }
-    func sync(animation: 👤ActivityState.PieceAnimation = .default()) {
+    func sync(animation: 👤Message.PieceAnimation = .default()) {
         Task {
-            if let pieces = self.pieces,
-               let viewHeight = self.viewHeight {
-                try? await self.messenger?.send(👤ActivityState(pieces: pieces,
-                                                                pieceAnimation: animation,
-                                                                viewHeight: viewHeight))
-            }
+            try? await self.messenger?.send(👤Message(activityState: self.activityState,
+                                                      pieceAnimation: animation))
         }
     }
 }

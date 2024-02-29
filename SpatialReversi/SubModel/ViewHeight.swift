@@ -1,4 +1,4 @@
-struct ViewHeight: Codable {
-    var value: Double
-    static let `default`: Self = .init(value: 1900)
+struct ViewHeight: Codable, Equatable {
+    var value: Double //meters
+    static let `default`: Self = .init(value: 0.8)
 }

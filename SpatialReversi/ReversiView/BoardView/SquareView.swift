@@ -14,7 +14,7 @@ struct SquareView: View {
                 }
             }
             .overlay {
-                if let piece = self.model.pieces?[index] {
+                if let piece = self.model.activityState.pieces[index] {
                     PieceView(index, piece)
                 }
             }

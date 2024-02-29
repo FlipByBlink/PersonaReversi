@@ -2,7 +2,7 @@ struct Pieces {
     private var value: [Int: Piece]
 }
 
-extension Pieces: Codable {
+extension Pieces: Codable, Equatable {
     subscript(_ index: Int) -> Piece? {
         self.value[index]
     }
@@ -75,6 +75,7 @@ extension Pieces: Codable {
          36: .init(side: .white, phase: .complete),
          37: .init(side: .black, phase: .complete)]
     }()
+    static var `default`: Self { .init(value: Self.preset) }
 }
 
 private extension Pieces {
