@@ -9,39 +9,31 @@ struct ContentView: View {
                     self.model.activateGroupActivity()
                 }
             }
-            if self.model.showReversi {
-                BoardView()
-                    .offset(y: {
-                        if let viewHeight = self.model.viewHeight {
-                            (ViewHeight.default.value - viewHeight.value) / 3
-                        } else {
-                            0
-                        }
-                    }())
-                HStack {
-                    Picker("Side", selection: self.$model.side) {
-                        Text("White").tag(Side.white)
-                        Text("Black").tag(Side.black)
+            BoardView()
+                .offset(y: (ViewHeight.default.value - self.model.activityState.viewHeight.value) * 100)
+            HStack {
+                Picker("Side", selection: self.$model.side) {
+                    Text("White").tag(Side.white)
+                    Text("Black").tag(Side.black)
+                }
+                HStack(spacing: 6) {
+                    Button {
+                        self.model.raiseBoard()
+                    } label: {
+                        Image(systemName: "chevron.up")
+                            .frame(width: 32, height: 32)
+                            .padding(8)
                     }
-                    HStack(spacing: 6) {
-                        Button {
-                            self.model.raiseBoard()
-                        } label: {
-                            Image(systemName: "chevron.up")
-                                .frame(width: 32, height: 32)
-                                .padding(8)
-                        }
-                        Button {
-                            self.model.lowerBoard()
-                        } label: {
-                            Image(systemName: "chevron.down")
-                                .frame(width: 32, height: 32)
-                                .padding(8)
-                        }
+                    Button {
+                        self.model.lowerBoard()
+                    } label: {
+                        Image(systemName: "chevron.down")
+                            .frame(width: 32, height: 32)
+                            .padding(8)
                     }
-                    Button("reset") {
-                        self.model.reset()
-                    }
+                }
+                Button("reset") {
+                    self.model.reset()
                 }
             }
         }
@@ -77,7 +69,7 @@ struct BoardView: View {
                                     }
                                 }
                                 .overlay {
-                                    if let piece = self.model.pieces?[index] {
+                                    if let piece = self.model.activityState.pieces[index] {
                                         PieceView(index, piece)
                                     }
                                 }
@@ -110,8 +102,8 @@ struct BoardView: View {
             .overlay {
                 if self.model.showResult {
                     Text("""
-                    ⚫️ \(self.model.pieces?.pieceCounts[.black] ?? 0)
-                    ⚪️ \(self.model.pieces?.pieceCounts[.white] ?? 0)
+                    ⚫️ \(self.model.activityState.pieces.pieceCounts[.black] ?? 0)
+                    ⚪️ \(self.model.activityState.pieces.pieceCounts[.white] ?? 0)
                     """)
                     .font(.system(size: 70).bold())
                     .foregroundStyle(.green)
@@ -132,7 +124,7 @@ struct PieceView: View {
             .overlay { Circle().stroke() }
             .overlay {
                 Group {
-                    switch self.model.pieces?[index]?.phase {
+                    switch self.model.activityState.pieces[index]?.phase {
                         case .fadeIn: Text("fadeIn")
                         case .flip: Text("flip")
                         case .slideDown: Text("down")

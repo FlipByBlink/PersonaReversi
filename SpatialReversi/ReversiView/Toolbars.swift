@@ -32,6 +32,7 @@ private extension ToolbarsView {
                 } label: {
                     Label("Exit", systemImage: "escape")
                         .padding(20)
+                        .font(.title)
                 }
                 .glassBackgroundEffect()
                 HStack(spacing: 0) {
@@ -74,6 +75,7 @@ private extension ToolbarsView {
                                 .padding(8)
                         }
                     }
+                    .font(.title)
                     .buttonBorderShape(.circle)
                     Spacer()
                     Button {
@@ -82,6 +84,7 @@ private extension ToolbarsView {
                         Label("Reset", systemImage: "arrow.counterclockwise")
                             .padding(12)
                             .minimumScaleFactor(0.5)
+                            .font(.title)
                     }
                 }
                 .padding(12)

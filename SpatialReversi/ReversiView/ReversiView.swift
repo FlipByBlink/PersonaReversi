@@ -30,7 +30,8 @@ struct ReversiView: View {
 
 private extension ReversiView {
     private var yOffset: CGFloat {
-        self.physicalMetrics.convert(self.model.activityState.viewHeight.value, from: .meters)
+        self.physicalMetrics.convert(self.model.activityState.viewHeight.value,
+                                     from: .meters)
     }
     private var zOffset: CGFloat {
         if self.model.isSpatial == true {
