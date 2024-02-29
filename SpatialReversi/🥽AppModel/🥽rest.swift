@@ -20,7 +20,7 @@ extension 🥽AppModel {
             self.sync()
         } completion: {
             Task { @MainActor in
-                try? await Task.sleep(for: .seconds(1))
+                try? await Task.sleep(for: .seconds(0.45))
                 self.applyPreset()
             }
         }

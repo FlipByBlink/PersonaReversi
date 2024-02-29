@@ -15,7 +15,7 @@ struct ToolbarsView: View {
                 .rotation3DEffect(.init(angle: .degrees(180), axis: .y))
                 .offset(z: -Size.toolbarOffset)
         }
-        .offset(y: (Size.toolbarHeight / 2) + 20)
+        .offset(y: (Size.toolbarHeight / 2) + 24)
     }
 }
 
@@ -31,11 +31,12 @@ private extension ToolbarsView {
                     }
                 } label: {
                     Label("Exit", systemImage: "escape")
-                        .padding(20)
+                        .padding(16)
                         .font(.title)
                 }
+                .padding(12)
                 .glassBackgroundEffect()
-                HStack(spacing: 0) {
+                HStack(spacing: 24) {
                     HStack(spacing: 20) {
                         ForEach([Side.white, .black], id: \.self) { side in
                             Button {
@@ -47,7 +48,7 @@ private extension ToolbarsView {
                                     .fill(side == .white ? .white : .black)
                                     .opacity(self.model.side == side ? 0.9 : 0.75)
                                     .shadow(color: .gray, radius: 2)
-                                    .frame(width: 48, height: 48)
+                                    .frame(width: 54, height: 54)
                                     .overlay {
                                         if self.model.side == side {
                                             Image(systemName: "checkmark")
@@ -58,7 +59,6 @@ private extension ToolbarsView {
                             }
                         }
                     }
-                    Spacer()
                     HStack(spacing: 6) {
                         Button {
                             self.model.raiseBoard()
@@ -77,7 +77,6 @@ private extension ToolbarsView {
                     }
                     .font(.title)
                     .buttonBorderShape(.circle)
-                    Spacer()
                     Button {
                         self.model.reset()
                     } label: {
@@ -88,8 +87,8 @@ private extension ToolbarsView {
                     }
                 }
                 .padding(12)
-                .padding(.horizontal, 32)
-                .frame(width: Size.square * 4, height: Size.toolbarHeight)
+                .padding(.horizontal, 40)
+                .frame(height: Size.toolbarHeight)
                 .glassBackgroundEffect()
             }
             .buttonStyle(.plain)
