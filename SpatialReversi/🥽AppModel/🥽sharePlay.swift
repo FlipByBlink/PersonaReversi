@@ -38,7 +38,6 @@ extension 🥽AppModel {
                             self.groupSession = nil
                             self.isSpatial = nil
                             self.activityState.pieces = .default
-                            self.activityState.viewHeight = .default
                             self.activityState.mode = .localOnly
                         }
                     }
@@ -58,6 +57,7 @@ extension 🥽AppModel {
                 self.tasks.insert(
                     Task {
                         for await (message, _) in messenger.messages(of: 👤Message.self) {
+                            guard message.activityState.mode == .sharePlay else { continue }
                             Task { @MainActor in
                                 withAnimation(message.pieceAnimation.value) {
                                     self.activityState = message.activityState
