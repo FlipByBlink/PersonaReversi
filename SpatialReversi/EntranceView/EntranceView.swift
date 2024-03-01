@@ -84,7 +84,7 @@ private extension EntranceView {
     private var zOffset: CGFloat {
         (Size.board / 2)
         +
-        self.physicalMetrics.convert(1, from: .meters)
+        self.physicalMetrics.convert(Size.zOffsetInNonSpatial, from: .meters)
     }
     private func groupSessionStateText() -> some View {
         LabeledContent {

@@ -37,7 +37,7 @@ private extension ReversiView {
         if self.model.isSpatial == true {
             0
         } else {
-            self.physicalMetrics.convert(1, from: .meters)
+            self.physicalMetrics.convert(Size.zOffsetInNonSpatial, from: .meters)
         }
     }
 }
