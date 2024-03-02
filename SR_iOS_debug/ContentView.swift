@@ -4,7 +4,7 @@ struct ContentView: View {
     @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         VStack {
-            if self.model.showEntrance {
+            if self.model.showGuide {
                 Button("Start activity!") {
                     self.model.activateGroupActivity()
                 }

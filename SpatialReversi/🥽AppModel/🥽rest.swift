@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension 🥽AppModel {
-    var showEntrance: Bool {
+    var showGuide: Bool {
 #if targetEnvironment(simulator)
         true
 //        false
