@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1520"
+   LastUpgradeVersion = "1530"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1601FF032B4AA8BA0050457E"
-               BuildableName = "SpatialReversi.app"
-               BlueprintName = "SpatialReversi"
-               ReferencedContainer = "container:SpatialReversi.xcodeproj">
+               BuildableName = "PersonaReversi.app"
+               BlueprintName = "PersonaReversi"
+               ReferencedContainer = "container:PersonaReversi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1601FF032B4AA8BA0050457E"
-            BuildableName = "SpatialReversi.app"
-            BlueprintName = "SpatialReversi"
-            ReferencedContainer = "container:SpatialReversi.xcodeproj">
+            BuildableName = "PersonaReversi.app"
+            BlueprintName = "PersonaReversi"
+            ReferencedContainer = "container:PersonaReversi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "1601FF032B4AA8BA0050457E"
-            BuildableName = "SpatialReversi.app"
-            BlueprintName = "SpatialReversi"
-            ReferencedContainer = "container:SpatialReversi.xcodeproj">
+            BuildableName = "PersonaReversi.app"
+            BlueprintName = "PersonaReversi"
+            ReferencedContainer = "container:PersonaReversi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

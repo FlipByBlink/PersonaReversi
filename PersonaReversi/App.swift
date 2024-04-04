@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct SpatialReversiApp: App {
+struct PersonaReversiApp: App {
     @StateObject private var model: 🥽AppModel = .init()
     var body: some Scene {
         ImmersiveSpace {

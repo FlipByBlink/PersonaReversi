@@ -61,7 +61,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1601FF042B4AA8BA0050457E /* SpatialReversi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialReversi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1601FF042B4AA8BA0050457E /* PersonaReversi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaReversi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1601FF082B4AA8BA0050457E /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
 		1601FF0B2B4AA8BA0050457E /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		1601FF0D2B4AA8BA0050457E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,7 +90,7 @@
 		16C4CE2D2B54AF30002260A6 /* 👤ActivityState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👤ActivityState.swift"; sourceTree = "<group>"; };
 		16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "👤GroupActivity.swift"; sourceTree = "<group>"; };
 		16CDEE982B4D0B3500664815 /* 👤Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "👤Registration.swift"; sourceTree = "<group>"; };
-		16CDEE9B2B4D0C6E00664815 /* SpatialReversi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SpatialReversi.entitlements; sourceTree = "<group>"; };
+		16CDEE9B2B4D0C6E00664815 /* PersonaReversi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PersonaReversi.entitlements; sourceTree = "<group>"; };
 		16CDEEA02B4D0FBF00664815 /* SR_iOS_debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SR_iOS_debug.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CDEEA22B4D0FBF00664815 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16CDEEA42B4D0FBF00664815 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -128,7 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				16EF41352B5BF445002312FA /* README.md */,
-				1601FF062B4AA8BA0050457E /* SpatialReversi */,
+				1601FF062B4AA8BA0050457E /* PersonaReversi */,
 				1601FF072B4AA8BA0050457E /* Packages */,
 				16CDEEA12B4D0FBF00664815 /* SR_iOS_debug */,
 				1601FF052B4AA8BA0050457E /* Products */,
@@ -138,13 +138,13 @@
 		1601FF052B4AA8BA0050457E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1601FF042B4AA8BA0050457E /* SpatialReversi.app */,
+				1601FF042B4AA8BA0050457E /* PersonaReversi.app */,
 				16CDEEA02B4D0FBF00664815 /* SR_iOS_debug.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		1601FF062B4AA8BA0050457E /* SpatialReversi */ = {
+		1601FF062B4AA8BA0050457E /* PersonaReversi */ = {
 			isa = PBXGroup;
 			children = (
 				1601FF0B2B4AA8BA0050457E /* App.swift */,
@@ -156,7 +156,7 @@
 				16C477212B8B22EE00343DD8 /* Rest */,
 				16EF41362B5BF4E6002312FA /* Supporting files */,
 			);
-			path = SpatialReversi;
+			path = PersonaReversi;
 			sourceTree = "<group>";
 		};
 		1601FF072B4AA8BA0050457E /* Packages */ = {
@@ -268,7 +268,7 @@
 			children = (
 				1601FF0F2B4AA8BC0050457E /* Assets.xcassets */,
 				1601FF142B4AA8BC0050457E /* Info.plist */,
-				16CDEE9B2B4D0C6E00664815 /* SpatialReversi.entitlements */,
+				16CDEE9B2B4D0C6E00664815 /* PersonaReversi.entitlements */,
 				16EF41372B5BF5BF002312FA /* README assets */,
 				1638F8062B4F904200E0CAD2 /* Archive */,
 			);
@@ -287,9 +287,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1601FF032B4AA8BA0050457E /* SpatialReversi */ = {
+		1601FF032B4AA8BA0050457E /* PersonaReversi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1601FF172B4AA8BC0050457E /* Build configuration list for PBXNativeTarget "SpatialReversi" */;
+			buildConfigurationList = 1601FF172B4AA8BC0050457E /* Build configuration list for PBXNativeTarget "PersonaReversi" */;
 			buildPhases = (
 				1601FF002B4AA8BA0050457E /* Sources */,
 				1601FF012B4AA8BA0050457E /* Frameworks */,
@@ -299,12 +299,12 @@
 			);
 			dependencies = (
 			);
-			name = SpatialReversi;
+			name = PersonaReversi;
 			packageProductDependencies = (
 				1601FF092B4AA8BA0050457E /* RealityKitContent */,
 			);
 			productName = SpacialReversi;
-			productReference = 1601FF042B4AA8BA0050457E /* SpatialReversi.app */;
+			productReference = 1601FF042B4AA8BA0050457E /* PersonaReversi.app */;
 			productType = "com.apple.product-type.application";
 		};
 		16CDEE9F2B4D0FBF00664815 /* SR_iOS_debug */ = {
@@ -332,7 +332,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1520;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					1601FF032B4AA8BA0050457E = {
 						CreatedOnToolsVersion = 15.2;
@@ -342,7 +342,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1601FEFF2B4AA8BA0050457E /* Build configuration list for PBXProject "SpatialReversi" */;
+			buildConfigurationList = 1601FEFF2B4AA8BA0050457E /* Build configuration list for PBXProject "PersonaReversi" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -356,7 +356,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1601FF032B4AA8BA0050457E /* SpatialReversi */,
+				1601FF032B4AA8BA0050457E /* PersonaReversi */,
 				16CDEE9F2B4D0FBF00664815 /* SR_iOS_debug */,
 			);
 		};
@@ -452,6 +452,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -506,7 +507,7 @@
 				SDKROOT = xros;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				XROS_DEPLOYMENT_TARGET = 1.0;
+				XROS_DEPLOYMENT_TARGET = 1.1;
 			};
 			name = Debug;
 		};
@@ -515,6 +516,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -562,7 +564,7 @@
 				SDKROOT = xros;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
-				XROS_DEPLOYMENT_TARGET = 1.0;
+				XROS_DEPLOYMENT_TARGET = 1.1;
 			};
 			name = Release;
 		};
@@ -571,7 +573,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "SpatialReversi/Supporting files/SpatialReversi.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "PersonaReversi/Supporting files/PersonaReversi.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -585,7 +587,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.SpatialReversi;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaReversi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -599,7 +601,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "SpatialReversi/Supporting files/SpatialReversi.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "PersonaReversi/Supporting files/PersonaReversi.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
@@ -613,7 +615,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.SpatialReversi;
+				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaReversi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -689,7 +691,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1601FEFF2B4AA8BA0050457E /* Build configuration list for PBXProject "SpatialReversi" */ = {
+		1601FEFF2B4AA8BA0050457E /* Build configuration list for PBXProject "PersonaReversi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1601FF152B4AA8BC0050457E /* Debug */,
@@ -698,7 +700,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1601FF172B4AA8BC0050457E /* Build configuration list for PBXNativeTarget "SpatialReversi" */ = {
+		1601FF172B4AA8BC0050457E /* Build configuration list for PBXNativeTarget "PersonaReversi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1601FF182B4AA8BC0050457E /* Debug */,
