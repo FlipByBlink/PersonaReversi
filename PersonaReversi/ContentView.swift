@@ -12,6 +12,5 @@ struct ContentView: View {
             Attachment(id: "reversi") { ReversiView() }
         }
         .task { self.model.configureGroupSessions() }
-//        .task { 👤Registration.execute() }
     }
 }
