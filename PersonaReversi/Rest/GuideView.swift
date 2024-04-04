@@ -20,7 +20,7 @@ struct GuideView: View {
                     Section { self.groupSessionStateText() }
                 }
             }
-            .navigationTitle("SpatialReversi")
+            .navigationTitle("PersonaReversi")
         }
         .frame(width: 1000, height: 700)
         .glassBackgroundEffect()

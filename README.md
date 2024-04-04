@@ -6,7 +6,7 @@ _Reversi for Spatial SharePlay_
 
 <img src="PersonaReversi/Supporting files/README assets/icon.png" width="64">
 
-<a href="https://apps.apple.com/app/id????" target="blank">
+<a href="https://apps.apple.com/app/id6480587175" target="blank">
     <img src="PersonaReversi/Supporting files/README assets/appstore_badge.svg">
 </a>
 
@@ -20,7 +20,7 @@ Reversi for Spatial SharePlay
 
 App Store link
 ---------------
-[apps.apple.com/app/](https://apps.apple.com/app/)
+[apps.apple.com/app/id6480587175](https://apps.apple.com/app/id6480587175)
 
 
 Source code link
@@ -46,7 +46,7 @@ sear_pandora_0x@icloud.com
 
 Privacy Policy for App Store
 ----------------------------
-2024-04-??
+2024-04-05
 
 ### English
 This application don't collect user infomation.
