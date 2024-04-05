@@ -1,0 +1,57 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "@unknown default" : {
+
+    },
+    "%@" : {
+
+    },
+    "Apple Vision Pro" : {
+
+    },
+    "Eligible for SharePlay:" : {
+
+    },
+    "Exit" : {
+
+    },
+    "groupSession?.state:" : {
+
+    },
+    "invalidated(%@)" : {
+
+    },
+    "joined" : {
+
+    },
+    "No activity?" : {
+
+    },
+    "none" : {
+
+    },
+    "PersonaReversi" : {
+
+    },
+    "Reset" : {
+
+    },
+    "Reversi" : {
+
+    },
+    "Start with SharePlay!" : {
+
+    },
+    "waiting" : {
+
+    },
+    "What's SharePlay?" : {
+
+    },
+    "With SharePlay in the FaceTime app, you can play reversi in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time." : {
+
+    }
+  },
+  "version" : "1.0"
+}
