@@ -7,7 +7,6 @@ class 🥽AppModel: ObservableObject {
     @Published var activityState: ActivityState = .init()
     
     @Published var side: Side = .white
-    @Published var showResult: Bool = false
     
     @Published var groupSession: GroupSession<👤GroupActivity>?
     var messenger: GroupSessionMessenger?

@@ -6,6 +6,7 @@ extension 🥽AppModel {
         Task {
             do {
                 self.activityState.pieces = .default
+                self.activityState.showResult = false
                 self.activityState.mode = .sharePlay
                 let result = try await 👤GroupActivity().activate()
                 switch result {
@@ -38,6 +39,7 @@ extension 🥽AppModel {
                             self.groupSession = nil
                             self.isSpatial = nil
                             self.activityState.pieces = .default
+                            self.activityState.showResult = false
                             self.activityState.mode = .localOnly
                         }
                     }

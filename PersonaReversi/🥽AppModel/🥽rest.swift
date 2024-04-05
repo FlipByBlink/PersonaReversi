@@ -12,6 +12,7 @@ extension 🥽AppModel {
     func reset() {
         withAnimation {
             self.activityState.pieces = .empty
+            self.activityState.showResult = false
             if self.groupSession != nil {
                 self.activityState.mode = .sharePlay
             }

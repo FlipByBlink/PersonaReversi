@@ -5,7 +5,7 @@ import RealityKitContent
 struct ResultView: View {
     @EnvironmentObject var model: 🥽AppModel
     var body: some View {
-        if self.model.showResult {
+        if self.model.activityState.showResult {
             Self.ContentView()
         }
     }
@@ -51,7 +51,7 @@ private extension ResultView {
                 }
                 .font(.system(size: 200))
                 .frame(depth: 200)
-                .rotation3DEffect(.degrees(context.date.timeIntervalSince(self.showedDate) * 6),
+                .rotation3DEffect(.degrees(context.date.timeIntervalSince(self.showedDate) * 8),
                                   axis: .y)
             }
             .offset(y: self.yOffset)
@@ -62,15 +62,6 @@ private extension ResultView {
                 withAnimation(.default.speed(0.25)) {
                     self.yOffset = 0
                     self.opacity = 1
-                }
-            }
-            .onChange(of: self.model.activityState.pieces.isFinished) { _, newValue in
-                if newValue == false {
-                    withAnimation {
-                        self.opacity = 0
-                    } completion: {
-                        self.model.showResult = false
-                    }
                 }
             }
         }

@@ -40,10 +40,10 @@ extension 🥽AppModel {
                                             self.activityState.pieces.changePhase($0, .complete)
                                         }
                                         self.activityState.pieces.changePhase(index, .complete)
-                                        self.sync()
                                         if self.activityState.pieces.isFinished {
-                                            self.showResult = true
+                                            self.activityState.showResult = true
                                         }
+                                        self.sync()
                                     }
                                 }
                             }
