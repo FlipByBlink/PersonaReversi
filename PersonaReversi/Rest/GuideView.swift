@@ -32,7 +32,6 @@ struct GuideView: View {
                 .buttonStyle(.plain)
             }
         }
-        .padding()
         .frame(width: 1000, height: 700)
         .glassBackgroundEffect()
         .opacity(self.model.showGuide ? 1 : 0)
@@ -98,7 +97,7 @@ private extension GuideView {
                 } label: {
                     HStack(spacing: 12) {
                         Image(systemName: "shareplay")
-                        Text("Start with SharePlay!")
+                        Text("Start SharePlay!")
                     }
                     .padding(.leading)
                 }
