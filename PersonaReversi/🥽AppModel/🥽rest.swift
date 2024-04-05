@@ -1,14 +1,6 @@
 import SwiftUI
 
 extension 🥽AppModel {
-    var showGuide: Bool {
-#if targetEnvironment(simulator)
-        true
-//        false
-#else
-        self.groupSession == nil
-#endif
-    }
     func reset() {
         withAnimation {
             self.activityState.pieces = .empty

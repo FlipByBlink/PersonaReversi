@@ -10,16 +10,19 @@ struct GuideView: View {
             List {
                 Section {
                     NavigationLink("What's SharePlay?") { Self.whatsSharePlayMenu() }
-                        .font(.system(size: 48))
                 }
                 Section {
-                    NavigationLink("No activity?") { self.activityMenu() }
-                        .font(.system(size: 48))
+                    if true {//TODO: 戻す
+//                    if self.groupStateObserver.isEligibleForGroupSession {
+                        Text("You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself.")
+                        Text("If your friend has already started reversi activity, you can join the activity by manipulating the system-side UI.")
+                    }
                 }
-                if self.groupStateObserver.isEligibleForGroupSession {
-                    Text("You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself.")
+                Section {
+                    NavigationLink("Set up SharePlay") { self.activityMenu() }
                 }
             }
+            .font(.title3)
             .navigationTitle("PersonaReversi")
             .toolbar {
                 NavigationLink {
@@ -34,8 +37,8 @@ struct GuideView: View {
         }
         .frame(width: 1000, height: 700)
         .glassBackgroundEffect()
-        .opacity(self.model.showGuide ? 1 : 0)
-        .animation(.default, value: self.model.showGuide)
+        .opacity(self.showGuide ? 1 : 0)
+        .animation(.default, value: self.showGuide)
         .offset(y: -self.yOffset)
         .offset(z: -self.zOffset)
         .animation(.default, value: self.yOffset)
@@ -43,6 +46,14 @@ struct GuideView: View {
 }
 
 private extension GuideView {
+    var showGuide: Bool {
+#if targetEnvironment(simulator)
+        true
+//        false
+#else
+        self.model.groupSession == nil
+#endif
+    }
     private var yOffset: CGFloat {
         600
         +
@@ -55,14 +66,12 @@ private extension GuideView {
     }
     private static func whatsSharePlayMenu() -> some View {
         List {
-            HStack(spacing: 24) {
+            HStack(spacing: 28) {
                 Image(.exampleSharePlay)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 500)
+                    .frame(width: 460)
                 Text("With SharePlay in the FaceTime app, you can play reversi in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
-                    .font(.title)
-                //"With SharePlay in the FaceTime app, you can stream TV shows, movies, and music in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced playback and shared controls, you see and hear the same moments at the same time."
             }
             .padding()
             Section {
@@ -86,11 +95,6 @@ private extension GuideView {
                 Text("How to start")
             }
             Section {
-                Text(#"If your friend has already started "Reversi" activity, you can join the activity by manipulating the system-side UI."#)
-            } header: {
-                Text("Join SharePlay")
-            }
-            Section {
                 Text("You can also start SharePlay yourself. Once you have started an activity, encourage your friends to join SharePlay.")
                 Button {
                     self.model.activateGroupActivity()
@@ -107,8 +111,6 @@ private extension GuideView {
                     ||
                     self.model.groupSession?.state != nil
                 )
-                //} footer: {
-                //    Text("If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay.")
             } header: {
                 Text("Start SharePlay by oneself")
             }

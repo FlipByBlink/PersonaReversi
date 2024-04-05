@@ -31,10 +31,7 @@
     "If you launch this application during FaceTime, you can start an activity. When you launch an activity, the caller's device will show a notification asking them to join SharePlay." : {
 
     },
-    "If your friend has already started \"Reversi\" activity, you can join the activity by manipulating the system-side UI." : {
-
-    },
-    "Join SharePlay" : {
+    "If your friend has already started reversi activity, you can join the activity by manipulating the system-side UI." : {
 
     },
     "Leave the activity" : {
@@ -58,7 +55,7 @@
     "Start SharePlay by oneself" : {
 
     },
-    "Start with SharePlay!" : {
+    "Start SharePlay!" : {
 
     },
     "The Group Activities framework uses end-to-end encryption on all session data. Developer and Apple doesn’t have the keys to decrypt this data." : {
