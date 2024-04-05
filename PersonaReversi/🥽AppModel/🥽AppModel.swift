@@ -14,5 +14,5 @@ class 🥽AppModel: ObservableObject {
     var tasks: Set<Task<Void, Never>> = []
     @Published var isSpatial: Bool?
     
-    let soundFeedback: SoundFeedback = .init()
+    let soundFeedback = SoundFeedback()
 }

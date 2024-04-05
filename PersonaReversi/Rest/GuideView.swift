@@ -21,9 +21,20 @@ struct GuideView: View {
                 }
             }
             .navigationTitle("PersonaReversi")
+            .toolbar {
+                NavigationLink {
+                    List { ℹ️AboutAppContent() }
+                } label: {
+                    Label("About App", systemImage: "info")
+                        .padding(14)
+                }
+                .buttonBorderShape(.circle)
+                .buttonStyle(.plain)
+            }
         }
         .frame(width: 1000, height: 700)
         .glassBackgroundEffect()
+        .opacity(self.model.showGuide ? 1 : 0)
         .animation(.default, value: self.model.showGuide)
         .offset(y: -self.yOffset)
         .offset(z: -self.zOffset)

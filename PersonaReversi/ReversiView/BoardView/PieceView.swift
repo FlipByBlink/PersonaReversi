@@ -23,16 +23,6 @@ struct PieceView: View {
                 .opacity(0.15)
                 .padding(12)
         }
-#if targetEnvironment(simulator)
-        .overlay {
-            switch self.model.activityState.pieces[index]?.phase {
-                case .fadeIn, .flip, .slideDown, .slideUp:
-                    ProgressView().offset(z: 100)
-                default:
-                    EmptyView()
-            }
-        }
-#endif
         .opacity(self.piece.opacity)
     }
     init(_ index: Int, _ piece: Piece) {
