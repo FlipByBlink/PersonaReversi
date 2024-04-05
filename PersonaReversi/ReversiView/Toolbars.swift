@@ -23,6 +23,7 @@ private extension ToolbarsView {
     private struct ContentView: View {
         @EnvironmentObject var model: 🥽AppModel
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
+        @State private var showSharePlaySubmenu: Bool = false
         var body: some View {
             HStack(spacing: 24) {
                 Button {
@@ -85,6 +86,49 @@ private extension ToolbarsView {
                             .minimumScaleFactor(0.5)
                             .font(.title)
                     }
+                    if true {
+//                    if self.model.groupSession?.state == .joined {
+                        Button {
+                            self.showSharePlaySubmenu.toggle()
+                        } label: {
+                            Label("SharePlay menu", systemImage: "shareplay")
+                                .padding()
+                                .labelStyle(.iconOnly)
+                                .background {
+                                    if self.showSharePlaySubmenu {
+                                        Circle()
+                                            .foregroundStyle(.tertiary)
+                                    }
+                                }
+                        }
+                        .font(.title)
+                        .buttonBorderShape(.circle)
+                        .overlay {
+                            if self.showSharePlaySubmenu {
+                                VStack {
+                                    HStack {
+                                        Text("Activity state: ?")
+                                        Spacer()
+                                        Text("?")
+                                            .foregroundStyle(.secondary)
+                                    }
+                                    HStack {
+                                        Text("Participants count: ?")
+                                        Spacer()
+                                        Text("?")
+                                            .foregroundStyle(.secondary)
+                                    }
+                                    Button("Leave activity") {}
+                                    Button("Close activity") {}
+                                }
+                                .padding(24)
+                                .glassBackgroundEffect()
+                                .offset(y: 100)
+                                .frame(width: 300, height: 300)
+                                .offset(z: 10)
+                            }
+                        }
+                    }
                 }
                 .padding(12)
                 .padding(.horizontal, 40)
@@ -92,6 +136,8 @@ private extension ToolbarsView {
                 .glassBackgroundEffect()
             }
             .buttonStyle(.plain)
+            .animation(.default, value: self.model.groupSession?.state == .joined)
+            .animation(.default, value: self.showSharePlaySubmenu)
             .rotation3DEffect(.degrees(20), axis: .x)
         }
     }

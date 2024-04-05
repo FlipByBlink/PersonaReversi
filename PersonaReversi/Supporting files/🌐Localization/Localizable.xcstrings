@@ -13,6 +13,9 @@
     "Apple Vision Pro" : {
 
     },
+    "Close activity" : {
+
+    },
     "Eligible for SharePlay:" : {
 
     },
@@ -28,6 +31,9 @@
     "joined" : {
 
     },
+    "Leave activity" : {
+
+    },
     "No activity?" : {
 
     },
@@ -41,6 +47,9 @@
 
     },
     "Reversi" : {
+
+    },
+    "SharePlay menu" : {
 
     },
     "Start with SharePlay!" : {
