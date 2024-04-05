@@ -38,7 +38,4 @@ extension 🥽AppModel {
             try? await self.messenger?.send(👤PlaySound(file: file))
         }
     }
-    var showResult: Bool {
-        self.activityState.pieces.isFinished
-    }
 }

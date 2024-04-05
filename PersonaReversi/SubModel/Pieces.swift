@@ -25,7 +25,11 @@ extension Pieces: Codable, Equatable {
         }
     }
     var isFinished: Bool {
-        self.value.count == 64
+        (0..<64).allSatisfy { !self.puttable(.white, $0) }
+        &&
+        (0..<64).allSatisfy { !self.puttable(.black, $0) }
+        &&
+        !self.isMoving
         &&
         self.value.allSatisfy { $0.value.phase == .complete }
     }

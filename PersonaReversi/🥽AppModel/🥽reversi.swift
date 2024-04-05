@@ -41,6 +41,9 @@ extension 🥽AppModel {
                                         }
                                         self.activityState.pieces.changePhase(index, .complete)
                                         self.sync()
+                                        if self.activityState.pieces.isFinished {
+                                            self.showResult = true
+                                        }
                                     }
                                 }
                             }
@@ -83,6 +86,6 @@ extension 🥽AppModel {
     func puttable(_ index: Int) -> Bool {
         self.activityState.pieces.puttable(self.side, index)
         &&
-        self.activityState.pieces.isMoving == false
+        (self.activityState.pieces.isMoving == false)
     }
 }

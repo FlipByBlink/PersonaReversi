@@ -4,10 +4,20 @@ import RealityKitContent
 
 struct ResultView: View {
     @EnvironmentObject var model: 🥽AppModel
-    @State private var yOffset: Double = 400
-    @State private var opacity: Double = 0
     var body: some View {
         if self.model.showResult {
+            Self.ContentView()
+        }
+    }
+}
+
+private extension ResultView {
+    private struct ContentView: View {
+        @EnvironmentObject var model: 🥽AppModel
+        @State private var yOffset: Double = 400
+        @State private var opacity: Double = 0
+        @State private var showedDate: Date = .now
+        var body: some View {
             TimelineView(.animation) { context in
                 VStack(spacing: 64) {
                     ForEach([Side.white, .black], id: \.self) { side in
@@ -41,7 +51,7 @@ struct ResultView: View {
                 }
                 .font(.system(size: 200))
                 .frame(depth: 200)
-                .rotation3DEffect(.degrees(context.date.timeIntervalSinceReferenceDate * 16),
+                .rotation3DEffect(.degrees(context.date.timeIntervalSince(self.showedDate) * 6),
                                   axis: .y)
             }
             .offset(y: self.yOffset)
@@ -52,6 +62,15 @@ struct ResultView: View {
                 withAnimation(.default.speed(0.25)) {
                     self.yOffset = 0
                     self.opacity = 1
+                }
+            }
+            .onChange(of: self.model.activityState.pieces.isFinished) { _, newValue in
+                if newValue == false {
+                    withAnimation {
+                        self.opacity = 0
+                    } completion: {
+                        self.model.showResult = false
+                    }
                 }
             }
         }
