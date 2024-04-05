@@ -23,7 +23,8 @@ private extension ToolbarsView {
     private struct ContentView: View {
         @EnvironmentObject var model: 🥽AppModel
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-        @State private var showSharePlaySubmenu: Bool = false
+        @State private var showSharePlaySubmenu: Bool = true
+//        @State private var showSharePlaySubmenu: Bool = false //TODO: 戻す
         var body: some View {
             HStack(spacing: 24) {
                 Button {
@@ -37,6 +38,7 @@ private extension ToolbarsView {
                 }
                 .padding(12)
                 .glassBackgroundEffect()
+                .buttonStyle(.plain)
                 HStack(spacing: 24) {
                     HStack(spacing: 20) {
                         ForEach([Side.white, .black], id: \.self) { side in
@@ -58,6 +60,7 @@ private extension ToolbarsView {
                                         }
                                     }
                             }
+                            .buttonStyle(.plain)
                         }
                     }
                     HStack(spacing: 6) {
@@ -78,6 +81,7 @@ private extension ToolbarsView {
                     }
                     .font(.title)
                     .buttonBorderShape(.circle)
+                    .buttonStyle(.plain)
                     Button {
                         self.model.reset()
                     } label: {
@@ -86,46 +90,67 @@ private extension ToolbarsView {
                             .minimumScaleFactor(0.5)
                             .font(.title)
                     }
-                    if true {
-//                    if self.model.groupSession?.state == .joined {
+                    .buttonStyle(.plain)
+                    if true { //TODO: 戻す
+//                    if [.waiting, .joined].contains(self.model.groupSession?.state)  {
                         Button {
                             self.showSharePlaySubmenu.toggle()
                         } label: {
-                            Label("SharePlay menu", systemImage: "shareplay")
+                            Image(systemName: "shareplay")
                                 .padding()
-                                .labelStyle(.iconOnly)
-                                .background {
+                                .opacity(self.showSharePlaySubmenu ? 0 : 1)
+                                .overlay {
+                                    if self.model.groupSession?.state == .waiting {
+                                        ProgressView()
+                                    }
+                                }
+                                .overlay {
                                     if self.showSharePlaySubmenu {
-                                        Circle()
-                                            .foregroundStyle(.tertiary)
+                                        Image(systemName: "xmark.circle.fill")
+                                            .imageScale(.large)
                                     }
                                 }
                         }
                         .font(.title)
                         .buttonBorderShape(.circle)
-                        .overlay {
+                        .buttonStyle(.plain)
+                        .overlay(alignment: .top) {
                             if self.showSharePlaySubmenu {
                                 VStack {
                                     HStack {
-                                        Text("Activity state: ?")
+                                        Text("SharePlay state:")
                                         Spacer()
                                         Text("?")
                                             .foregroundStyle(.secondary)
                                     }
-                                    HStack {
-                                        Text("Participants count: ?")
-                                        Spacer()
-                                        Text("?")
+                                    .font(.subheadline)
+                                    .padding(8)
+                                    Divider()
+                                    VStack {
+                                        Button {
+                                        } label: {
+                                            Text("Leave the activity")
+                                        }
+                                        Text("Everyone remains in the activity except you.")
+                                            .font(.subheadline)
                                             .foregroundStyle(.secondary)
                                     }
-                                    Button("Leave activity") {}
-                                    Button("Close activity") {}
+                                    .padding(8)
+                                    Divider()
+                                    VStack {
+                                        Button("Close the activity") {}
+                                        Text("Everyone will leave the activity.")
+                                            .font(.subheadline)
+                                            .foregroundStyle(.secondary)
+                                    }
+                                    .padding(8)
                                 }
                                 .padding(24)
                                 .glassBackgroundEffect()
-                                .offset(y: 100)
-                                .frame(width: 300, height: 300)
-                                .offset(z: 10)
+                                .frame(width: 640, height: 400, alignment: .bottom)
+                                .offset(z: 30)
+                                .offset(y: 30)
+                                .alignmentGuide(.top) { $0.height }
                             }
                         }
                     }
@@ -135,7 +160,6 @@ private extension ToolbarsView {
                 .frame(height: Size.toolbarHeight)
                 .glassBackgroundEffect()
             }
-            .buttonStyle(.plain)
             .animation(.default, value: self.model.groupSession?.state == .joined)
             .animation(.default, value: self.showSharePlaySubmenu)
             .rotation3DEffect(.degrees(20), axis: .x)
