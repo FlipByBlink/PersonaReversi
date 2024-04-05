@@ -17,14 +17,6 @@ struct ReversiView: View {
         .offset(y: -self.yOffset)
         .offset(z: -self.zOffset)
         .animation(.default, value: self.yOffset)
-#if targetEnvironment(simulator)
-        .task {
-//            try? await Task.sleep(for: .seconds(1))
-//            self.model.setUpForDebug()
-//            try? await Task.sleep(for: .seconds(2))
-//            self.model.setPiecesForDebug()
-        }
-#endif
     }
 }
 

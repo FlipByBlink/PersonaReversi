@@ -1,16 +1,6 @@
 import SwiftUI
 
 extension 🥽AppModel {
-    func setUpForDebug() {
-#if DEBUG
-        Task {
-            self.activityState.pieces = .default
-            self.activityState.viewHeight = .default
-            try? await Task.sleep(for: .seconds(1))
-            self.applyPreset()
-        }
-#endif
-    }
     func setPiecesForDebug() {
 #if DEBUG
         Task { @MainActor in
