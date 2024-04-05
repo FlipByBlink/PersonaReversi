@@ -23,8 +23,7 @@ private extension ToolbarsView {
     private struct ContentView: View {
         @EnvironmentObject var model: 🥽AppModel
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-        @State private var showSharePlaySubmenu: Bool = true
-//        @State private var showSharePlaySubmenu: Bool = false //TODO: 戻す
+        @State private var showSharePlaySubmenu: Bool = false
         var body: some View {
             HStack(spacing: 24) {
                 Button {
@@ -128,6 +127,8 @@ private extension ToolbarsView {
                                     Divider()
                                     VStack {
                                         Button {
+                                            self.model.groupSession?.leave()
+                                            self.showSharePlaySubmenu = false
                                         } label: {
                                             Text("Leave the activity")
                                         }
@@ -138,7 +139,10 @@ private extension ToolbarsView {
                                     .padding(8)
                                     Divider()
                                     VStack {
-                                        Button("Close the activity") {}
+                                        Button("End the activity") {
+                                            self.model.groupSession?.end()
+                                            self.showSharePlaySubmenu = false
+                                        }
                                         Text("Everyone will leave the activity.")
                                             .font(.subheadline)
                                             .foregroundStyle(.secondary)
