@@ -23,7 +23,7 @@ private extension ToolbarsView {
     private struct ContentView: View {
         @EnvironmentObject var model: 🥽AppModel
         @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-        @State private var showSharePlaySubmenu: Bool = false
+        @State private var showSharePlaySubMenu: Bool = false
         var body: some View {
             HStack(spacing: 24) {
                 Button {
@@ -93,18 +93,18 @@ private extension ToolbarsView {
                     if true { //TODO: 戻す
 //                    if [.waiting, .joined].contains(self.model.groupSession?.state)  {
                         Button {
-                            self.showSharePlaySubmenu.toggle()
+                            self.showSharePlaySubMenu.toggle()
                         } label: {
                             Image(systemName: "shareplay")
                                 .padding()
-                                .opacity(self.showSharePlaySubmenu ? 0 : 1)
+                                .opacity(self.showSharePlaySubMenu ? 0 : 1)
                                 .overlay {
                                     if self.model.groupSession?.state == .waiting {
                                         ProgressView()
                                     }
                                 }
                                 .overlay {
-                                    if self.showSharePlaySubmenu {
+                                    if self.showSharePlaySubMenu {
                                         Image(systemName: "xmark.circle.fill")
                                             .imageScale(.large)
                                     }
@@ -114,48 +114,7 @@ private extension ToolbarsView {
                         .buttonBorderShape(.circle)
                         .buttonStyle(.plain)
                         .overlay(alignment: .top) {
-                            if self.showSharePlaySubmenu {
-                                VStack {
-                                    HStack {
-                                        Text("SharePlay state:")
-                                        Spacer()
-                                        Text("?")
-                                            .foregroundStyle(.secondary)
-                                    }
-                                    .font(.subheadline)
-                                    .padding(8)
-                                    Divider()
-                                    VStack {
-                                        Button {
-                                            self.model.groupSession?.leave()
-                                            self.showSharePlaySubmenu = false
-                                        } label: {
-                                            Text("Leave the activity")
-                                        }
-                                        Text("Everyone remains in the activity except you.")
-                                            .font(.subheadline)
-                                            .foregroundStyle(.secondary)
-                                    }
-                                    .padding(8)
-                                    Divider()
-                                    VStack {
-                                        Button("End the activity") {
-                                            self.model.groupSession?.end()
-                                            self.showSharePlaySubmenu = false
-                                        }
-                                        Text("Everyone will leave the activity.")
-                                            .font(.subheadline)
-                                            .foregroundStyle(.secondary)
-                                    }
-                                    .padding(8)
-                                }
-                                .padding(24)
-                                .glassBackgroundEffect()
-                                .frame(width: 640, height: 400, alignment: .bottom)
-                                .offset(z: 30)
-                                .offset(y: 30)
-                                .alignmentGuide(.top) { $0.height }
-                            }
+                            if self.showSharePlaySubMenu { self.sharePlaySubMenu() }
                         }
                     }
                 }
@@ -165,8 +124,60 @@ private extension ToolbarsView {
                 .glassBackgroundEffect()
             }
             .animation(.default, value: self.model.groupSession?.state == .joined)
-            .animation(.default, value: self.showSharePlaySubmenu)
+            .animation(.default, value: self.showSharePlaySubMenu)
             .rotation3DEffect(.degrees(20), axis: .x)
+        }
+        private func sharePlaySubMenu() -> some View {
+            VStack {
+                HStack {
+                    Text("SharePlay state:")
+                    Spacer()
+                    Text({
+                        switch self.model.groupSession?.state {
+                            case .waiting: "waiting"
+                            case .joined: "joined"
+                            case .invalidated(reason: let error): "invalidated, (\(error))"
+                            case .none: "none"
+                            @unknown default: "unknown"
+                        }
+                    }())
+                    .fontWeight(.regular)
+                    .foregroundStyle(.secondary)
+                }
+                .font(.subheadline)
+                .padding(.horizontal)
+                .padding(8)
+                Divider()
+                VStack {
+                    Button {
+                        self.model.groupSession?.leave()
+                        self.showSharePlaySubMenu = false
+                    } label: {
+                        Text("Leave the activity")
+                    }
+                    Text("Everyone remains in the activity except you.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(8)
+                Divider()
+                VStack {
+                    Button("End the activity") {
+                        self.model.groupSession?.end()
+                        self.showSharePlaySubMenu = false
+                    }
+                    Text("Everyone will leave the activity.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+                }
+                .padding(8)
+            }
+            .padding(24)
+            .glassBackgroundEffect()
+            .frame(width: 640, height: 400, alignment: .bottom)
+            .offset(z: 30)
+            .offset(y: 30)
+            .alignmentGuide(.top) { $0.height }
         }
     }
 }

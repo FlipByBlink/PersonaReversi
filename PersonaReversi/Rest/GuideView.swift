@@ -115,19 +115,4 @@ private extension GuideView {
             }
         }
     }
-    //private func groupSessionStateText() -> some View {
-    //    LabeledContent {
-    //        Text({
-    //            switch self.model.groupSession?.state {
-    //                case .waiting: "waiting"
-    //                case .joined: "joined"
-    //                case .invalidated(reason: let error): "invalidated(\(error.localizedDescription))"
-    //                case .none: "none"
-    //                @unknown default: "@unknown default"
-    //            }
-    //        }())
-    //    } label: {
-    //        Text("groupSession?.state:")//TODO: 見直す
-    //    }
-    //}
 }

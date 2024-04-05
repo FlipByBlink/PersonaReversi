@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "?" : {
-
-    },
     "About App" : {
 
     },
@@ -13,10 +10,10 @@
     "Apple Vision Pro" : {
 
     },
-    "Close the activity" : {
+    "Eligible for SharePlay:" : {
 
     },
-    "Eligible for SharePlay:" : {
+    "End the activity" : {
 
     },
     "Everyone remains in the activity except you." : {
