@@ -6,13 +6,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "placeholder"
+            "value" : "Reversi with Spatial Personas.\n\n- Simple reversi design.\n\n- Set pieces freely.\n\n- Support Spatial SharePlay."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "プレースホルダー"
+            "value" : "空間ペルソナでリバーシをプレイしよう。\n\n・シンプルなリバーシのデザイン。\n\n・駒を自由に置く事ができます。\n\n・空間SharePlayに対応しています。\n\n\n==== English ====\nReversi with Spatial Personas.\n\n- Simple reversi design.\n\n- Set pieces freely.\n\n- Support Spatial SharePlay."
           }
         }
       }

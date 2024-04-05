@@ -32,6 +32,7 @@ struct GuideView: View {
                 .buttonStyle(.plain)
             }
         }
+        .padding()
         .frame(width: 1000, height: 700)
         .glassBackgroundEffect()
         .opacity(self.model.showGuide ? 1 : 0)

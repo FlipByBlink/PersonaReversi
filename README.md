@@ -15,7 +15,13 @@ _Reversi for Spatial SharePlay_
 
 Description
 ------------
-Reversi for Spatial SharePlay
+Reversi with Spatial Personas.
+
+- Simple reversi design.
+
+- Set pieces freely.
+
+- Support Spatial SharePlay.
 
 
 App Store link

@@ -26,6 +26,10 @@ enum 🗒️StaticInfo {
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main,
+             AppModel,
+             SharePlay,
+             SubModel,
+             ReversiView,
              Rest
         var id: Self { self }
         var fileNames: [String] {
@@ -34,8 +38,41 @@ enum 🗒️StaticInfo {
                     "App.swift",
                     "ContentView.swift",
                 ]
+                case .AppModel: [
+                    "🥽AppModel.swift",
+                    "🥽reversi.swift",
+                    "🥽sharePlay.swift",
+                    "🥽rest.swift",
+                    "🥽debug.swift",
+                ]
+                case .SharePlay: [
+                    "👤GroupActivity.swift",
+                    "👤ActivityState.swift",
+                    "👤PlaySound.swift",
+                ]
+                case .SubModel: [
+                    "ActivityState.swift",
+                    "Pieces.swift",
+                    "Piece.swift",
+                    "Side.swift",
+                    "ViewHeight.swift",
+                    "Mode.swift",
+                ]
+                case .ReversiView: [
+                    "ReversiView.swift",
+                    "Toolbars.swift",
+                    "ResultView.swift",
+                    "BoardView.swift",
+                    "SquareView.swift",
+                    "PieceView.swift",
+                ]
                 case .Rest: [
-                    "",
+                    "GuideView.swift",
+                    "Size.swift",
+                    "SoundFeedback.swift",
+                    "SoundFile.swift",
+                    "🗒️StaticInfo.swift",
+                    "ℹ️AboutApp.swift",
                 ]
             }
         }

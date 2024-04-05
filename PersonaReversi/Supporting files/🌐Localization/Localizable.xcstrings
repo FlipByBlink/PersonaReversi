@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "?" : {
+
+    },
     "@unknown default" : {
 
     },
@@ -8,6 +11,9 @@
 
     },
     "About App" : {
+
+    },
+    "Activity state: ?" : {
 
     },
     "Apple Vision Pro" : {
@@ -38,6 +44,9 @@
 
     },
     "none" : {
+
+    },
+    "Participants count: ?" : {
 
     },
     "PersonaReversi" : {
