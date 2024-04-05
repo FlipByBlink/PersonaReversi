@@ -21,7 +21,7 @@ private extension ResultView {
             TimelineView(.animation) { context in
                 VStack(spacing: 64) {
                     ForEach([Side.white, .black], id: \.self) { side in
-                        HStack(spacing: 32) {
+                        HStack(spacing: 0) {
                             Model3D(named: side == .white ? "WhitePiece" : "BlackPiece",
                                     bundle: realityKitContentBundle) {
                                 $0
@@ -41,11 +41,12 @@ private extension ResultView {
                                 let textEntity = ModelEntity(mesh: textMeshResource,
                                                              materials: [SimpleMaterial(color: .white,
                                                                                         isMetallic: false)])
-                                textEntity.position = -(textMeshResource.bounds.extents / 2)
-                                textEntity.position.y -= 0.04
+                                textEntity.position.x = -(textMeshResource.bounds.extents.x / 2)
+                                textEntity.position.y = -(textMeshResource.bounds.extents.y / 2)
+                                textEntity.position.y -= 0.03
                                 content.add(textEntity)
                             }
-                            .frame(width: 350, height: 200)
+                            .frame(width: 300, height: 200)
                         }
                     }
                 }
