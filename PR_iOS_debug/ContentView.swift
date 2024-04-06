@@ -4,7 +4,7 @@ struct ContentView: View {
     @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         VStack {
-            if self.model.showGuide {
+            if self.model.groupSession == nil {
                 Button("Start activity!") {
                     self.model.activateGroupActivity()
                 }
@@ -101,7 +101,7 @@ struct BoardView: View {
                     .stroke(lineWidth: 5)
             }
             .overlay {
-                if self.model.showResult {
+                if self.model.activityState.showResult {
                     Text("""
                     ⚫️ \(self.model.activityState.pieces.pieceCounts[.black] ?? 0)
                     ⚪️ \(self.model.activityState.pieces.pieceCounts[.white] ?? 0)
