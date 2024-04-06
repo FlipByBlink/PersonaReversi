@@ -17,11 +17,11 @@ Description
 ------------
 Reversi with Spatial Personas.
 
-- Simple reversi design.
-
-- Set pieces freely.
+- Simple design.
 
 - Support Spatial SharePlay.
+
+- Adjust a board height.
 
 
 App Store link
