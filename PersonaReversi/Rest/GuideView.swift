@@ -38,6 +38,7 @@ struct GuideView: View {
         .glassBackgroundEffect()
         .opacity(self.showGuide ? 1 : 0)
         .animation(.default, value: self.showGuide)
+        .animation(.default, value: self.isEligibleForGroupSession)
         .offset(y: -self.yOffset)
         .offset(z: -self.zOffset)
         .animation(.default, value: self.yOffset)
@@ -47,8 +48,8 @@ struct GuideView: View {
 private extension GuideView {
     var showGuide: Bool {
 #if targetEnvironment(simulator)
-//        true
-        false
+        true
+//        false
 #else
         self.model.groupSession == nil
 #endif
