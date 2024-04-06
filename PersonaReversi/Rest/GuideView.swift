@@ -12,8 +12,7 @@ struct GuideView: View {
                     NavigationLink("What's SharePlay?") { Self.whatsSharePlayMenu() }
                 }
                 Section {
-                    if true {//TODO: 戻す
-//                    if self.groupStateObserver.isEligibleForGroupSession {
+                    if self.isEligibleForGroupSession {
                         Text("You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself.")
                         Text("If your friend has already started reversi activity, you can join the activity by manipulating the system-side UI.")
                     }
@@ -48,10 +47,18 @@ struct GuideView: View {
 private extension GuideView {
     var showGuide: Bool {
 #if targetEnvironment(simulator)
+//        true
+        false
+#else
+        self.model.groupSession == nil
+#endif
+    }
+    var isEligibleForGroupSession: Bool {
+#if targetEnvironment(simulator)
         true
 //        false
 #else
-        self.model.groupSession == nil
+        self.groupStateObserver.isEligibleForGroupSession
 #endif
     }
     private var yOffset: CGFloat {

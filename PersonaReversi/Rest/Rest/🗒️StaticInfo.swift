@@ -47,7 +47,7 @@ enum 🗒️StaticInfo {
                 ]
                 case .SharePlay: [
                     "👤GroupActivity.swift",
-                    "👤ActivityState.swift",
+                    "👤Message.swift",
                     "👤PlaySound.swift",
                 ]
                 case .SubModel: [

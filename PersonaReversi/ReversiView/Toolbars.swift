@@ -90,8 +90,7 @@ private extension ToolbarsView {
                             .font(.title)
                     }
                     .buttonStyle(.plain)
-                    if true { //TODO: 戻す
-//                    if [.waiting, .joined].contains(self.model.groupSession?.state)  {
+                    if self.isSharePlaying {
                         Button {
                             self.showSharePlaySubMenu.toggle()
                         } label: {
@@ -123,9 +122,17 @@ private extension ToolbarsView {
                 .frame(height: Size.toolbarHeight)
                 .glassBackgroundEffect()
             }
-            .animation(.default, value: self.model.groupSession?.state == .joined)
+            .animation(.default, value: self.isSharePlaying)
             .animation(.default, value: self.showSharePlaySubMenu)
             .rotation3DEffect(.degrees(20), axis: .x)
+        }
+        private var isSharePlaying: Bool {
+#if targetEnvironment(simulator)
+            true
+//            false
+#else
+            [.waiting, .joined].contains(self.model.groupSession?.state)
+#endif
         }
         private func sharePlaySubMenu() -> some View {
             VStack {

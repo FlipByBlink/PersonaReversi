@@ -37,9 +37,6 @@
     "Leave the activity" : {
 
     },
-    "No activity?" : {
-
-    },
     "PersonaReversi" : {
 
     },
@@ -47,6 +44,9 @@
 
     },
     "Reversi" : {
+
+    },
+    "Set up SharePlay" : {
 
     },
     "SharePlay state:" : {
