@@ -10,7 +10,7 @@ _Reversi for Spatial SharePlay_
     <img src="PersonaReversi/Supporting files/README assets/appstore_badge.svg">
 </a>
 
-<img src="PersonaReversi/Supporting files/README assets/screenshot1200w.jpg" width="600">
+<img src="PersonaReversi/Supporting files/README assets/screenshot1280w.jpg" width="640">
 
 
 Description
