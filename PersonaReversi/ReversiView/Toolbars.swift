@@ -31,7 +31,7 @@ private extension ToolbarsView {
                         await self.dismissImmersiveSpace()
                     }
                 } label: {
-                    Label("Exit", systemImage: "escape")
+                    Label("Close", systemImage: "escape")
                         .padding(16)
                         .font(.title)
                 }
@@ -141,13 +141,18 @@ private extension ToolbarsView {
                     Spacer()
                     Text({
                         switch self.model.groupSession?.state {
-                            case .waiting: "waiting"
-                            case .joined: "joined"
-                            case .invalidated(reason: let error): "invalidated, (\(error))"
-                            case .none: "none"
-                            @unknown default: "unknown"
+                            case .waiting:
+                                "waiting"
+                            case .joined:
+                                "joined"
+                            case .invalidated(reason: let error):
+                                "invalidated, (\(error.localizedDescription))"
+                            case .none:
+                                "none"
+                            @unknown default:
+                                "unknown"
                         }
-                    }())
+                    }() as LocalizedStringKey)
                     .fontWeight(.regular)
                     .foregroundStyle(.secondary)
                 }
