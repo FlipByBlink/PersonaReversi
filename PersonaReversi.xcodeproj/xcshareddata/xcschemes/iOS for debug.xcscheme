@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "16CDEE9F2B4D0FBF00664815"
-               BuildableName = "PR_iOS_debug.app"
-               BlueprintName = "PR_iOS_debug"
+               BuildableName = "iOS for debug.app"
+               BlueprintName = "iOS for debug"
                ReferencedContainer = "container:PersonaReversi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "16CDEE9F2B4D0FBF00664815"
-            BuildableName = "PR_iOS_debug.app"
-            BlueprintName = "PR_iOS_debug"
+            BuildableName = "iOS for debug.app"
+            BlueprintName = "iOS for debug"
             ReferencedContainer = "container:PersonaReversi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "16CDEE9F2B4D0FBF00664815"
-            BuildableName = "PR_iOS_debug.app"
-            BlueprintName = "PR_iOS_debug"
+            BuildableName = "iOS for debug.app"
+            BlueprintName = "iOS for debug"
             ReferencedContainer = "container:PersonaReversi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

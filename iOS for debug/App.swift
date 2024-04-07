@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct PR_iOS_debugApp: App {
+struct IOSForDebugApp: App {
     @StateObject private var model: 🥽AppModel = .init()
     var body: some Scene {
         WindowGroup {
