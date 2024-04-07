@@ -52,7 +52,7 @@ wigged.runaway.0j@icloud.com
 
 Privacy Policy for App Store
 ----------------------------
-2024-04-05
+2024-04-07
 
 ### English
 This application don't collect user infomation.

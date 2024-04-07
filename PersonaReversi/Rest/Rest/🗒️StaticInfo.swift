@@ -10,7 +10,7 @@ enum 🗒️StaticInfo {
     static var contactAddress: String { "wigged.runaway.0j@icloud.com" }
     
     static let privacyPolicyDescription = """
-        2024-04-05
+        2024-04-07
         
         English
         This application don't collect user infomation.
@@ -22,7 +22,7 @@ enum 🗒️StaticInfo {
     static let webRepositoryURL: URL = .init(string: "https://github.com/FlipByBlink/PersonaReversi")!
     static let webMirrorRepositoryURL: URL = .init(string: "https://gitlab.com/FlipByBlink/PersonaReversi_Mirror")!
 
-    static let versionInfos: [(version: String, date: String)] = [("1.0", "2024-04-06")] //降順。先頭の方が新しい
+    static let versionInfos: [(version: String, date: String)] = [("1.0", "2024-04-07")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main,
@@ -60,7 +60,7 @@ enum 🗒️StaticInfo {
                 ]
                 case .ReversiView: [
                     "ReversiView.swift",
-                    "Toolbars.swift",
+                    "ToolbarsView.swift",
                     "ResultView.swift",
                     "BoardView.swift",
                     "SquareView.swift",
