@@ -25,13 +25,10 @@ extension 🥽AppModel {
     func configureGroupSessions() {
         Task {
             for await groupSession in 👤GroupActivity.sessions() {
-                self.activityState.pieces = .default
+                self.activityState.pieces = .empty
                 self.activityState.showResult = false
-                self.activityState.mode = .sharePlay
-                Task {
-                    try? await Task.sleep(for: .seconds(1.5))
-                    self.applyPreset()
-                }
+                self.activityState.mode = .localOnly
+                self.playSound(.reset)
                 
                 self.groupSession = groupSession
                 let messenger = GroupSessionMessenger(session: groupSession)
@@ -55,6 +52,13 @@ extension 🥽AppModel {
                 
                 groupSession.$activeParticipants
                     .sink {
+                        if $0.count == 1, self.activityState.pieces == .empty {
+                            Task {
+                                try? await Task.sleep(for: .seconds(0.45))
+                                self.activityState.mode = .sharePlay
+                                self.applyPreset()
+                            }
+                        }
                         let newParticipants = $0.subtracting(groupSession.activeParticipants)
                         Task { @MainActor in
                             try? await messenger.send(👤Message(activityState: self.activityState,
