@@ -12,5 +12,9 @@ struct ContentView: View {
             Attachment(id: "reversi") { ReversiView() }
         }
         .task { self.model.configureGroupSessions() }
+        .task { 👤Registration.execute() }
+        .frame(width: Size.window,
+               height: Size.window)
+        .frame(depth: Size.window)
     }
 }

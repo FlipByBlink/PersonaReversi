@@ -26,18 +26,6 @@ private extension ToolbarsView {
         @State private var showSharePlaySubMenu: Bool = false
         var body: some View {
             HStack(spacing: 24) {
-                Button {
-                    Task {
-                        await self.dismissImmersiveSpace()
-                    }
-                } label: {
-                    Label("Close", systemImage: "escape")
-                        .padding(16)
-                        .font(.title)
-                }
-                .padding(12)
-                .glassBackgroundEffect()
-                .buttonStyle(.plain)
                 HStack(spacing: 24) {
                     HStack(spacing: 20) {
                         ForEach([Side.white, .black], id: \.self) { side in
@@ -62,25 +50,6 @@ private extension ToolbarsView {
                             .buttonStyle(.plain)
                         }
                     }
-                    HStack(spacing: 6) {
-                        Button {
-                            self.model.raiseBoard()
-                        } label: {
-                            Image(systemName: "chevron.up")
-                                .frame(width: 32, height: 32)
-                                .padding(8)
-                        }
-                        Button {
-                            self.model.lowerBoard()
-                        } label: {
-                            Image(systemName: "chevron.down")
-                                .frame(width: 32, height: 32)
-                                .padding(8)
-                        }
-                    }
-                    .font(.title)
-                    .buttonBorderShape(.circle)
-                    .buttonStyle(.plain)
                     Button {
                         self.model.reset()
                     } label: {
@@ -92,29 +61,20 @@ private extension ToolbarsView {
                     .buttonStyle(.plain)
                     if self.isSharePlaying {
                         Button {
-                            self.showSharePlaySubMenu.toggle()
+                            self.showSharePlaySubMenu = true
                         } label: {
                             Image(systemName: "shareplay")
                                 .padding()
-                                .opacity(self.showSharePlaySubMenu ? 0 : 1)
+                                .opacity(self.showSharePlaySubMenu ? 0.5 : 1)
                                 .overlay {
                                     if self.model.groupSession?.state == .waiting {
                                         ProgressView()
-                                    }
-                                }
-                                .overlay {
-                                    if self.showSharePlaySubMenu {
-                                        Image(systemName: "xmark.circle.fill")
-                                            .imageScale(.large)
                                     }
                                 }
                         }
                         .font(.title)
                         .buttonBorderShape(.circle)
                         .buttonStyle(.plain)
-                        .overlay(alignment: .top) {
-                            if self.showSharePlaySubMenu { self.sharePlaySubMenu() }
-                        }
                     }
                 }
                 .padding(12)
@@ -122,9 +82,12 @@ private extension ToolbarsView {
                 .frame(height: Size.toolbarHeight)
                 .glassBackgroundEffect()
             }
+            .rotation3DEffect(.degrees(20), axis: .x)
+            .overlay(alignment: .bottom) {
+                if self.showSharePlaySubMenu { self.sharePlaySubMenu() }
+            }
             .animation(.default, value: self.isSharePlaying)
             .animation(.default, value: self.showSharePlaySubMenu)
-            .rotation3DEffect(.degrees(20), axis: .x)
         }
         private var isSharePlaying: Bool {
 #if targetEnvironment(simulator)
@@ -137,8 +100,17 @@ private extension ToolbarsView {
         private func sharePlaySubMenu() -> some View {
             VStack {
                 HStack {
-                    Text("SharePlay state:")
+                    Button {
+                        self.showSharePlaySubMenu = false
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .imageScale(.large)
+                    }
+                    .font(.title)
+                    .buttonBorderShape(.circle)
+                    .buttonStyle(.plain)
                     Spacer()
+                    Text("SharePlay state:")
                     Text({
                         switch self.model.groupSession?.state {
                             case .waiting:
@@ -153,7 +125,7 @@ private extension ToolbarsView {
                                 "unknown"
                         }
                     }() as LocalizedStringKey)
-                    .fontWeight(.regular)
+                    .scaleEffect(0.8)
                     .foregroundStyle(.secondary)
                 }
                 .font(.subheadline)
@@ -188,8 +160,7 @@ private extension ToolbarsView {
             .glassBackgroundEffect()
             .frame(width: 640, height: 400, alignment: .bottom)
             .offset(z: 30)
-            .offset(y: 30)
-            .alignmentGuide(.top) { $0.height }
+            .alignmentGuide(.bottom) { $0.height }
         }
     }
 }

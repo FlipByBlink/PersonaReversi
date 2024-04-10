@@ -6,5 +6,6 @@ enum Size {
     static var square: CGFloat { (Self.board - (Self.boardPadding * 2)) / 8 }
     static let toolbarHeight: CGFloat = 100
     static var toolbarOffset: CGFloat { (Self.board / 2) + 16 }
-    static let zOffsetInNonSpatial: CGFloat = 0.7 //meters
+    static let windowMargin: CGFloat = 48
+    static var window: CGFloat { Self.board + Self.boardPadding * 2 + Self.windowMargin * 2 }
 }

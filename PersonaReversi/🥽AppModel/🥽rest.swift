@@ -17,14 +17,6 @@ extension 🥽AppModel {
             }
         }
     }
-    func raiseBoard() {
-        self.activityState.viewHeight.value += 0.1
-        self.sync()
-    }
-    func lowerBoard() {
-        self.activityState.viewHeight.value -= 0.1
-        self.sync()
-    }
     func playSound(_ file: SoundFile) {
         self.soundFeedback.play(file)
         Task {

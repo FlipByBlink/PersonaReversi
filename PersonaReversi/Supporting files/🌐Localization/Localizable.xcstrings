@@ -32,6 +32,7 @@
       }
     },
     "Close" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -151,6 +152,9 @@
         }
       }
     },
+    "Once you have started an activity, encourage your friends to join SharePlay." : {
+
+    },
     "PersonaReversi" : {
       "localizations" : {
         "ja" : {
@@ -212,6 +216,7 @@
       }
     },
     "Start SharePlay!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -282,6 +287,7 @@
       }
     },
     "You can also start SharePlay yourself. Once you have started an activity, encourage your friends to join SharePlay." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -290,6 +296,9 @@
           }
         }
       }
+    },
+    "You can also start SharePlay yourself. Please manipulate the system-side UI." : {
+
     }
   },
   "version" : "1.0"

@@ -39,9 +39,7 @@ struct GuideView: View {
         .opacity(self.showGuide ? 1 : 0)
         .animation(.default, value: self.showGuide)
         .animation(.default, value: self.isEligibleForGroupSession)
-        .offset(y: -self.yOffset)
-        .offset(z: -self.zOffset)
-        .animation(.default, value: self.yOffset)
+        .offset(z: -(Size.board / 2))
     }
 }
 
@@ -61,16 +59,6 @@ private extension GuideView {
 #else
         self.groupStateObserver.isEligibleForGroupSession
 #endif
-    }
-    private var yOffset: CGFloat {
-        600
-        +
-        self.physicalMetrics.convert(self.model.activityState.viewHeight.value, from: .meters)
-    }
-    private var zOffset: CGFloat {
-        (Size.board / 2)
-        +
-        self.physicalMetrics.convert(Size.zOffsetInNonSpatial, from: .meters)
     }
     private static func whatsSharePlayMenu() -> some View {
         List {
@@ -103,22 +91,23 @@ private extension GuideView {
                 Text("How to start")
             }
             Section {
-                Text("You can also start SharePlay yourself. Once you have started an activity, encourage your friends to join SharePlay.")
-                Button {
-                    self.model.activateGroupActivity()
-                } label: {
-                    HStack(spacing: 12) {
-                        Image(systemName: "shareplay")
-                        Text("Start SharePlay!")
-                    }
-                    .padding(.leading)
-                }
-                .font(.extraLargeTitle2)
-                .disabled(
-                    !self.groupStateObserver.isEligibleForGroupSession
-                    ||
-                    self.model.groupSession?.state != nil
-                )
+                Text("You can also start SharePlay yourself. Please manipulate the system-side UI.")
+                Text("Once you have started an activity, encourage your friends to join SharePlay.")
+//                Button {
+//                    self.model.activateGroupActivity()
+//                } label: {
+//                    HStack(spacing: 12) {
+//                        Image(systemName: "shareplay")
+//                        Text("Start SharePlay!")
+//                    }
+//                    .padding(.leading)
+//                }
+//                .font(.extraLargeTitle2)
+//                .disabled(
+//                    !self.groupStateObserver.isEligibleForGroupSession
+//                    ||
+//                    self.model.groupSession?.state != nil
+//                )
             } header: {
                 Text("Start SharePlay by oneself")
             }

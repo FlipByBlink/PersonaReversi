@@ -33,7 +33,6 @@
 		160DCA112BBFB4F7003985D2 /* Pieces.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 160ED7A32B4CC153002AD987 /* Pieces.swift */; };
 		160DCA122BBFB4F7003985D2 /* Piece.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 160ED7A52B4CC15A002AD987 /* Piece.swift */; };
 		160DCA132BBFB4F7003985D2 /* Side.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 160ED7992B4B8147002AD987 /* Side.swift */; };
-		160DCA142BBFB4F7003985D2 /* ViewHeight.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 167761BF2B8B6ABF0092CB24 /* ViewHeight.swift */; };
 		160DCA152BBFB4F7003985D2 /* Mode.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16D237BB2B90975700282592 /* Mode.swift */; };
 		160DCA162BBFB4F7003985D2 /* ReversiView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16EDF0562B8C3E7B0096217A /* ReversiView.swift */; };
 		160DCA172BBFB4F7003985D2 /* ToolbarsView.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 160ED7A72B4CC20D002AD987 /* ToolbarsView.swift */; };
@@ -62,9 +61,9 @@
 		16602B312B8ED7C400AF1D4A /* 👤PlaySound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16602B2F2B8ED7C400AF1D4A /* 👤PlaySound.swift */; };
 		16602B332B8ED87F00AF1D4A /* SoundFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16602B322B8ED87F00AF1D4A /* SoundFile.swift */; };
 		16602B342B8ED87F00AF1D4A /* SoundFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16602B322B8ED87F00AF1D4A /* SoundFile.swift */; };
-		167761C02B8B6ABF0092CB24 /* ViewHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167761BF2B8B6ABF0092CB24 /* ViewHeight.swift */; };
-		167761C12B8B6ABF0092CB24 /* ViewHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167761BF2B8B6ABF0092CB24 /* ViewHeight.swift */; };
 		167761C32B8B72340092CB24 /* GuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167761C22B8B72340092CB24 /* GuideView.swift */; };
+		1679489B2BC643B7004DFF4B /* 👤Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CDEE982B4D0B3500664815 /* 👤Registration.swift */; };
+		1679489C2BC643B7004DFF4B /* 👤Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CDEE982B4D0B3500664815 /* 👤Registration.swift */; };
 		16C158A72B4CEA2B00835A85 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C158A62B4CEA2B00835A85 /* ResultView.swift */; };
 		16C158AB2B4D05F000835A85 /* PieceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C158AA2B4D05F000835A85 /* PieceView.swift */; };
 		16C477192B8B191C00343DD8 /* 🥽sharePlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16C477182B8B191C00343DD8 /* 🥽sharePlay.swift */; };
@@ -115,7 +114,6 @@
 				160DCA112BBFB4F7003985D2 /* Pieces.swift in CopyFiles */,
 				160DCA122BBFB4F7003985D2 /* Piece.swift in CopyFiles */,
 				160DCA132BBFB4F7003985D2 /* Side.swift in CopyFiles */,
-				160DCA142BBFB4F7003985D2 /* ViewHeight.swift in CopyFiles */,
 				160DCA152BBFB4F7003985D2 /* Mode.swift in CopyFiles */,
 				160DCA162BBFB4F7003985D2 /* ReversiView.swift in CopyFiles */,
 				160DCA172BBFB4F7003985D2 /* ToolbarsView.swift in CopyFiles */,
@@ -164,7 +162,6 @@
 		1638F8072B4F90CC00E0CAD2 /* Archive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		16602B2F2B8ED7C400AF1D4A /* 👤PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👤PlaySound.swift"; sourceTree = "<group>"; };
 		16602B322B8ED87F00AF1D4A /* SoundFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFile.swift; sourceTree = "<group>"; };
-		167761BF2B8B6ABF0092CB24 /* ViewHeight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewHeight.swift; sourceTree = "<group>"; };
 		167761C22B8B72340092CB24 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
 		16C158A62B4CEA2B00835A85 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		16C158AA2B4D05F000835A85 /* PieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceView.swift; sourceTree = "<group>"; };
@@ -287,7 +284,6 @@
 			children = (
 				1638F8072B4F90CC00E0CAD2 /* Archive.swift */,
 				160ED79D2B4B8E1A002AD987 /* SettingView.swift */,
-				16CDEE982B4D0B3500664815 /* 👤Registration.swift */,
 			);
 			path = Archive;
 			sourceTree = "<group>";
@@ -308,7 +304,6 @@
 				160ED7A32B4CC153002AD987 /* Pieces.swift */,
 				160ED7A52B4CC15A002AD987 /* Piece.swift */,
 				160ED7992B4B8147002AD987 /* Side.swift */,
-				167761BF2B8B6ABF0092CB24 /* ViewHeight.swift */,
 				16D237BB2B90975700282592 /* Mode.swift */,
 			);
 			path = SubModel;
@@ -331,6 +326,7 @@
 				16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */,
 				16C4CE2D2B54AF30002260A6 /* 👤Message.swift */,
 				16602B2F2B8ED7C400AF1D4A /* 👤PlaySound.swift */,
+				16CDEE982B4D0B3500664815 /* 👤Registration.swift */,
 			);
 			path = "👤SharePlay";
 			sourceTree = "<group>";
@@ -519,6 +515,7 @@
 				160ED7A42B4CC153002AD987 /* Pieces.swift in Sources */,
 				16253CFF2B4E37B20028F0E2 /* SoundFeedback.swift in Sources */,
 				160ED7A02B4BB705002AD987 /* Size.swift in Sources */,
+				1679489B2BC643B7004DFF4B /* 👤Registration.swift in Sources */,
 				160DCA042BBF79D7003985D2 /* ℹ️AboutApp.swift in Sources */,
 				1601FF0E2B4AA8BA0050457E /* ContentView.swift in Sources */,
 				16D237BC2B90975900282592 /* Mode.swift in Sources */,
@@ -535,7 +532,6 @@
 				160ED7A62B4CC15A002AD987 /* Piece.swift in Sources */,
 				160ED7A82B4CC20D002AD987 /* ToolbarsView.swift in Sources */,
 				160ED7A22B4CC0F9002AD987 /* SquareView.swift in Sources */,
-				167761C02B8B6ABF0092CB24 /* ViewHeight.swift in Sources */,
 				160ED79A2B4B8147002AD987 /* Side.swift in Sources */,
 				16C158AB2B4D05F000835A85 /* PieceView.swift in Sources */,
 				16602B332B8ED87F00AF1D4A /* SoundFile.swift in Sources */,
@@ -553,6 +549,7 @@
 				16C4771A2B8B191C00343DD8 /* 🥽sharePlay.swift in Sources */,
 				16D237BA2B90973000282592 /* ActivityState.swift in Sources */,
 				16602B312B8ED7C400AF1D4A /* 👤PlaySound.swift in Sources */,
+				1679489C2BC643B7004DFF4B /* 👤Registration.swift in Sources */,
 				16D237BD2B90975900282592 /* Mode.swift in Sources */,
 				16253D002B4E37B20028F0E2 /* SoundFeedback.swift in Sources */,
 				16CDEEA52B4D0FBF00664815 /* ContentView.swift in Sources */,
@@ -562,7 +559,6 @@
 				16CDEEB42B4D0FF200664815 /* 🥽AppModel.swift in Sources */,
 				16CDEEB12B4D0FF200664815 /* Piece.swift in Sources */,
 				16CDEEAF2B4D0FF200664815 /* Side.swift in Sources */,
-				167761C12B8B6ABF0092CB24 /* ViewHeight.swift in Sources */,
 				16CDEEB02B4D0FF200664815 /* Size.swift in Sources */,
 				16C4CE2F2B54AF30002260A6 /* 👤Message.swift in Sources */,
 				16C4771D2B8B193100343DD8 /* 🥽reversi.swift in Sources */,
@@ -706,13 +702,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = VolumeVersion;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaReversi;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.aaaakkkkssssttttnnnn.PersonaReversi-volumeVer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -734,13 +731,14 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "$(TARGET_NAME)/Supporting files/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = VolumeVersion;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaReversi;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.aaaakkkkssssttttnnnn.PersonaReversi-volumeVer";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "xros xrsimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
