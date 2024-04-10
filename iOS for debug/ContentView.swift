@@ -4,33 +4,11 @@ struct ContentView: View {
     @EnvironmentObject var model: 🥽AppModel
     var body: some View {
         VStack {
-            if self.model.groupSession == nil {
-                Button("Start activity!") {
-                    self.model.activateGroupActivity()
-                }
-            }
             BoardView()
-                .offset(y: (ViewHeight.default.value - self.model.activityState.viewHeight.value) * 100)
             HStack {
                 Picker("Side", selection: self.$model.side) {
                     Text("White").tag(Side.white)
                     Text("Black").tag(Side.black)
-                }
-                HStack(spacing: 6) {
-                    Button {
-                        self.model.raiseBoard()
-                    } label: {
-                        Image(systemName: "chevron.up")
-                            .frame(width: 32, height: 32)
-                            .padding(8)
-                    }
-                    Button {
-                        self.model.lowerBoard()
-                    } label: {
-                        Image(systemName: "chevron.down")
-                            .frame(width: 32, height: 32)
-                            .padding(8)
-                    }
                 }
                 Button("reset") {
                     self.model.reset()
@@ -42,7 +20,7 @@ struct ContentView: View {
 //            try? await Task.sleep(for: .seconds(2))
 //            self.model.setPiecesForDebug()
         }
-//        .task { 👤Registration.execute() }
+        .task { 👤Registration.execute() }
     }
 }
 
