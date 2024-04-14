@@ -10,7 +10,7 @@ enum 🗒️StaticInfo {
     static var contactAddress: String { "wigged.runaway.0j@icloud.com" }
     
     static let privacyPolicyDescription = """
-        2024-04-07
+        2024-04-16
         
         English
         This application don't collect user infomation.
@@ -22,7 +22,7 @@ enum 🗒️StaticInfo {
     static let webRepositoryURL: URL = .init(string: "https://github.com/FlipByBlink/PersonaReversi")!
     static let webMirrorRepositoryURL: URL = .init(string: "https://gitlab.com/FlipByBlink/PersonaReversi_Mirror")!
 
-    static let versionInfos: [(version: String, date: String)] = [("1.0", "2024-04-07")] //降順。先頭の方が新しい
+    static let versionInfos: [(version: String, date: String)] = [("1.0", "2024-04-16")] //降順。先頭の方が新しい
     
     enum SourceCodeCategory: String, CaseIterable, Identifiable {
         case main,
@@ -36,27 +36,27 @@ enum 🗒️StaticInfo {
             switch self {
                 case .main: [
                     "App.swift",
-                    "ContentView.swift",
+                    "ContentView.swift"
                 ]
                 case .AppModel: [
                     "🥽AppModel.swift",
                     "🥽reversi.swift",
                     "🥽sharePlay.swift",
                     "🥽rest.swift",
-                    "🥽debug.swift",
+                    "🥽debug.swift"
                 ]
                 case .SharePlay: [
                     "👤GroupActivity.swift",
                     "👤Message.swift",
                     "👤PlaySound.swift",
+                    "👤Registration.swift"
                 ]
                 case .SubModel: [
                     "ActivityState.swift",
                     "Pieces.swift",
                     "Piece.swift",
                     "Side.swift",
-                    "ViewHeight.swift",
-                    "Mode.swift",
+                    "Mode.swift"
                 ]
                 case .ReversiView: [
                     "ReversiView.swift",
@@ -64,7 +64,7 @@ enum 🗒️StaticInfo {
                     "ResultView.swift",
                     "BoardView.swift",
                     "SquareView.swift",
-                    "PieceView.swift",
+                    "PieceView.swift"
                 ]
                 case .Rest: [
                     "GuideView.swift",
@@ -72,7 +72,7 @@ enum 🗒️StaticInfo {
                     "SoundFeedback.swift",
                     "SoundFile.swift",
                     "🗒️StaticInfo.swift",
-                    "ℹ️AboutApp.swift",
+                    "ℹ️AboutApp.swift"
                 ]
             }
         }

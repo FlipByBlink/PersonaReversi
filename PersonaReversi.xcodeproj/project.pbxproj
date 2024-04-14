@@ -88,6 +88,7 @@
 		16D237BA2B90973000282592 /* ActivityState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D237B82B90972F00282592 /* ActivityState.swift */; };
 		16D237BC2B90975900282592 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D237BB2B90975700282592 /* Mode.swift */; };
 		16D237BD2B90975900282592 /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D237BB2B90975700282592 /* Mode.swift */; };
+		16E8495C2BCB79D2009E8F98 /* 👤Registration.swift in CopyFiles */ = {isa = PBXBuildFile; fileRef = 16CDEE982B4D0B3500664815 /* 👤Registration.swift */; };
 		16EDF0572B8C3E7B0096217A /* ReversiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF0562B8C3E7B0096217A /* ReversiView.swift */; };
 		16EDF05B2B8C41C10096217A /* 🥽rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF05A2B8C41C10096217A /* 🥽rest.swift */; };
 		16EDF05C2B8C4AFF0096217A /* 🥽rest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16EDF05A2B8C41C10096217A /* 🥽rest.swift */; };
@@ -100,6 +101,7 @@
 			dstPath = "📁SourceCode";
 			dstSubfolderSpec = 7;
 			files = (
+				16E8495C2BCB79D2009E8F98 /* 👤Registration.swift in CopyFiles */,
 				160DCA062BBFB4F7003985D2 /* App.swift in CopyFiles */,
 				160DCA072BBFB4F7003985D2 /* ContentView.swift in CopyFiles */,
 				160DCA082BBFB4F7003985D2 /* 🥽AppModel.swift in CopyFiles */,
