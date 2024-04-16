@@ -42,7 +42,6 @@ extension 🥽AppModel {
                             self.tasks = []
                             self.subscriptions = []
                             self.groupSession = nil
-                            self.isSpatial = nil
                             self.activityState.pieces = .default
                             self.activityState.showResult = false
                             self.activityState.mode = .localOnly
@@ -91,28 +90,7 @@ extension 🥽AppModel {
                     }
                 )
                 
-#if os(visionOS)
-                self.tasks.insert(
-                    Task { @MainActor in
-                        if let systemCoordinator = await groupSession.systemCoordinator {
-                            for await localParticipantState in systemCoordinator.localParticipantStates {
-                                self.isSpatial = localParticipantState.isSpatial
-                            }
-                        }
-                    }
-                )
-                
-                Task {
-//                    if let systemCoordinator = await groupSession.systemCoordinator {
-//                        var configuration = SystemCoordinator.Configuration()
-//                        configuration.supportsGroupImmersiveSpace = true
-//                        systemCoordinator.configuration = configuration
-                        groupSession.join()
-//                    }
-                }
-#elseif os(iOS)
                 groupSession.join()
-#endif
             }
         }
     }
