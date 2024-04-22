@@ -21,8 +21,6 @@ Reversi with Spatial Personas.
 
 - Support Spatial SharePlay.
 
-- Adjust a board height.
-
 
 App Store link
 ---------------
@@ -52,7 +50,7 @@ wigged.runaway.0j@icloud.com
 
 Privacy Policy for App Store
 ----------------------------
-2024-04-16
+2024-04-22
 
 ### English
 This application don't collect user infomation.

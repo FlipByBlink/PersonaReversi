@@ -6,13 +6,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reversi with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n- Adjust a board height."
+            "value" : "Reversi with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "空間ペルソナでリバーシをプレイしよう。\n\n・シンプルなデザインのリバーシアプリ。\n\n・空間SharePlayに対応しています。\n\n・ボードの高さを調節できます。\n\n\n==== English ====\nReversi with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n- Adjust a board height."
+            "value" : "空間ペルソナでリバーシをプレイしよう。\n\n・シンプルなデザインのリバーシアプリ。\n\n・空間SharePlayに対応しています。\n\n\n==== English ====\nReversi with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay."
           }
         }
       }

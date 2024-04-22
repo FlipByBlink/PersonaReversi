@@ -8,19 +8,19 @@ class SoundFeedback {
         Task(priority: .background) {
             try? AVAudioSession().setCategory(.ambient)
             self.crackPlayers = (1...6).compactMap {
-                if let ⓓata = NSDataAsset(name: "sound\($0)")?.data,
-                   let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
-                    ⓟlayer.volume = 0.5
-                    ⓟlayer.prepareToPlay()
-                    return ⓟlayer
+                if let data = NSDataAsset(name: "sound\($0)")?.data,
+                   let player = try? AVAudioPlayer(data: data) {
+                    player.volume = 0.5
+                    player.prepareToPlay()
+                    return player
                 } else {
                     assertionFailure()
                     return nil
                 }
             }
-            if let ⓓata = NSDataAsset(name: "resetSound")?.data,
-               let ⓟlayer = try? AVAudioPlayer(data: ⓓata) {
-                self.resetPlayer = ⓟlayer
+            if let data = NSDataAsset(name: "resetSound")?.data,
+               let player = try? AVAudioPlayer(data: data) {
+                self.resetPlayer = player
                 self.resetPlayer?.volume = 0.13
                 self.resetPlayer?.prepareToPlay()
             } else {

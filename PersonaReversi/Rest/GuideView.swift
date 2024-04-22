@@ -93,21 +93,6 @@ private extension GuideView {
             Section {
                 Text("You can also start SharePlay yourself. Please manipulate the system-side UI.")
                 Text("Once you have started an activity, encourage your friends to join SharePlay.")
-//                Button {
-//                    self.model.activateGroupActivity()
-//                } label: {
-//                    HStack(spacing: 12) {
-//                        Image(systemName: "shareplay")
-//                        Text("Start SharePlay!")
-//                    }
-//                    .padding(.leading)
-//                }
-//                .font(.extraLargeTitle2)
-//                .disabled(
-//                    !self.groupStateObserver.isEligibleForGroupSession
-//                    ||
-//                    self.model.groupSession?.state != nil
-//                )
             } header: {
                 Text("Start SharePlay by oneself")
             }

@@ -2,26 +2,6 @@ import SwiftUI
 import GroupActivities
 
 extension 🥽AppModel {
-//    func activateGroupActivity() {
-//        Task {
-//            do {
-//                self.activityState.pieces = .default
-//                self.activityState.showResult = false
-//                self.activityState.mode = .sharePlay
-//                let result = try await 👤GroupActivity().activate()
-//                switch result {
-//                    case true:
-//                        try? await Task.sleep(for: .seconds(1.5))
-//                        self.applyPreset()
-//                    case false:
-//                        self.activityState.mode = .localOnly
-//                }
-//            } catch {
-//                print("Failed to activate activity: \(error)")
-//                self.activityState.mode = .localOnly
-//            }
-//        }
-//    }
     func configureGroupSessions() {
         Task {
             for await groupSession in 👤GroupActivity.sessions() {
