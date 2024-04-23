@@ -21,6 +21,9 @@
         }
       }
     },
+    "Apple official support page" : {
+
+    },
     "Apple Vision Pro" : {
       "localizations" : {
         "ja" : {
@@ -30,6 +33,9 @@
           }
         }
       }
+    },
+    "During a FaceTime call, if the person you are speaking with starts SharePlay, you will automatically join SharePlay as well. If you want to join a SharePlay session that has already started, you can do so from the Control Center." : {
+
     },
     "Eligible for SharePlay:" : {
       "localizations" : {
@@ -92,6 +98,7 @@
       }
     },
     "If your friend has already started reversi activity, you can join the activity by manipulating the system-side UI." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
@@ -100,6 +107,9 @@
           }
         }
       }
+    },
+    "If your friend has already started reversi activity, you can join the activity from the Control Center." : {
+
     },
     "invalidated, (%@)" : {
       "localizations" : {
@@ -110,6 +120,9 @@
           }
         }
       }
+    },
+    "Join SharePlay" : {
+
     },
     "joined" : {
       "localizations" : {
@@ -221,6 +234,9 @@
         }
       }
     },
+    "The Persona (or Spatial Persona) is displayed as part of SharePlay, in collaboration with this app and FaceTime." : {
+
+    },
     "unknown" : {
       "localizations" : {
         "ja" : {
@@ -240,6 +256,9 @@
           }
         }
       }
+    },
+    "What's Persona?" : {
+
     },
     "What's SharePlay?" : {
       "localizations" : {
@@ -271,7 +290,11 @@
         }
       }
     },
+    "You can also start SharePlay yourself. During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu." : {
+
+    },
     "You can also start SharePlay yourself. Please manipulate the system-side UI." : {
+      "extractionState" : "stale",
       "localizations" : {
         "ja" : {
           "stringUnit" : {
