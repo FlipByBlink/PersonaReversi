@@ -6,13 +6,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Reversi with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay."
+            "value" : "Reversi with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n\nNotice\n\n- To use SharePlay, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime/SharePlay."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "空間ペルソナでリバーシをプレイしよう。\n\n・シンプルなデザインのリバーシアプリ。\n\n・空間SharePlayに対応しています。\n\n\n==== English ====\nReversi with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay."
+            "value" : "空間ペルソナでリバーシをプレイしよう。\n\n・シンプルなデザインのリバーシアプリ。\n\n・空間SharePlayに対応しています。\n\n\n「注意」\n\n・SharePlayをするにはFaceTimeで通話する必要があります。\n\n・OS側で先にペルソナを設定する必要があります。\n\n・ペルソナはFaceTime/SharePlayの一部として表示されます。\n\n\n==== English ====\nReversi with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n\nNotice\n\n- To use SharePlay, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime/SharePlay."
           }
         }
       }

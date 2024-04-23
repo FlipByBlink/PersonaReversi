@@ -22,6 +22,15 @@ Reversi with Spatial Personas.
 - Support Spatial SharePlay.
 
 
+Notice
+
+- To use SharePlay, a FaceTime call is required.
+
+- You must set up your persona on the OS beforehand.
+
+- The persona appears as part of FaceTime/SharePlay.
+
+
 App Store link
 ---------------
 [apps.apple.com/app/id6480587175](https://apps.apple.com/app/id6480587175)
