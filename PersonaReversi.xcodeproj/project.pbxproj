@@ -174,7 +174,7 @@
 		16CDEE972B4D0B3500664815 /* 👤GroupActivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "👤GroupActivity.swift"; sourceTree = "<group>"; };
 		16CDEE982B4D0B3500664815 /* 👤Registration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "👤Registration.swift"; sourceTree = "<group>"; };
 		16CDEE9B2B4D0C6E00664815 /* PersonaReversi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PersonaReversi.entitlements; sourceTree = "<group>"; };
-		16CDEEA02B4D0FBF00664815 /* iOS for debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS for debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		16CDEEA02B4D0FBF00664815 /* PersonaReversi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonaReversi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16CDEEA22B4D0FBF00664815 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		16CDEEA42B4D0FBF00664815 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		16CDEEA62B4D0FC100664815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				1601FF042B4AA8BA0050457E /* PersonaReversi.app */,
-				16CDEEA02B4D0FBF00664815 /* iOS for debug.app */,
+				16CDEEA02B4D0FBF00664815 /* PersonaReversi.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -438,7 +438,7 @@
 			);
 			name = "iOS for debug";
 			productName = SR_iOS_debug;
-			productReference = 16CDEEA02B4D0FBF00664815 /* iOS for debug.app */;
+			productReference = 16CDEEA02B4D0FBF00664815 /* PersonaReversi.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -771,7 +771,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaReversi;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PersonaReversi;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -803,7 +803,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = net.aaaakkkkssssttttnnnn.PersonaReversi;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = PersonaReversi;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
