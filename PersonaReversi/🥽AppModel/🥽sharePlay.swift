@@ -80,4 +80,28 @@ extension 🥽AppModel {
                                                       pieceAnimation: animation))
         }
     }
+    func activateGroupActivity() {
+        Task {
+            do {
+                let groupActivity = 👤GroupActivity()
+                switch await groupActivity.prepareForActivation() {
+                    case .activationPreferred:
+                        let result = try await groupActivity.activate()
+                        if result == false { throw Self.ActivationError.failed }
+                    case .activationDisabled:
+                        throw Self.ActivationError.disabled
+                    case .cancelled:
+                        throw Self.ActivationError.cancelled
+                    @unknown default:
+                        throw Self.ActivationError.unknown
+                }
+            } catch {
+                print("Failed activation: \(error)")
+                assertionFailure()
+            }
+        }
+    }
+    private enum ActivationError: Error {
+        case failed, disabled, cancelled, unknown
+    }
 }

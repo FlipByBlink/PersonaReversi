@@ -36,6 +36,8 @@ App Store link
 [apps.apple.com/app/id6480587175](https://apps.apple.com/app/id6480587175)
 
 
+<br>
+
 Source code link
 -----------------
 [github.com/FlipByBlink/PersonaReversi](https://github.com/FlipByBlink/PersonaReversi)
@@ -43,6 +45,7 @@ Source code link
 ### Source code (Mirror) link
 [gitlab.com/FlipByBlink/PersonaReversi_Mirror](https://gitlab.com/FlipByBlink/PersonaReversi_Mirror)
 
+<br>
 
 Contact
 --------

@@ -17,6 +17,23 @@
           }
         }
       }
+    },
+    "1.0.1" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add a button to start SharePlay."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SharePlayを開始するためのボタンを追加しました。"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
