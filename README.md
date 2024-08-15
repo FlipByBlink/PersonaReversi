@@ -31,12 +31,16 @@ Notice
 - The persona appears as part of FaceTime/SharePlay.
 
 
+<img src="PersonaReversi/Supporting files/README assets/preview400w.gif" width="400">
+
+
 App Store link
 ---------------
 [apps.apple.com/app/id6480587175](https://apps.apple.com/app/id6480587175)
 
 
 <br>
+
 
 Source code link
 -----------------
@@ -45,7 +49,9 @@ Source code link
 ### Source code (Mirror) link
 [gitlab.com/FlipByBlink/PersonaReversi_Mirror](https://gitlab.com/FlipByBlink/PersonaReversi_Mirror)
 
+
 <br>
+
 
 Contact
 --------
