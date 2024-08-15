@@ -42,6 +42,14 @@ App Store link
 <br>
 
 
+Promotion Video
+----------------
+[www.youtube.com/watch?v=xCiz8T5g8vI](https://www.youtube.com/watch?v=xCiz8T5g8vI)
+
+
+<br>
+
+
 Source code link
 -----------------
 [github.com/FlipByBlink/PersonaReversi](https://github.com/FlipByBlink/PersonaReversi)
