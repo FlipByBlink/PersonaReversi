@@ -15,23 +15,26 @@ _Flip Board Game for Spatial SharePlay_
 
 Description
 ------------
-Flip board game with Spatial Personas.
+Play flip board game with Personas and people nearby.
 
 - Simple design.
 
 - Support Spatial SharePlay.
 
+- Support SharePlay with people nearby.
+
+<img src="PersonasFlip/Supporting files/README assets/preview400w.gif" width="400">
+
+<img src="PersonasFlip/Supporting files/README assets/nearby_SharePlay_demo_640w.gif" width="320">
+
 
 Notice
 
-- To use SharePlay, a FaceTime call is required.
+- To use remote SharePlay, a FaceTime call is required.
 
 - You must set up your persona on the OS beforehand.
 
 - The persona appears as part of FaceTime/SharePlay.
-
-
-<img src="PersonasFlip/Supporting files/README assets/preview400w.gif" width="400">
 
 
 App Store link
