@@ -13,14 +13,6 @@ struct GuideView: View {
                     NavigationLink("What's Persona?") { Self.whatsPersonaMenu() }
                 }
                 Section {
-                    if self.groupStateObserver.isEligibleForGroupSession {
-                        Text("You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself.")
-                            .padding(.vertical, 6)
-                        Text("If your friend has already started game activity, you can join the activity from the Control Center.")
-                            .padding(.vertical, 6)
-                    }
-                }
-                Section {
                     NavigationLink("Set up SharePlay") { self.setUpMenu() }
                 }
             }
@@ -45,7 +37,7 @@ struct GuideView: View {
                 }
             }
         }
-        .frame(width: 1000, height: 700)
+        .frame(width: 800, height: 800)
         .glassBackgroundEffect()
         .opacity(self.model.groupSession == nil ? 1 : 0)
         .animation(.default, value: self.model.groupSession == nil)
@@ -57,29 +49,28 @@ struct GuideView: View {
 private extension GuideView {
     private static func whatsSharePlayMenu() -> some View {
         List {
-            HStack(spacing: 28) {
+            Section {
                 Image(.exampleSharePlay)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 460)
-                Text("With SharePlay in the FaceTime app, you can play game in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
+                    .frame(width: 400)
+                    .clipShape(.rect(cornerRadius: 10))
+                    .listRowBackground(Color.clear)
+                    .frame(maxWidth: .infinity)
             }
-            .padding()
-            let url = URL(string: "https://support.apple.com/guide/apple-vision-pro/use-shareplay-in-facetime-calls-tan15b2c7bf9/1.0/visionos/1.0")!
             Section {
-                Link(destination: url) {
-                    Label {
-                        Text(#"“Use SharePlay in FaceTime calls on Apple Vision Pro - Apple Support”"#)
-                    } icon: {
-                        Image(systemName: "link")
-                    }
-                }
-                .badge(Text(Image(systemName: "arrow.up.forward.app")))
-            } header: {
-                Text("Apple official support page")
-            } footer: {
-                Text(verbatim: "\(url)")
+                Text("With SharePlay in the FaceTime app, you can play game in sync with friends and family while on a FaceTime call together. Enjoy a real-time connection with others on the call—with synced game and shared controls, you see and hear the same moments at the same time.")
+                Text("In visionOS 26, You can share spatial experiences with other Apple Vision Pro users in the same room.")
             }
+            Self.linkSection(
+                url: "https://support.apple.com/guide/apple-vision-pro/tan15b2c7bf9/visionos",
+                title: #"“Use SharePlay in FaceTime calls on Apple Vision Pro - Apple Support”"#
+            )
+            Self.linkSection(
+                url: "https://support.apple.com/guide/apple-vision-pro/tanbccb085c1/visionos",
+                title: #"“Share apps and experiences with people nearby on Apple Vision Pro - Apple Support”"#,
+                hasHeader: false
+            )
             Section {
                 Text("The Group Activities framework uses end-to-end encryption on all session data. Developer and Apple doesn’t have the keys to decrypt this data.")
             } header: {
@@ -90,37 +81,40 @@ private extension GuideView {
     }
     private static func whatsPersonaMenu() -> some View {
         List {
-            Text("The Persona (or Spatial Persona) is displayed as part of SharePlay, in collaboration with this app and FaceTime.")
-            let url1 = URL(string: "https://support.apple.com/guide/apple-vision-pro/use-spatial-persona-tana1ea03f18/visionos")!
             Section {
-                Link(destination: url1) {
-                    Label {
-                        Text(#""Use spatial Persona (beta) on Apple Vision Pro - Apple Support”"#)
-                    } icon: {
-                        Image(systemName: "link")
-                    }
-                }
-                .badge(Text(Image(systemName: "arrow.up.forward.app")))
-            } header: {
-                Text("Apple official support page")
-            } footer: {
-                Text(verbatim: "\(url1)")
+                Image(.exampleSpatialPersonas)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 400)
+                    .clipShape(.rect(cornerRadius: 10))
+                    .listRowBackground(Color.clear)
+                    .frame(maxWidth: .infinity)
             }
-            let url2 = URL(string: "https://support.apple.com/guide/apple-vision-pro/capture-your-persona-beta-dev934d40a17/1.0/visionos/1.0")!
-            Section {
-                Link(destination: url2) {
-                    Label {
-                        Text(#"“Capture and edit your Persona (beta) on Apple Vision Pro - Apple Support”"#)
-                    } icon: {
-                        Image(systemName: "link")
-                    }
-                }
-                .badge(Text(Image(systemName: "arrow.up.forward.app")))
-            } footer: {
-                Text(verbatim: "\(url2)")
-            }
+            Self.linkSection(
+                url: "https://support.apple.com/guide/apple-vision-pro/use-spatial-persona-tana1ea03f18/visionos",
+                title: #""Use spatial Persona on Apple Vision Pro - Apple Support”"#
+            )
+            Self.linkSection(
+                url: "https://support.apple.com/guide/apple-vision-pro/dev934d40a17/visionos",
+                title: #"“Capture and edit your Persona on Apple Vision Pro - Apple Support”"#,
+                hasHeader: false
+            )
         }
         .navigationTitle("What's Persona?")
+    }
+    private static func linkSection(url: String,
+                                    title: LocalizedStringResource,
+                                    hasHeader: Bool = true) -> some View {
+        Section {
+            Link(destination: URL(string: url)!) {
+                Text(title)
+            }
+            .foregroundStyle(.link)
+        } header: {
+            Text("Apple official support page")
+        } footer: {
+            Text(verbatim: "\(url)")
+        }
     }
     private func setUpMenu() -> some View {
         List {
@@ -133,7 +127,14 @@ private extension GuideView {
                 Text("How to start")
             }
             Section {
-                Text("During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu.")
+                VStack(spacing: 16) {
+                    Text("You can start SharePlay from a system menu UI, which is located at the bottom of the app.")
+                    Image(.bottomSystemUI)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 400)
+                        .clipShape(.rect(cornerRadius: 16))
+                }
             }
             Section {
                 Text("If you want to join a SharePlay session that has already started, you can do so from the Control Center.")

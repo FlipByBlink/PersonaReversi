@@ -1,12 +1,22 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "“Capture and edit your Persona (beta) on Apple Vision Pro - Apple Support”" : {
+    "“Capture and edit your Persona on Apple Vision Pro - Apple Support”" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "「Apple Vision ProでPersona（ベータ版）を収録する/編集する」"
+            "value" : "「Apple Vision ProでPersonaを収録する/編集する」"
+          }
+        }
+      }
+    },
+    "“Share apps and experiences with people nearby on Apple Vision Pro - Apple Support”" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「Apple Vision Proでアプリや体験を周囲の人と共有する - Apple サポート」"
           }
         }
       }
@@ -21,12 +31,12 @@
         }
       }
     },
-    "\"Use spatial Persona (beta) on Apple Vision Pro - Apple Support”" : {
+    "\"Use spatial Persona on Apple Vision Pro - Apple Support”" : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "「Apple Vision Proで空間Persona（ベータ版）を使用する」"
+            "value" : "「Apple Vision Proで空間Personaを使用する」"
           }
         }
       }
@@ -67,16 +77,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Apple Vision Pro"
-          }
-        }
-      }
-    },
-    "During a FaceTime call, a system menu UI for SharePlay appears at the bottom of the app. You can start SharePlay from the menu." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "FaceTimeの通話中にアプリ下部にSharePlay用のシステムUIが表示されます。そのメニューからSharePlayを開始できます。"
           }
         }
       }
@@ -141,12 +141,12 @@
         }
       }
     },
-    "If your friend has already started game activity, you can join the activity from the Control Center." : {
+    "In visionOS 26, You can share spatial experiences with other Apple Vision Pro users in the same room." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "友達が既に「ゲームをプレイ」アクティビティを起動している場合は、コントロールセンターからアクティビティに参加しましょう。"
+            "value" : "visionOS 26から同じ部屋にいる近くのApple Vision Proユーザーとアプリ体験を共有できるようになりました。"
           }
         }
       }
@@ -261,16 +261,6 @@
         }
       }
     },
-    "The Persona (or Spatial Persona) is displayed as part of SharePlay, in collaboration with this app and FaceTime." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "FaceTimeとこのアプリが連携し、ペルソナ(また空間ペルソナ)は表示されます。"
-          }
-        }
-      }
-    },
     "unknown" : {
       "localizations" : {
         "ja" : {
@@ -321,12 +311,12 @@
         }
       }
     },
-    "You are currently connected with a friend. Join an activity launched by your friend, or launch an activity by yourself." : {
+    "You can start SharePlay from a system menu UI, which is located at the bottom of the app." : {
       "localizations" : {
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "現在、友達と繋がっているようです。友達が立ち上げたアクティビティに参加するか、もしくは自分でアクティビティを起動しましょう。"
+            "value" : "アプリ下部にあるシステムUIからSharePlayを開始できます。"
           }
         }
       }
