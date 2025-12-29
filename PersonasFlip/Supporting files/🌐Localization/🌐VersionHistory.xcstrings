@@ -51,6 +51,23 @@
           }
         }
       }
+    },
+    "1.2" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "- Support visionOS 26.x.\n- Unsupport visionOS 2.x."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "・visionOS 26.xをサポートしました。\n・visionOS 2.xを非対応にしました。"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

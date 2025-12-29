@@ -193,7 +193,6 @@ private struct 📓SourceCodeLink: View {
             List {
                 Self.DebugView()
                 ForEach(🗒️StaticInfo.SourceCodeCategory.allCases) { Self.CodeSection($0) }
-                Self.bundleMainInfoDictionary()
                 Self.RepositoryLinks()
             }
             .navigationTitle(.init("Source code", tableName: "🌐AboutApp"))
@@ -261,21 +260,6 @@ private struct 📓SourceCodeLink: View {
             .textSelection(.enabled)
         }
     }
-    private static func bundleMainInfoDictionary() -> some View {
-        Section {
-            NavigationLink(String("Bundle.main.infoDictionary")) {
-                List {
-                    if let ⓓictionary = Bundle.main.infoDictionary {
-                        ForEach(ⓓictionary.map({$0.key}).sorted(), id: \.self) {
-                            LabeledContent($0, value: String(describing: ⓓictionary[$0] ?? "🐛"))
-                        }
-                    }
-                }
-                .navigationBarTitle(.init(verbatim: "Bundle.main.infoDictionary"))
-                .textSelection(.enabled)
-            }
-        }
-    }
     private struct RepositoryLinks: View {
         @Environment(\.openURL) var openURL
         var body: some View {
@@ -300,13 +284,8 @@ private struct 📓SourceCodeLink: View {
                     LabeledContent {
                         Image(systemName: "arrow.up.forward.app")
                     } label: {
-                        HStack {
-                            Label(String(localized: "Web Repository", table: "🌐AboutApp"),
-                                  systemImage: "link")
-                            Text("(Mirror)", tableName: "🌐AboutApp")
-                                .font(.subheadline.bold())
-                                .foregroundStyle(.secondary)
-                        }
+                        Label(String(localized: "Web Repository (Mirror)", table: "🌐AboutApp"),
+                              systemImage: "link")
                     }
                 }
             } footer: {
@@ -360,7 +339,6 @@ private struct 🧑‍💻AboutDeveloperPublisherLink: View {
                 } footer: {
                     Text("Taken on 2021-11", tableName: "🌐AboutApp")
                 }
-//                Self.jobHuntSection()
             }
             .navigationTitle(.init("Developer / Publisher", tableName: "🌐AboutApp"))
         } label: {
@@ -412,23 +390,6 @@ private struct 🧑‍💻AboutDeveloperPublisherLink: View {
             } header: {
                 Text("Timeline", tableName: "🌐AboutApp")
             }
-        }
-    }
-    private static func jobHuntSection() -> some View {
-        Section {
-            VStack(spacing: 8) {
-                Text("Job hunting now!", tableName: "🌐AboutApp")
-                    .font(.headline.italic())
-                Text("If you are interested in hiring or acquiring, please contact me.",
-                     tableName: "🌐AboutApp")
-                .font(.subheadline)
-                Text(🗒️StaticInfo.contactAddress)
-                    .textSelection(.enabled)
-                    .italic()
-                    .foregroundStyle(.secondary)
-            }
-            .padding(12)
-            .frame(maxWidth: .infinity)
         }
     }
 }

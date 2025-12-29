@@ -26,49 +26,59 @@ private extension ToolbarsView {
         @State private var isPresentedSharePlaySubMenu: Bool = false
         var body: some View {
             HStack(spacing: 24) {
-                HStack(spacing: 24) {
-                    HStack(spacing: 20) {
-                        ForEach([Side.white, .black], id: \.self) { side in
-                            Button {
-                                withAnimation(.default.speed(1.5)) {
-                                    self.model.side = side
-                                }
-                            } label: {
-                                Circle()
-                                    .fill(side == .white ? .white : .black)
-                                    .opacity(self.model.side == side ? 0.9 : 0.75)
-                                    .shadow(color: .gray, radius: 2)
-                                    .frame(width: 54, height: 54)
-                                    .overlay {
-                                        if self.model.side == side {
-                                            Image(systemName: "checkmark")
-                                                .font(.title.bold())
-                                                .foregroundStyle(.green)
-                                        }
-                                    }
+                HStack(spacing: 20) {
+                    ForEach([Side.white, .black], id: \.self) { side in
+                        Button {
+                            withAnimation(.default.speed(1.5)) {
+                                self.model.side = side
                             }
-                            .buttonStyle(.plain)
+                        } label: {
+                            Circle()
+                                .fill(side == .white ? .white : .black)
+                                .opacity(self.model.side == side ? 0.9 : 0.75)
+                                .frame(width: 54, height: 54)
+                                .overlay {
+                                    if self.model.side == side {
+                                        Image(systemName: "checkmark")
+                                            .resizable()
+                                            .scaledToFit()
+                                            .frame(width: 28, height: 28)
+                                            .fontWeight(.heavy)
+                                            .foregroundStyle(Color(uiColor: {
+                                                switch self.model.side {
+                                                    case .white: .gray
+                                                    case .black: .lightGray
+                                                }
+                                            }()))
+                                    }
+                                }
                         }
-                    }
-                    Button {
-                        self.model.reset()
-                    } label: {
-                        Label("Reset", systemImage: "arrow.counterclockwise")
-                            .padding(12)
-                            .minimumScaleFactor(0.5)
-                            .font(.title)
-                    }
-                    .buttonStyle(.plain)
-                    if let groupSession = self.model.groupSession {
-                        Self.SharePlaySubMenuButton(groupSession: groupSession,
-                                                    isPresented: self.$isPresentedSharePlaySubMenu)
+                        .buttonStyle(.plain)
+                        .disabled(self.model.side == side)
                     }
                 }
-                .padding(12)
-                .padding(.horizontal, 40)
-                .frame(height: Size.toolbarHeight)
-                .glassBackgroundEffect()
+                Divider()
+                    .padding(.vertical)
+                Button {
+                    self.model.reset()
+                } label: {
+                    Label("Reset", systemImage: "arrow.counterclockwise")
+                        .padding(12)
+                        .minimumScaleFactor(0.5)
+                        .font(.title)
+                }
+                .buttonStyle(.plain)
+                if let groupSession = self.model.groupSession {
+                    Self.SharePlaySubMenuButton(
+                        groupSession: groupSession,
+                        isPresented: self.$isPresentedSharePlaySubMenu
+                    )
+                }
             }
+            .padding(12)
+            .padding(.horizontal, 32)
+            .frame(height: Size.toolbarHeight)
+            .glassBackgroundEffect(in: .capsule)
             .rotation3DEffect(.init(angle: .degrees(20), axis: .x))
             .overlay(alignment: .bottom) {
                 if self.isPresentedSharePlaySubMenu { self.sharePlaySubMenu() }
