@@ -30,11 +30,11 @@ Play flip board game with Personas and people nearby.
 
 Notice
 
-- To use remote SharePlay, a FaceTime call is required.
+- To use SharePlay with Personas, a FaceTime call is required.
 
 - You must set up your persona on the OS beforehand.
 
-- The persona appears as part of FaceTime/SharePlay.
+- The persona appears as part of FaceTime.
 
 
 App Store link

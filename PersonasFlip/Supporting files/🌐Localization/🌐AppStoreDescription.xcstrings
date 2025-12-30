@@ -6,13 +6,13 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Flip Board Game with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n\nNotice\n\n- To use SharePlay, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime/SharePlay."
+            "value" : "Play flip board game with Personas and people nearby.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n- Support SharePlay with people nearby.\n\n\nNotice\n\n- To use SharePlay with Personas, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "空間ペルソナでフリップゲームをプレイしよう。\n\n・シンプルなデザインのボードゲームアプリ。\n\n・空間SharePlayに対応しています。\n\n\n「注意」\n\n・SharePlayをするにはFaceTimeで通話する必要があります。\n\n・OS側で先にペルソナを設定する必要があります。\n\n・ペルソナはFaceTime/SharePlayの一部として表示されます。\n\n\n==== English ====\nFlip Board Game with Spatial Personas.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n\nNotice\n\n- To use SharePlay, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime/SharePlay."
+            "value" : "「ペルソナ」や「近くの人」とフリップゲームを遊ぼう。\n\n・シンプルなデザインのボードゲーム。\n\n・空間SharePlayに対応しています。\n\n・近くの人とのSharePlayにも対応しています。\n\n\n「注意」\n\n・ペルソナでSharePlayをするにはFaceTimeで通話する必要があります。\n\n・OS側で先にペルソナを設定する必要があります。\n\n・ペルソナはFaceTime/SharePlayの一部として表示されます。\n\n\n==== English ====\nPlay flip board game with Personas and people nearby.\n\n- Simple design.\n\n- Support Spatial SharePlay.\n\n- Support SharePlay with people nearby.\n\n\nNotice\n\n- To use SharePlay with Personas, a FaceTime call is required.\n\n- You must set up your persona on the OS beforehand.\n\n- The persona appears as part of FaceTime."
           }
         }
       }
