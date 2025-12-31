@@ -25,9 +25,9 @@ Play flip board game with Personas and people nearby.
 
 - Support SharePlay with people nearby.
 
-<img src="PersonasFlip/Supporting files/README assets/preview400w.gif" width="400">
+<img src="PersonasFlip/Supporting files/README assets/FaceTime_SharePlay_demo_640w.gif" width="640">
 
-<img src="PersonasFlip/Supporting files/README assets/nearby_SharePlay_demo_640w.gif" width="320">
+<img src="PersonasFlip/Supporting files/README assets/nearby_SharePlay_demo_640w.gif" width="640">
 
 <img src="PersonasFlip/Supporting files/README assets/screenshot1280w.jpg" width="640">
 

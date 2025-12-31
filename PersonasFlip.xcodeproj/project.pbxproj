@@ -165,7 +165,6 @@
 		16602B2F2B8ED7C400AF1D4A /* 👤PlaySound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "👤PlaySound.swift"; sourceTree = "<group>"; };
 		16602B322B8ED87F00AF1D4A /* SoundFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFile.swift; sourceTree = "<group>"; };
 		167761C22B8B72340092CB24 /* GuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideView.swift; sourceTree = "<group>"; };
-		169A12592C6E40EE000BDA27 /* preview400w.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = preview400w.gif; sourceTree = "<group>"; };
 		16C158A62B4CEA2B00835A85 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		16C158AA2B4D05F000835A85 /* PieceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceView.swift; sourceTree = "<group>"; };
 		16C477182B8B191C00343DD8 /* 🥽sharePlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "🥽sharePlay.swift"; sourceTree = "<group>"; };
@@ -192,6 +191,7 @@
 		1D9A86FC2F04A7350047EF07 /* flip_screenshot1280w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = flip_screenshot1280w.jpg; sourceTree = "<group>"; };
 		1D9A86FD2F04A9B10047EF07 /* result_screenshot1280w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = result_screenshot1280w.jpg; sourceTree = "<group>"; };
 		1D9A86FF2F04AC400047EF07 /* nearby_screenshot1280w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nearby_screenshot1280w.jpg; sourceTree = "<group>"; };
+		1D9A87002F04BBB80047EF07 /* FaceTime_SharePlay_demo_640w.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = FaceTime_SharePlay_demo_640w.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,7 +402,7 @@
 				16EF41392B5BFA26002312FA /* icon.png */,
 				16EF41382B5BF620002312FA /* appstore_badge.svg */,
 				1627C6C92BC17F8600645A61 /* screenshot1280w.jpg */,
-				169A12592C6E40EE000BDA27 /* preview400w.gif */,
+				1D9A87002F04BBB80047EF07 /* FaceTime_SharePlay_demo_640w.gif */,
 				1D0CBE012EC0B51E00C38316 /* nearby_SharePlay_demo_640w.gif */,
 				1D9A86FB2F04A3460047EF07 /* personas_screenshot1280w.jpg */,
 				1D9A86FF2F04AC400047EF07 /* nearby_screenshot1280w.jpg */,
