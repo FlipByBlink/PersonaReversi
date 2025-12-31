@@ -192,6 +192,7 @@
 		1D9A86FD2F04A9B10047EF07 /* result_screenshot1280w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = result_screenshot1280w.jpg; sourceTree = "<group>"; };
 		1D9A86FF2F04AC400047EF07 /* nearby_screenshot1280w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = nearby_screenshot1280w.jpg; sourceTree = "<group>"; };
 		1D9A87002F04BBB80047EF07 /* FaceTime_SharePlay_demo_640w.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = FaceTime_SharePlay_demo_640w.gif; sourceTree = "<group>"; };
+		1D9A87012F04C0300047EF07 /* environment_screenshot1280w.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = environment_screenshot1280w.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +409,7 @@
 				1D9A86FF2F04AC400047EF07 /* nearby_screenshot1280w.jpg */,
 				1D9A86FC2F04A7350047EF07 /* flip_screenshot1280w.jpg */,
 				1D9A86FD2F04A9B10047EF07 /* result_screenshot1280w.jpg */,
+				1D9A87012F04C0300047EF07 /* environment_screenshot1280w.jpg */,
 			);
 			path = "README assets";
 			sourceTree = "<group>";

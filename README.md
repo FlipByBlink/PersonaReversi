@@ -35,6 +35,8 @@ Play flip board game with Personas and people nearby.
 
 <img src="PersonasFlip/Supporting files/README assets/result_screenshot1280w.jpg" width="640">
 
+<img src="PersonasFlip/Supporting files/README assets/environment_screenshot1280w.jpg" width="640">
+
 
 Notice
 
