@@ -10,7 +10,9 @@ _Flip Board Game for Spatial SharePlay_
     <img src="PersonasFlip/Supporting files/README assets/appstore_badge.svg">
 </a>
 
-<img src="PersonasFlip/Supporting files/README assets/screenshot1280w.jpg" width="640">
+<img src="PersonasFlip/Supporting files/README assets/personas_screenshot1280w.jpg" width="640">
+
+<img src="PersonasFlip/Supporting files/README assets/nearby_screenshot1280w.jpg" width="640">
 
 
 Description
@@ -26,6 +28,12 @@ Play flip board game with Personas and people nearby.
 <img src="PersonasFlip/Supporting files/README assets/preview400w.gif" width="400">
 
 <img src="PersonasFlip/Supporting files/README assets/nearby_SharePlay_demo_640w.gif" width="320">
+
+<img src="PersonasFlip/Supporting files/README assets/screenshot1280w.jpg" width="640">
+
+<img src="PersonasFlip/Supporting files/README assets/flip_screenshot1280w.jpg" width="640">
+
+<img src="PersonasFlip/Supporting files/README assets/result_screenshot1280w.jpg" width="640">
 
 
 Notice
